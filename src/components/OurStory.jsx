@@ -44,7 +44,7 @@ const OurStory = () => {
         
         <div className="story-image-container">
           <div className="image-wrapper">
-            <img src="src/assets/images/homeAbout.png" alt="Handicraft craftsmanship" className="story-image" />
+            <img src="../assets/images/homeAbout.png" alt="Handicraft craftsmanship" className="story-image" />
           </div>
           
           <div className="image-decoration">
