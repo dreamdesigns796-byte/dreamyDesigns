@@ -18,6 +18,7 @@ import HornButtons from './screens/products/HornButtons';
 // import BoneInlay from './screens/products/BoneInlay';
 
 import './App.css';
+import Quote from './screens/Quote';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/quote" element={<Quote />} />
             
             {/* Product Category Routes */}
             {/* <Route path="/products/viking-horns" element={<VikingHorns />} /> */}

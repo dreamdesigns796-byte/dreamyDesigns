@@ -398,131 +398,94 @@ const HornButtons = () => {
         </div>
       </section>
 
-      {/* Products Grid */}
-      <section className="products-grid-section section-border">
-        <div className="container">
-          <div className="products-grid">
-            {currentProducts.map(product => (
-              <div key={product.id} className="product-card">
-                <div className="product-image-container">
-                  <img src={product.image} alt={product.title} className="product-image" />
-                  {product.sale && (
-                    <div className="sale-badge">Sale</div>
-                  )}
-                  {product.featured && (
-                    <div className="featured-badge">Featured</div>
-                  )}
-                  <div className="product-actions">
-                    <button className="quick-view-btn">Quick View</button>
-                    <button className="read-more-btn">Read More</button>
-                  </div>
-                </div>
-                
-                <div className="product-content">
-                  <div className="product-header">
-                    <span className="product-sku">{product.sku}</span>
-                    <span className={`stock-status ${product.stock.toLowerCase().replace(' ', '-')}`}>
-                      {product.stock}
-                    </span>
-                  </div>
-                  
-                  <h3 className="product-title">{product.title}</h3>
-                  <p className="product-description">{product.description}</p>
-                  
-                  <div className="product-specs">
-                    <div className="spec">
-                      <span className="spec-label">Colors:</span>
-                      <span className="spec-value">{product.colors.join(', ')}</span>
-                    </div>
-                    <div className="spec">
-                      <span className="spec-label">Sizes:</span>
-                      <span className="spec-value">{product.sizes.join(', ')}</span>
-                    </div>
-                  </div>
-                  
-                  <div className="product-footer">
-                    <div className="price-container">
-                      {product.price === 'Contact' ? (
-                        <div className="contact-price">Contact for Price</div>
-                      ) : (
-                        <>
-                          <div className="current-price">${product.price.toFixed(2)}</div>
-                          {product.originalPrice && (
-                            <div className="original-price">${product.originalPrice.toFixed(2)}</div>
-                          )}
-                        </>
-                      )}
-                    </div>
-                    
-                    <button className="add-to-cart-btn">
-                      {product.price === 'Contact' ? 'Enquire Now' : 'Add to Cart'}
-                      <span className="btn-icon">→</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
+{/* Products Grid */}
+<section className="products-grid-section section-border">
+  <div className="container">
+    <div className="products-grid">
+      {currentProducts.map(product => (
+        <div key={product.id} className="product-card minimal">
+
+          {/* Image */}
+          <div className="product-image-container minimal">
+            <img 
+              src={product.image} 
+              alt={product.title} 
+              className="product-image" 
+            />
           </div>
-          
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <div className="pagination">
+
+          {/* Content */}
+          <div className="product-content minimal">
+            <span className="product-sku minimal">{product.sku}</span>
+            <h3 className="product-title minimal">{product.title}</h3>
+
+            <Link 
+              to={`/products/horn-buttons/${product.id}`} 
+              className="read-more-btn-single"
+            >
+              Read More →
+            </Link>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+    {/* Pagination (unchanged) */}
+    {totalPages > 1 && (
+      <div className="pagination">
+        <button
+          className="pagination-btn prev-btn"
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          ← Previous
+        </button>
+
+        <div className="page-numbers">
+          {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
+            let pageNum;
+            if (totalPages <= 5) pageNum = i + 1;
+            else if (currentPage <= 3) pageNum = i + 1;
+            else if (currentPage >= totalPages - 2) pageNum = totalPages - 4 + i;
+            else pageNum = currentPage - 2 + i;
+
+            return (
               <button
-                className="pagination-btn prev-btn"
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
+                key={pageNum}
+                className={`page-number ${currentPage === pageNum ? 'active' : ''}`}
+                onClick={() => handlePageChange(pageNum)}
               >
-                ← Previous
+                {pageNum}
               </button>
-              
-              <div className="page-numbers">
-                {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
-                  let pageNum;
-                  if (totalPages <= 5) {
-                    pageNum = i + 1;
-                  } else if (currentPage <= 3) {
-                    pageNum = i + 1;
-                  } else if (currentPage >= totalPages - 2) {
-                    pageNum = totalPages - 4 + i;
-                  } else {
-                    pageNum = currentPage - 2 + i;
-                  }
-                  
-                  return (
-                    <button
-                      key={pageNum}
-                      className={`page-number ${currentPage === pageNum ? 'active' : ''}`}
-                      onClick={() => handlePageChange(pageNum)}
-                    >
-                      {pageNum}
-                    </button>
-                  );
-                })}
-                
-                {totalPages > 5 && currentPage < totalPages - 2 && (
-                  <>
-                    <span className="page-dots">...</span>
-                    <button
-                      className="page-number"
-                      onClick={() => handlePageChange(totalPages)}
-                    >
-                      {totalPages}
-                    </button>
-                  </>
-                )}
-              </div>
-              
+            );
+          })}
+
+          {totalPages > 5 && currentPage < totalPages - 2 && (
+            <>
+              <span className="page-dots">...</span>
               <button
-                className="pagination-btn next-btn"
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
+                className="page-number"
+                onClick={() => handlePageChange(totalPages)}
               >
-                Next →
+                {totalPages}
               </button>
-            </div>
+            </>
           )}
         </div>
-      </section>
+
+        <button
+          className="pagination-btn next-btn"
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Next →
+        </button>
+      </div>
+    )}
+  </div>
+</section>
+
 
       {/* Custom Solutions CTA */}
       <section className="custom-solutions section-border">
@@ -590,22 +553,18 @@ const HornButtons = () => {
           <h2 className="related-title">Browse Related Categories</h2>
           <div className="categories-grid">
             <Link to="/products/horn-plates" className="category-card">
-              <div className="category-icon">🍽️</div>
               <h3 className="category-name">Horn Plates</h3>
               <p className="category-description">For eyewear and decorative uses</p>
             </Link>
             <Link to="/products/horn-jewelry" className="category-card">
-              <div className="category-icon">💎</div>
               <h3 className="category-name">Horn Jewelry</h3>
               <p className="category-description">Necklaces, bangles, earrings</p>
             </Link>
             <Link to="/products/horn-combs" className="category-card">
-              <div className="category-icon">💈</div>
               <h3 className="category-name">Horn Combs</h3>
               <p className="category-description">Hair and beard combs</p>
             </Link>
             <Link to="/products/horn-cutlery" className="category-card">
-              <div className="category-icon">🍴</div>
               <h3 className="category-name">Horn Cutlery</h3>
               <p className="category-description">Spoons, knives, servingware</p>
             </Link>

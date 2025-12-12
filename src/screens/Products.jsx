@@ -224,39 +224,6 @@ const Products = () => {
       </section>
 
       {/* Featured Products Section */}
-      <section className="featured-products section-border">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">Featured Products</h2>
-            <p className="section-subtitle">Handpicked natural horn creations</p>
-            <div className="title-decoration">
-              <span className="decoration-dot"></span>
-              <span className="decoration-dot"></span>
-              <span className="decoration-dot"></span>
-            </div>
-          </div>
-          
-          <div className="featured-grid">
-            {allProducts.filter(p => p.featured).slice(0, 6).map(product => (
-              <div key={product.id} className="featured-card">
-                <div className="featured-image">
-                  <img src={product.image} alt={product.title} />
-                  <div className="category-badge">{product.category}</div>
-                </div>
-                <div className="featured-content">
-                  <h3 className="featured-title">{product.title}</h3>
-                  <p className="featured-description">{product.description}</p>
-                  <div className="featured-price">${product.price.toFixed(2)}</div>
-                  <button className="read-more-btn">
-                    Read More <span className="btn-arrow">→</span>
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* All Products Grid */}
       <section className="all-products section-border">
         <div className="container">
@@ -277,9 +244,7 @@ const Products = () => {
                 <div className="product-content">
                   <div className="product-category">{product.category}</div>
                   <h3 className="product-title">{product.title}</h3>
-                  <p className="product-description">{product.description}</p>
                   <div className="product-footer">
-                    <div className="product-price">${product.price.toFixed(2)}</div>
                     <button className="view-details-btn">
                       View Details <span className="btn-arrow">→</span>
                     </button>

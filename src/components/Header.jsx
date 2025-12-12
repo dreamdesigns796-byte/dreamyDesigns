@@ -86,14 +86,12 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const productCategories = [
+     { name: 'Horn Buttons', path: '/products/horn-buttons' },
     { name: 'Viking Horns', path: '/products/viking-horns' },
-    { name: 'Horn Buttons', path: '/products/horn-buttons' },
     { name: 'Horn Plates', path: '/products/horn-plates' },
-    { name: 'Horn Eyeglasses', path: '/products/horn-eyeglasses' },
     { name: 'Horn Combs', path: '/products/horn-combs' },
     { name: 'Horn Jewelry', path: '/products/horn-jewelry' },
     { name: 'Horn Cutlery', path: '/products/horn-cutlery' },
-    { name: 'Bone Inlay', path: '/products/bone-inlay' }
   ];
 
   return (
