@@ -30,7 +30,7 @@ const Home = () => {
           ))}
         </div>
       </section>
-\      <NumbersSection />
+     <NumbersSection />
       {/* Featured Products Section - Added after Numbers */}
      <FeaturedProducts />
       {/* India Heritage Section - Added after Featured Products */}
