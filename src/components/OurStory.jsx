@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './OurStory.css';
+import image1 from '../assets/images/homeAbout.png';
 
 const OurStory = () => {
   return (
@@ -44,7 +45,7 @@ const OurStory = () => {
         
         <div className="story-image-container">
           <div className="image-wrapper">
-            <img src="../assets/images/homeAbout.png" alt="Handicraft craftsmanship" className="story-image" />
+            <img src={image1} alt="Handicraft craftsmanship" className="story-image" />
           </div>
           
           <div className="image-decoration">
