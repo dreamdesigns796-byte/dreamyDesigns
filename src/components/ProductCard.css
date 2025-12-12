@@ -1,0 +1,223 @@
+/* src/components/ProductCard.css */
+.product-card {
+  background-color: #384246;
+  border: 1px solid #594247;
+  border-radius: 2px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure card takes full height */
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.product-image-container {
+  height: 240px;
+  background-color: #2C3539;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0; /* Prevent container from shrinking */
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This should work, but let's add fallbacks */
+  object-position: center; /* Center the image */
+  transition: transform 0.5s ease;
+  display: block; /* Remove any extra space below image */
+}
+
+/* Add fallback for older browsers */
+.product-image-container {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Ensure the image container has proper dimensions */
+.product-image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Placeholder styling */
+.product-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2C3539 0%, #4A5559 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.image-text {
+  color: #FAF9F6;
+  font-size: 24px;
+  font-weight: 300;
+  opacity: 0.3;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.product-info {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.product-title {
+  color: #FAF9F6;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0 0 12px 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.details-btn {
+  background-color: #B86B4D;
+  color: #FAF9F6;
+  border: none;
+  padding: 12px 32px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+  margin-top: auto;
+  border-radius: 2px; /* Added for consistency */
+}
+
+.details-btn:hover {
+  background-color: #A55C40;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(184, 107, 77, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .product-card {
+    min-height: 380px;
+  }
+  
+  .product-image-container {
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    min-height: 350px;
+  }
+  
+  .product-image-container {
+    height: 200px;
+  }
+  
+  .product-info {
+    padding: 20px;
+  }
+  
+  .product-title {
+    font-size: 16px;
+  }
+  
+  .details-btn {
+    padding: 10px 24px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-card {
+    min-height: 320px;
+  }
+  
+  .product-image-container {
+    height: 180px;
+  }
+  
+  .product-info {
+    padding: 16px;
+  }
+  
+  .product-title {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .details-btn {
+    padding: 10px 20px;
+    max-width: 180px;
+  }
+}
+
+/* Fix for image loading issues */
+.product-image.loading {
+  opacity: 0;
+}
+
+.product-image.loaded {
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+/* Ensure card maintains aspect ratio */
+.aspect-ratio-box {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* 4:3 Aspect Ratio */
+  overflow: hidden;
+}
+
+.aspect-ratio-box .product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* If you want to maintain a specific aspect ratio for all cards, use this instead of fixed height */
+.product-image-container.aspect-ratio {
+  height: 0;
+  padding-top: 75%; /* Creates a 4:3 aspect ratio container */
+  position: relative;
+}
+
+.product-image-container.aspect-ratio .product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

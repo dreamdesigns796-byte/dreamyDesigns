@@ -1,0 +1,520 @@
+/* src/components/IndiaHeritage.css */
+.india-heritage-section {
+  padding: 80px 40px;
+  background-color: #384246;
+  position: relative;
+  border-top: 1px solid #594247;
+  border-bottom: 1px solid #594247;
+  overflow: hidden;
+}
+
+.heritage-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.heritage-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.country-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: rgba(184, 107, 77, 0.1);
+  border: 1px solid rgba(184, 107, 77, 0.3);
+  padding: 8px 20px;
+  border-radius: 25px;
+  margin-bottom: 30px;
+}
+
+.country-flag {
+  font-size: 20px;
+}
+
+.country-name {
+  color: #B86B4D;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+
+.heritage-title {
+  color: #FAF9F6;
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 0 0 30px 0;
+  letter-spacing: 1px;
+  font-family: 'Georgia', serif;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.decoration-line {
+  width: 100px;
+  height: 1px;
+  background-color: #594247;
+}
+
+.decoration-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #B86B4D;
+  border-radius: 50%;
+}
+
+.heritage-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+  align-items: start;
+}
+
+.heritage-quote {
+  position: relative;
+  padding: 40px;
+  background-color: rgba(44, 53, 57, 0.5);
+  border: 1px solid rgba(89, 66, 71, 0.3);
+}
+
+.quote-mark {
+  color: #B86B4D;
+  font-size: 80px;
+  font-family: 'Georgia', serif;
+  line-height: 0.8;
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+
+.quote-text {
+  color: #FAF9F6;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.4;
+  margin: 0 0 20px 0;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+}
+
+.quote-author {
+  color: #D1CCC3;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+
+.heritage-description {
+  padding-top: 20px;
+}
+
+.heritage-description p {
+  color: #D1CCC3;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 0 40px 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+.heritage-stats {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background-color: rgba(44, 53, 57, 0.5);
+  padding: 30px;
+  border: 1px solid rgba(89, 66, 71, 0.3);
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.stat-number {
+  color: #FAF9F6;
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin: 0 0 5px 0;
+  font-family: 'Georgia', serif;
+}
+
+.stat-label {
+  color: #D1CCC3;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background-color: #594247;
+}
+
+.heritage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.heritage-point {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 25px;
+  background-color: rgba(44, 53, 57, 0.3);
+  border: 1px solid rgba(89, 66, 71, 0.2);
+  transition: all 0.3s ease;
+}
+
+.heritage-point:hover {
+  transform: translateY(-5px);
+  border-color: #B86B4D;
+  background-color: rgba(44, 53, 57, 0.5);
+}
+
+.point-icon {
+  flex-shrink: 0;
+}
+
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(184, 107, 77, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(184, 107, 77, 0.3);
+}
+
+.icon {
+  color: #B86B4D;
+  font-size: 18px;
+}
+
+.point-content {
+  flex: 1;
+}
+
+.point-title {
+  color: #FAF9F6;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.point-description {
+  color: #D1CCC3;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.heritage-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.heritage-line {
+  width: 150px;
+  height: 1px;
+  background-color: #594247;
+}
+
+.heritage-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #B86B4D;
+  border-radius: 50%;
+}
+
+/* Border Decoration */
+.heritage-border-top,
+.heritage-border-bottom {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  height: 1px;
+  background-color: #594247;
+  z-index: 1;
+}
+
+.heritage-border-top {
+  top: 40px;
+}
+
+.heritage-border-bottom {
+  bottom: 40px;
+}
+
+.heritage-corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-color: #B86B4D;
+  border-style: solid;
+  z-index: 1;
+}
+
+.heritage-corner.top-left {
+  top: 40px;
+  left: 40px;
+  border-width: 1px 0 0 1px;
+}
+
+.heritage-corner.top-right {
+  top: 40px;
+  right: 40px;
+  border-width: 1px 1px 0 0;
+}
+
+.heritage-corner.bottom-left {
+  bottom: 40px;
+  left: 40px;
+  border-width: 0 0 1px 1px;
+}
+
+.heritage-corner.bottom-right {
+  bottom: 40px;
+  right: 40px;
+  border-width: 0 1px 1px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .india-heritage-section {
+    padding: 60px 30px;
+  }
+  
+  .heritage-title {
+    font-size: 2.2rem;
+  }
+  
+  .heritage-content {
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  
+  .quote-text {
+    font-size: 1.3rem;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .heritage-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .heritage-border-top,
+  .heritage-border-bottom {
+    left: 30px;
+    right: 30px;
+  }
+  
+  .heritage-corner.top-left {
+    left: 30px;
+  }
+  
+  .heritage-corner.top-right {
+    right: 30px;
+  }
+  
+  .heritage-corner.bottom-left {
+    left: 30px;
+  }
+  
+  .heritage-corner.bottom-right {
+    right: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .india-heritage-section {
+    padding: 50px 20px;
+  }
+  
+  .heritage-title {
+    font-size: 1.8rem;
+  }
+  
+  .heritage-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  
+  .quote-text {
+    font-size: 1.2rem;
+  }
+  
+  .heritage-description p {
+    font-size: 15px;
+  }
+  
+  .heritage-stats {
+    gap: 30px;
+    padding: 25px;
+  }
+  
+  .stat-number {
+    font-size: 1.8rem;
+  }
+  
+  .heritage-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .heritage-point {
+    padding: 20px;
+  }
+  
+  .heritage-line {
+    width: 80px;
+  }
+  
+  .heritage-border-top,
+  .heritage-border-bottom {
+    left: 20px;
+    right: 20px;
+  }
+  
+  .heritage-border-top {
+    top: 30px;
+  }
+  
+  .heritage-border-bottom {
+    bottom: 30px;
+  }
+  
+  .heritage-corner.top-left {
+    top: 30px;
+    left: 20px;
+  }
+  
+  .heritage-corner.top-right {
+    top: 30px;
+    right: 20px;
+  }
+  
+  .heritage-corner.bottom-left {
+    bottom: 30px;
+    left: 20px;
+  }
+  
+  .heritage-corner.bottom-right {
+    bottom: 30px;
+    right: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .india-heritage-section {
+    padding: 40px 15px;
+  }
+  
+  .heritage-title {
+    font-size: 1.6rem;
+  }
+  
+  .quote-text {
+    font-size: 1.1rem;
+  }
+  
+  .heritage-quote {
+    padding: 30px 20px;
+  }
+  
+  .quote-mark {
+    font-size: 60px;
+  }
+  
+  .heritage-stats {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .stat-divider {
+    width: 40px;
+    height: 1px;
+  }
+  
+  .icon-circle {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .icon {
+    font-size: 16px;
+  }
+  
+  .point-title {
+    font-size: 16px;
+  }
+  
+  .heritage-border-top,
+  .heritage-border-bottom {
+    left: 15px;
+    right: 15px;
+  }
+  
+  .heritage-border-top {
+    top: 25px;
+  }
+  
+  .heritage-border-bottom {
+    bottom: 25px;
+  }
+  
+  .heritage-corner.top-left {
+    top: 25px;
+    left: 15px;
+  }
+  
+  .heritage-corner.top-right {
+    top: 25px;
+    right: 15px;
+  }
+  
+  .heritage-corner.bottom-left {
+    bottom: 25px;
+    left: 15px;
+  }
+  
+  .heritage-corner.bottom-right {
+    bottom: 25px;
+    right: 15px;
+  }
+}

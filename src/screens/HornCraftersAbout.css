@@ -1,0 +1,739 @@
+/* src/screens/About/HornCraftersAbout.css */
+.aboutPage {
+  background-color: #2C3539;
+  color: #FAF9F6;
+  min-height: 100vh;
+}
+
+/* Section Borders */
+.sectionBorder {
+  border-top: 1px solid #594247;
+  border-bottom: 1px solid #594247;
+  position: relative;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 60px 20px;
+  }
+}
+
+/* Hero Section */
+.hero {
+  height: 70vh;
+  min-height: 600px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.heroOverlay {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroContent {
+  text-align: center;
+  position: relative;
+  padding: 60px;
+  background: rgba(56, 66, 70, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid #594247;
+  max-width: 800px;
+  width: 100%;
+}
+
+.cornerAccentTopLeft,
+.cornerAccentTopRight,
+.cornerAccentBottomLeft,
+.cornerAccentBottomRight {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-color: #B86B4D;
+}
+
+.cornerAccentTopLeft {
+  top: -1px;
+  left: -1px;
+  border-left: 2px solid;
+  border-top: 2px solid;
+}
+
+.cornerAccentTopRight {
+  top: -1px;
+  right: -1px;
+  border-right: 2px solid;
+  border-top: 2px solid;
+}
+
+.cornerAccentBottomLeft {
+  bottom: -1px;
+  left: -1px;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.cornerAccentBottomRight {
+  bottom: -1px;
+  right: -1px;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.heroTitle {
+  font-family: 'Georgia', serif;
+  font-size: 4.5rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #FAF9F6;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  color: #D1CCC3;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.decorativeLine {
+  width: 100px;
+  height: 2px;
+  background: #B86B4D;
+  margin: 30px auto;
+}
+
+.heroDescription {
+  font-size: 1.2rem;
+  color: #D1CCC3;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Mission Section */
+.missionContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .missionContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.missionText {
+  padding-right: 40px;
+}
+
+@media (max-width: 1024px) {
+  .missionText {
+    padding-right: 0;
+  }
+}
+
+.sectionTitle {
+  font-family: 'Georgia', serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #FAF9F6;
+}
+
+.sectionSubtitle {
+  font-size: 1.8rem;
+  color: #B86B4D;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.separator {
+  width: 60px;
+  height: 1px;
+  background: #594247;
+  margin: 30px 0;
+}
+
+.missionStatement {
+  font-size: 1.2rem;
+  color: #FAF9F6;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.missionDetail {
+  font-size: 1rem;
+  color: #D1CCC3;
+  line-height: 1.6;
+}
+
+/* Image Styles - UPDATED TO FILL */
+.missionImage,
+.craftsmanshipImage,
+.commitmentImage {
+  height: 400px;
+  border: 1px solid #594247;
+  position: relative;
+  overflow: hidden;
+  background-color: #2C3539;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Changed from object-fit: cover to object-fit: fill */
+.imageContent {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* Changed from cover to fill */
+  object-position: center;
+  display: block;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: #384246;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.imageText {
+  color: #B86B4D;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Heritage Section */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.titleDecoration {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.decorationDot {
+  width: 6px;
+  height: 6px;
+  background: #B86B4D;
+  border-radius: 50%;
+}
+
+.heritageContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+}
+
+@media (max-width: 768px) {
+  .heritageContent {
+    grid-template-columns: 1fr;
+  }
+}
+
+.heritageParagraph {
+  font-size: 1.1rem;
+  color: #D1CCC3;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.heritageStats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  padding: 40px;
+  background: #384246;
+  border: 1px solid #594247;
+}
+
+.statItem {
+  text-align: center;
+  padding: 20px;
+}
+
+.statNumber {
+  font-size: 3rem;
+  color: #B86B4D;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: #D1CCC3;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Craftsmanship Section */
+.craftsmanshipContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .craftsmanshipContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.craftsmanshipParagraph {
+  font-size: 1.1rem;
+  color: #D1CCC3;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.craftsmanshipList {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+.craftsmanshipList li {
+  color: #FAF9F6;
+  margin-bottom: 15px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.craftsmanshipList li:before {
+  content: "•";
+  color: #B86B4D;
+  position: absolute;
+  left: 0;
+  font-size: 1.5rem;
+}
+
+/* Product Categories - Fixed 3 items per line */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+@media (max-width: 900px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .productGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.productCard {
+  background: #384246;
+  border: 1px solid #594247;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.productCard:hover {
+  border-color: #B86B4D;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.productTitle {
+  font-size: 1.3rem;
+  color: #FAF9F6;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productDescription {
+  color: #D1CCC3;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  flex-grow: 1;
+}
+
+.productButton {
+  background: transparent;
+  border: 1px solid #B86B4D;
+  color: #FAF9F6;
+  padding: 12px 24px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  width: 100%;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.productButton:hover {
+  background: rgba(184, 107, 77, 0.1);
+  border-color: #FAF9F6;
+}
+
+.buttonArrow {
+  transition: transform 0.3s ease;
+  font-size: 1rem;
+}
+
+.productButton:hover .buttonArrow {
+  transform: translateX(3px);
+}
+
+@media (max-width: 1200px) {
+  .productCard {
+    padding: 30px 20px;
+  }
+  
+  .productTitle {
+    font-size: 1.2rem;
+    min-height: 55px;
+  }
+  
+  .productDescription {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .productCard {
+    padding: 25px 15px;
+  }
+  
+  .productTitle {
+    font-size: 1.1rem;
+    min-height: 50px;
+  }
+  
+  .productButton {
+    padding: 10px 20px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Commitment Section */
+.commitmentContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .commitmentContent {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.commitmentSubtitle {
+  font-size: 1.5rem;
+  color: #FAF9F6;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.commitmentParagraph {
+  font-size: 1.1rem;
+  color: #D1CCC3;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.commitmentPoints {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .commitmentPoints {
+    grid-template-columns: 1fr;
+  }
+}
+
+.commitmentPoint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FAF9F6;
+  font-size: 0.95rem;
+}
+
+.checkmark {
+  color: #B86B4D;
+  font-weight: bold;
+}
+
+/* Leadership Quote */
+.leadership {
+  background: #1A1F21;
+}
+
+.quoteContent {
+  text-align: center;
+  padding: 80px 60px;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(56, 66, 70, 0.5);
+  border: 1px solid #594247;
+}
+
+.quoteIcon {
+  font-size: 4rem;
+  color: #B86B4D;
+  font-family: 'Georgia', serif;
+  margin-bottom: 20px;
+}
+
+.quoteText {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #FAF9F6;
+  font-style: italic;
+  margin-bottom: 40px;
+}
+
+.quoteAuthor {
+  margin-top: 40px;
+}
+
+.authorName {
+  font-size: 1.2rem;
+  color: #FAF9F6;
+  font-weight: 600;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.authorTitle {
+  font-size: 0.9rem;
+  color: #B86B4D;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* CTA Section */
+.ctaContent {
+  text-align: center;
+  padding: 60px 40px;
+  background: #384246;
+  border: 1px solid #594247;
+}
+
+.ctaTitle {
+  font-family: 'Georgia', serif;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #FAF9F6;
+}
+
+.ctaText {
+  font-size: 1.2rem;
+  color: #D1CCC3;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 16px 48px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.primaryButton {
+  background: #B86B4D;
+  color: #FAF9F6;
+}
+
+.primaryButton:hover {
+  background: #A55C40;
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #FAF9F6;
+  border: 1px solid #B86B4D;
+}
+
+.secondaryButton:hover {
+  background: rgba(184, 107, 77, 0.1);
+}
+
+.ctaNote {
+  font-size: 0.9rem;
+  color: #B86B4D;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+/* Responsive Typography */
+@media (max-width: 1024px) {
+  .heroTitle {
+    font-size: 3.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.5rem;
+  }
+  
+  .missionImage,
+  .craftsmanshipImage,
+  .commitmentImage {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.8rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.3rem;
+  }
+  
+  .container {
+    padding: 40px 20px;
+  }
+  
+  .quoteText {
+    font-size: 1.2rem;
+  }
+  
+  .missionImage,
+  .craftsmanshipImage,
+  .commitmentImage {
+    height: 300px;
+  }
+  
+  .heroContent {
+    padding: 40px 20px;
+  }
+  
+  .quoteContent {
+    padding: 60px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+  
+  .hero {
+    min-height: 500px;
+  }
+  
+  .missionImage,
+  .craftsmanshipImage,
+  .commitmentImage {
+    height: 250px;
+  }
+  
+  .heroContent,
+  .quoteContent {
+    padding: 30px 15px;
+  }
+}

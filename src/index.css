@@ -1,0 +1,127 @@
+/* --- 1. Custom Font Integration Plan ---
+   
+   A premium website relies heavily on typography. 
+   You must replace 'system-ui' with custom fonts imported via Google Fonts or similar.
+   
+   Suggested Font Pair:
+   - Headers (Elegant/Serif): Playfair Display
+   - Body (Clean/Sans-Serif): Lato or Poppins 
+   
+   Example (to be added at the top of your index.css or HTML <head>):
+   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+*/
+
+/* --- 2. Core :root Variables & Dark Theme Default --- */
+
+:root {
+  /* Premium Font Stack (Set to your imported fonts) */
+  --font-header: 'Playfair Display', serif;
+  --font-body: 'Lato', sans-serif;
+  
+  /* Deep Velvet Color Palette */
+  --color-bg: #2C3539;        /* Deep Charcoal/Slate */
+  --color-text: #FAF9F6;      /* Luminous Cream */
+  --color-accent: #B86B4D;    /* Burnished Copper */
+  --color-accent-hover: #D58265; /* Slightly brighter Copper */
+  --color-border-card: #594247; /* Deep Plum */
+
+  /* Global Styles */
+  font-family: var(--font-body);
+  line-height: 1.5;
+  font-weight: 400;
+  
+  color-scheme: dark; /* Explicitly start in dark mode */
+  color: var(--color-text);
+  background-color: var(--color-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- 3. Body & Layout --- */
+
+body {
+  margin: 0;
+  /* Remove display: flex; place-items: center; to allow full-width layout */
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* --- 4. Typography --- */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-header);
+  font-weight: 300; /* Use a thin or light weight for elegance */
+  color: var(--color-text);
+  line-height: 1.1;
+}
+h1 {
+  font-size: 3.2em;
+}
+
+/* --- 5. Links (Navigation, etc.) --- */
+
+a {
+  font-weight: 400;
+  color: var(--color-accent);
+  text-decoration: none; /* Crucial for a clean, premium look */
+  transition: color 0.25s;
+}
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* --- 6. Buttons (Call To Action - CTAs) --- */
+
+button {
+  border-radius: 3px;
+  border: 1px solid transparent;
+  padding: 0.8em 1.5em; /* Slightly larger padding for importance */
+  font-size: 1em;
+  font-weight: 700; /* Bold for CTAs */
+  font-family: var(--font-body);
+  background-color: var(--color-accent); /* Copper background */
+  color: var(--color-text); /* Cream text */
+  cursor: pointer;
+  transition: background-color 0.25s, opacity 0.25s;
+  letter-spacing: 1px; /* Subtle spacing adds to premium feel */
+}
+button:hover {
+  background-color: var(--color-accent-hover);
+  opacity: 0.95;
+}
+button:focus,
+button:focus-visible {
+  /* Use a subtle box shadow instead of a harsh outline */
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-accent-hover);
+}
+
+/* --- 7. Light Mode (Optional - Based on Gallery Look) --- */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Gallery Look Colors */
+    --color-bg: #F8F8F8;       /* Warm Light Gray */
+    --color-text: #333333;      /* Charcoal Gray */
+  }
+  
+  body {
+    background-color: var(--color-bg);
+  }
+  
+  a {
+    color: var(--color-accent);
+  }
+  a:hover {
+    color: var(--color-accent-hover);
+  }
+  
+  /* Buttons remain the same color regardless of light/dark mode for branding consistency */
+  button {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+  }
+}
