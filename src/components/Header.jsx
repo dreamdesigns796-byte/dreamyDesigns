@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Header.css';
+import logo from '../assets/icon/logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -103,7 +104,7 @@ const Header = () => {
         <NavLink to="/" className="logo-link" onClick={closeMenu}>
           <div className="logo-container">
             <img 
-              src="/src/assets/icon/logo.png" 
+              src={logo} 
               alt="Dreamy Designs Logo" 
               className="header-logo-icon" 
               onError={(e) => {
