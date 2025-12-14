@@ -1,13 +1,13 @@
 // src/screens/About/HornCraftersAbout.jsx
-import React, { useEffect } from "react"; // Added useEffect to imports
+import React, { useEffect } from "react";
 import "./HornCraftersAbout.css";
 import { useLocation } from "react-router-dom";
 
 // Import images from assets folder
-import heroImage from "../assets/images/aboutbg.jpg"; // Using same image as placeholder
-import missionImage from "../assets/images/AboutBackGround.jpg"; // Using same image as placeholder
-import craftsmanshipImage from "../assets/images/craftsmanshipImage.png"; // Using same image as placeholder
-import commitmentImage from "../assets/images/aboutCommunity.png"; // Using same image as placeholder
+import heroImage from "../assets/images/aboutbg.jpg";
+import missionImage from "../assets/images/AboutBackGround.jpg";
+import craftsmanshipImage from "../assets/images/craftsmanshipImage.png";
+import commitmentImage from "../assets/images/aboutCommunity.png";
 
 const HornCraftersAbout = () => {
   const location = useLocation();
@@ -85,8 +85,9 @@ const HornCraftersAbout = () => {
               </p>
               <div className="decorativeLine"></div>
               <p className="heroDescription">
-                A renowned name offering extensive range of fine horn and bone
-                products that are traditional, elegant and skilled.
+                Where old traditions meet quality craftsmanship. We create
+                sustainable, handcrafted products that celebrate artistry,
+                heritage, and responsible living.
               </p>
             </div>
           </div>
@@ -102,15 +103,14 @@ const HornCraftersAbout = () => {
               <h3 className="sectionSubtitle">Horn And Bone Products</h3>
               <div className="separator"></div>
               <p className="missionStatement">
-                Welcome to Dreamy Designs – where tradition meets craftsmanship,
-                and sustainability blends with artistry. We are a unit under
-                Al-Masha International, a leading exporter based in Mumbai.
+                Welcome to Dreamy Designs — where sustainability meets artistry.
+                Founded in 2016, we began our journey by serving the Indian market
+                and later expanded successfully into international exports.
               </p>
               <p className="missionDetail">
-                Recognizing the value in every element, we transform by-products
-                into exquisite handicrafts. Our creations reflect the rich
-                cultural heritage of India while bringing a unique touch for
-                modern homes.
+                Based in Sambhal, Uttar Pradesh, India, we are a major exporter of
+                high-quality handcrafted materials, built on innovation,
+                cultural respect, and environmental responsibility.
               </p>
             </div>
             <div className="missionImage">
@@ -118,14 +118,6 @@ const HornCraftersAbout = () => {
                 src={missionImage}
                 alt="Craftsmanship in Action"
                 className="imageContent"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  const placeholder = document.createElement("div");
-                  placeholder.className = "imagePlaceholder";
-                  placeholder.innerHTML =
-                    '<span class="imageText">Craftsmanship in Action</span>';
-                  e.target.parentNode.appendChild(placeholder);
-                }}
               />
             </div>
           </div>
@@ -146,18 +138,18 @@ const HornCraftersAbout = () => {
           <div className="heritageContent">
             <div className="heritageText">
               <p className="heritageParagraph">
-                Located in Mumbai, India, our company is deeply rooted in a
-                region known for its rich heritage of horn and bone handicrafts.
+                Sambhal, Uttar Pradesh, is globally known for its centuries-old
+                tradition of horn and bone craftsmanship, forming the foundation
+                of Dreamy Designs.
               </p>
               <p className="heritageParagraph">
-                The journey began in the heart of Sambhal, where generations of
-                artisans have been perfecting horn and bone work to create
-                eternal treasures.
+                Our artisans use techniques passed down through generations,
+                preserving cultural knowledge while adapting to modern design
+                needs.
               </p>
               <p className="heritageParagraph">
-                Dreamy Designs, inspired by this heritage, continues the legacy
-                of our ancestors, preserving traditional techniques while
-                embracing modern innovation.
+                Since 2016, Dreamy Designs has continued this legacy by blending
+                tradition, innovation, and sustainability into every creation.
               </p>
             </div>
             <div className="heritageStats">
@@ -191,25 +183,17 @@ const HornCraftersAbout = () => {
                 src={craftsmanshipImage}
                 alt="Artisan at Work"
                 className="imageContent"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  const placeholder = document.createElement("div");
-                  placeholder.className = "imagePlaceholder";
-                  placeholder.innerHTML =
-                    '<span class="imageText">Artisan at Work</span>';
-                  e.target.parentNode.appendChild(placeholder);
-                }}
               />
             </div>
             <div className="craftsmanshipText">
               <p className="craftsmanshipParagraph">
-                Every piece at Dreamy Designs is carefully made by skilled
-                artisans, which guarantees a high level of quality and attention
-                to details.
+                Every piece at Dreamy Designs is handcrafted by skilled artisans
+                who bring patience, precision, and pride to their work.
               </p>
               <p className="craftsmanshipParagraph">
-                From Viking horns to intricate horn jewelry, each creation is
-                made with a commitment to excellence that spans generations.
+                From raw materials to finished products, each creation reflects
+                timeless design, traditional techniques, and uncompromising
+                quality.
               </p>
               <ul className="craftsmanshipList">
                 <li>Hand-selected materials</li>
@@ -222,27 +206,6 @@ const HornCraftersAbout = () => {
         </div>
       </section>
 
-      {/* Product Categories */}
-      <section className="products sectionBorder">
-        <div className="container">
-          <div className="sectionHeader">
-            <h2 className="sectionTitle">Product Categories</h2>
-            <p className="sectionSubtitle">Explore our extensive collection</p>
-          </div>
-          <div className="productGrid">
-            {productCategories.map((category) => (
-              <div key={category.id} className="productCard">
-                <h3 className="productTitle">{category.title}</h3>
-                <p className="productDescription">{category.description}</p>
-                <button className="productButton">
-                  View Collection <span className="buttonArrow">→</span>
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Commitment Section */}
       <section className="commitment sectionBorder">
         <div className="container">
@@ -250,14 +213,12 @@ const HornCraftersAbout = () => {
             <div className="commitmentText">
               <h2 className="sectionTitle">Our Commitment</h2>
               <h3 className="commitmentSubtitle">Experience The Difference</h3>
-
               <p className="commitmentParagraph">
-                We have a commitment to sustainability and ethics at Dreamy
-                Designs. Our products are made from ethically procured horn and
-                bone to ensure minimal environmental impact and support local
-                communities.
+                At Dreamy Designs, we transform leftover materials from our main
+                production into beautiful, unique handicrafts. Our commitment is
+                rooted in sustainability, ethical sourcing, and respect for
+                artisan communities.
               </p>
-
               <div className="commitmentPoints">
                 {commitmentPoints.map((point, index) => (
                   <div key={index} className="commitmentPoint">
@@ -272,14 +233,6 @@ const HornCraftersAbout = () => {
                 src={commitmentImage}
                 alt="Sustainable Crafting"
                 className="imageContent"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  const placeholder = document.createElement("div");
-                  placeholder.className = "imagePlaceholder";
-                  placeholder.innerHTML =
-                    '<span class="imageText">Sustainable Crafting</span>';
-                  e.target.parentNode.appendChild(placeholder);
-                }}
               />
             </div>
           </div>
@@ -292,9 +245,8 @@ const HornCraftersAbout = () => {
           <div className="quoteContent">
             <div className="quoteIcon">"</div>
             <p className="quoteText">
-              True Prosperity in Business Comes From Sincerity, Fairness, And
-              Service To Others. Let Your Work Reflect The Values Of Kindness,
-              Honesty, And Respect.
+              True craftsmanship is not only about creating beautiful products,
+              but about honoring people, tradition, and the planet.
             </p>
             <div className="quoteAuthor">
               <div className="authorName">Mr. Abdulrehman Farooqui</div>
@@ -312,8 +264,8 @@ const HornCraftersAbout = () => {
           <div className="ctaContent">
             <h2 className="ctaTitle">Experience Craftsmanship Firsthand</h2>
             <p className="ctaText">
-              Each piece tells a story of tradition, heritage, and artistry,
-              making it a timeless addition to any collection.
+              Each creation tells a story of skilled hands, sustainable choices,
+              and a heritage that continues to inspire modern living.
             </p>
             <div className="ctaButtons">
               <button className="primaryButton">
@@ -322,8 +274,8 @@ const HornCraftersAbout = () => {
               <button className="secondaryButton">Request Custom Quote</button>
             </div>
             <p className="ctaNote">
-              Visit our collection today and experience the magic of
-              craftsmanship firsthand.
+              Visit our collection today and experience the magic of true
+              craftsmanship.
             </p>
           </div>
         </div>

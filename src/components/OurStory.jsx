@@ -11,29 +11,29 @@ const OurStory = () => {
         <div className="story-content">
           <h2 className="section-title">OUR STORY</h2>
           <h3 className="story-heading">
-            Sustainable Horn & Bone Handicrafts
+            Where Sustainability Meets Artistry
           </h3>
           
           <div className="story-text">
             <p>
-              Welcome to Dreamy Designs – where tradition meets craftsmanship, 
-              and sustainability blends with artistry. We are a unit under 
-              Al-Masha International, a leading exporter of premium materials 
-              based in Mumbai, the heart of India.
+              Welcome to Dreamy Designs — a place where old traditions meet
+              quality craftsmanship. Founded in 2016, we began our journey by
+              serving the Indian market before expanding successfully into
+              international exports.
             </p>
             
             <p>
-              At Dreamy Designs, we've embarked on a journey that transforms 
-              by-products of our material production into exquisite handicrafts. 
-              Our story is one of innovation, cultural appreciation, and a 
-              commitment to sustainability.
+              Based in Sambhal, Uttar Pradesh, India, we are a major exporter of
+              high-quality horn and bone handicrafts. Our work reflects a deep
+              respect for traditional skills, cultural heritage, and responsible
+              use of natural resources.
             </p>
             
             <p>
-              Each piece in our collection tells a story – a story of skilled 
-              artisans preserving centuries-old techniques, a story of ethical 
-              sourcing and sustainable practices, and a story of transforming 
-              raw materials into objects of beauty and utility.
+              Every creation tells a meaningful story — of skilled artisans
+              using techniques passed down through generations, of ethical
+              sourcing and sustainable practices, and of transforming raw
+              materials into objects of beauty and everyday use.
             </p>
           </div>
           
@@ -45,7 +45,11 @@ const OurStory = () => {
         
         <div className="story-image-container">
           <div className="image-wrapper">
-            <img src={image1} alt="Handicraft craftsmanship" className="story-image" />
+            <img
+              src={image1}
+              alt="Handcrafted horn and bone craftsmanship"
+              className="story-image"
+            />
           </div>
           
           <div className="image-decoration">
