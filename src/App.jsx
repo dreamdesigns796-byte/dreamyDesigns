@@ -1,15 +1,16 @@
 // src/App.jsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './screens/Home';
-import About from './screens/HornCraftersAbout';
-import Products from './screens/Products';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./screens/Home";
+import About from "./screens/HornCraftersAbout";
+import Products from "./screens/Products";
+import icon from './assets/icon/whatsapp.png';
 
 // Import product category pages
 // import VikingHorns from './screens/products/VikingHorns';
-import HornButtons from './screens/products/HornButtons';
+import HornButtons from "./screens/products/HornButtons";
 // import HornPlates from './screens/products/HornPlates';
 // import HornEyeglasses from './screens/products/HornEyeglasses';
 // import HornCombs from './screens/products/HornCombs';
@@ -17,8 +18,8 @@ import HornButtons from './screens/products/HornButtons';
 // import HornCutlery from './screens/products/HornCutlery';
 // import BoneInlay from './screens/products/BoneInlay';
 
-import './App.css';
-import Quote from './screens/Quote';
+import "./App.css";
+import Quote from "./screens/Quote";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
             <Route path="/quote" element={<Quote />} />
-            
+
             {/* Product Category Routes */}
             {/* <Route path="/products/viking-horns" element={<VikingHorns />} /> */}
             <Route path="/products/horn-buttons" element={<HornButtons />} />
@@ -45,6 +46,17 @@ function App() {
         </main>
         <Footer />
       </div>
+
+      {/* WhatsApp Floating Button */}
+      <a
+        href="https://wa.me/919528271574"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-float"
+        aria-label="Chat on WhatsApp"
+      >
+        <img src={icon} alt="WhatsApp" className="whatsapp-icon" />
+      </a>
     </Router>
   );
 }
