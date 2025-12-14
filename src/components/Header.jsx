@@ -328,7 +328,7 @@ const Header = () => {
           <div className="mobile-nav-footer">
             <div className="mobile-brand">
               <img 
-                src="/src/assets/icon/logo.png" 
+                src={logo} 
                 alt="Dreamy Designs Logo" 
                 className="mobile-logo-icon" 
                 onError={(e) => {

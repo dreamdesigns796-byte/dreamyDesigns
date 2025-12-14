@@ -47,14 +47,14 @@ const Footer = () => {
                   <span className="contact-icon">📞</span>
                   <div className="contact-details">
                     <span className="contact-label">Phone</span>
-                    <span className="contact-text">+91-702193008</span>
+                    <span className="contact-text">+91-9528271574</span>
                   </div>
                 </div>
                 <div className="contact-item">
                   <span className="contact-icon">✉️</span>
                   <div className="contact-details">
                     <span className="contact-label">Email</span>
-                    <span className="contact-text">sales@dreamdesigns.com</span>
+                    <span className="contact-text">info@dreamydesignss.com</span>
                   </div>
                 </div>
                 <div className="contact-item address">
