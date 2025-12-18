@@ -7,6 +7,7 @@ import logo from '../assets/icon/logo.png';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
+  const [activeMainCategory, setActiveMainCategory] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
@@ -18,10 +19,18 @@ const Header = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
     setIsProductsDropdownOpen(false);
+    setActiveMainCategory(null);
   };
 
-  const toggleProductsDropdown = () => {
+  const toggleProductsDropdown = (e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     setIsProductsDropdownOpen(!isProductsDropdownOpen);
+    if (!isProductsDropdownOpen) {
+      setActiveMainCategory(null);
+    }
   };
 
   // Handle click outside dropdown to close it
@@ -29,6 +38,7 @@ const Header = () => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsProductsDropdownOpen(false);
+        setActiveMainCategory(null);
       }
     };
 
@@ -38,11 +48,10 @@ const Header = () => {
     };
   }, []);
 
-  // Handle click on Products link - navigate to products page
+  // Handle click on Products link - don't navigate, just open dropdown
   const handleProductsClick = (e) => {
     e.preventDefault();
-    navigate('/products');
-    closeMenu();
+    toggleProductsDropdown(e);
   };
 
   // Handle click on dropdown item
@@ -50,6 +59,19 @@ const Header = () => {
     navigate(path);
     closeMenu();
     setIsProductsDropdownOpen(false);
+  };
+
+  // Handle click on main category
+  const handleMainCategoryClick = (categoryKey, e) => {
+    e.stopPropagation();
+    
+    if (activeMainCategory === categoryKey) {
+      // If clicking the same category, close it
+      setActiveMainCategory(null);
+    } else {
+      // Open the clicked category
+      setActiveMainCategory(categoryKey);
+    }
   };
 
   // Toggle mobile categories visibility
@@ -61,6 +83,23 @@ const Header = () => {
     const arrowBtn = e.target.closest('.mobile-dropdown-arrow-btn');
     const arrow = arrowBtn.querySelector('.mobile-arrow');
     arrow.classList.toggle('rotated');
+  };
+
+  // Handle mobile main category click
+  const handleMobileMainCategoryClick = (categoryKey, e) => {
+    e.stopPropagation();
+    const mainCategoryElement = e.target.closest('.mobile-main-category');
+    const subcategoryList = mainCategoryElement.querySelector('.mobile-subcategory-list');
+    
+    if (activeMainCategory === categoryKey) {
+      // If clicking the same category, close it
+      setActiveMainCategory(null);
+      subcategoryList.classList.remove('visible');
+    } else {
+      // Open the clicked category
+      setActiveMainCategory(categoryKey);
+      subcategoryList.classList.add('visible');
+    }
   };
 
   // Handle scroll effect
@@ -85,13 +124,39 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
-  const productCategories = [
-     { name: 'Horn Buttons', path: '/products/horn-buttons' },
-    { name: 'Viking Horns', path: '/products/viking-horns' },
-    { name: 'Horn Plates', path: '/products/horn-plates' },
-    { name: 'Horn Combs', path: '/products/horn-combs' },
-    { name: 'Horn Jewelry', path: '/products/horn-jewelry' },
-    { name: 'Horn Cutlery', path: '/products/horn-cutlery' },
+  const mainCategories = [
+    { 
+      name: 'Horn Products', 
+      key: 'horn',
+      subcategories: [
+        { name: 'Horn Buttons', path: '/products/horn-buttons' },
+        { name: 'Viking Horns', path: '/products/viking-horns' },
+        { name: 'Horn Plates', path: '/products/horn-plates' },
+        { name: 'Horn Combs', path: '/products/horn-combs' },
+        { name: 'Horn Jewelry', path: '/products/horn-jewelry' },
+        { name: 'Horn Cutlery', path: '/products/horn-cutlery' },
+      ]
+    },
+    { 
+      name: 'Handicraft Items', 
+      key: 'handicraft',
+      subcategories: [
+        { name: 'Wooden Carvings', path: '/products/wooden-carvings' },
+        { name: 'Handwoven Textiles', path: '/products/handwoven-textiles' },
+        { name: 'Ceramic Pottery', path: '/products/ceramic-pottery' },
+        { name: 'Leather Crafts', path: '/products/leather-crafts' },
+      ]
+    },
+    { 
+      name: 'Hardware Items', 
+      key: 'hardware',
+      subcategories: [
+        { name: 'Door Handles', path: '/products/door-handles' },
+        { name: 'Cabinet Knobs', path: '/products/cabinet-knobs' },
+        { name: 'Drawer Pulls', path: '/products/drawer-pulls' },
+        { name: 'Window Latches', path: '/products/window-latches' },
+      ]
+    }
   ];
 
   return (
@@ -113,15 +178,15 @@ const Header = () => {
                   fallbackLogo.className = 'logo-fallback';
                   fallbackLogo.innerHTML = 'DD';
                   fallbackLogo.style.cssText = `
-                    width: 3.5rem;
-                    height: 3.5rem;
+                    width: 7rem;
+                    height: 7rem;
                     background: #B86B4D;
                     color: #FAF9F6;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     font-family: 'Georgia', serif;
-                    font-size: 1.8rem;
+                    font-size: 3rem;
                     font-weight: bold;
                     border-radius: 50%;
                   `;
@@ -129,7 +194,6 @@ const Header = () => {
                 }
               }}
             /> 
-            <h1 className="logo-text">DREAMY DESIGNS</h1>
           </div>
         </NavLink>
         
@@ -157,21 +221,16 @@ const Header = () => {
             ref={dropdownRef}
           >
             <div className="dropdown-trigger-container">
-              <NavLink 
-                to="/products"
-                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+              <button
+                className={`nav-link ${isProductsDropdownOpen ? 'active' : ''}`}
                 onClick={handleProductsClick}
               >
                 Products
-              </NavLink>
+              </button>
               
               <button 
                 className={`dropdown-toggle-btn ${isProductsDropdownOpen ? 'active' : ''}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  toggleProductsDropdown();
-                }}
+                onClick={toggleProductsDropdown}
                 aria-expanded={isProductsDropdownOpen}
                 aria-haspopup="true"
                 aria-label="Toggle products dropdown"
@@ -183,28 +242,53 @@ const Header = () => {
             <div 
               className={`dropdown-menu ${isProductsDropdownOpen ? 'open' : ''}`}
               onMouseEnter={() => window.innerWidth > 900 && setIsProductsDropdownOpen(true)}
-              onMouseLeave={() => window.innerWidth > 900 && setIsProductsDropdownOpen(false)}
+              onMouseLeave={() => {
+                if (window.innerWidth > 900) {
+                  setIsProductsDropdownOpen(false);
+                  setActiveMainCategory(null);
+                }
+              }}
             >
               <div className="dropdown-header">
-                <h3>Product Categories</h3>
+                <h3>Browse Products</h3>
                 <button 
                   className="close-dropdown-btn"
-                  onClick={() => setIsProductsDropdownOpen(false)}
+                  onClick={() => {
+                    setIsProductsDropdownOpen(false);
+                    setActiveMainCategory(null);
+                  }}
                   aria-label="Close dropdown"
                 >
                   ×
                 </button>
               </div>
               <div className="dropdown-items">
-                {productCategories.map((category) => (
-                  <button
-                    key={category.path}
-                    className="dropdown-item"
-                    onClick={() => handleCategoryClick(category.path)}
-                  >
-                    <span className="dropdown-item-text">{category.name}</span>
-                    <span className="dropdown-item-arrow">→</span>
-                  </button>
+                {mainCategories.map((mainCategory) => (
+                  <div key={mainCategory.key} className="main-category-section">
+                    <button
+                      className={`main-category-btn ${activeMainCategory === mainCategory.key ? 'active' : ''}`}
+                      onClick={(e) => handleMainCategoryClick(mainCategory.key, e)}
+                    >
+                      <span className="main-category-text">{mainCategory.name}</span>
+                      <span className={`main-category-arrow ${activeMainCategory === mainCategory.key ? 'rotated' : ''}`}>▼</span>
+                    </button>
+                    <div className={`subcategory-list ${activeMainCategory === mainCategory.key ? 'visible' : ''}`}>
+                      {mainCategory.subcategories.map((subcategory) => (
+                        <NavLink
+                          key={subcategory.path}
+                          to={subcategory.path}
+                          className={({ isActive }) => `dropdown-item subcategory-item ${isActive ? 'active' : ''}`}
+                          onClick={() => {
+                            closeMenu();
+                            setIsProductsDropdownOpen(false);
+                          }}
+                        >
+                          <span className="dropdown-item-text">{subcategory.name}</span>
+                          <span className="dropdown-item-arrow">→</span>
+                        </NavLink>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -278,13 +362,13 @@ const Header = () => {
               <div className="mobile-products-header">
                 <button 
                   className="mobile-dropdown-toggle"
-                  onClick={() => {
-                    navigate('/products');
-                    closeMenu();
+                  onClick={(e) => {
+                    e.preventDefault();
+                    toggleMobileCategories(e);
                   }}
                 >
                   <span className="link-text">Products</span>
-                  <span className="link-arrow">→</span>
+                  <span className="link-arrow">▼</span>
                 </button>
                 
                 <button 
@@ -298,18 +382,32 @@ const Header = () => {
               
               <div className="mobile-categories-section">
                 <div className="mobile-categories-header">
-                  <h4>Browse Categories</h4>
+                  <h4>Browse Products</h4>
                 </div>
                 <div className="mobile-categories">
-                  {productCategories.map((category) => (
-                    <button
-                      key={category.path}
-                      className="mobile-category-item"
-                      onClick={() => handleCategoryClick(category.path)}
-                    >
-                      <span className="category-item-text">{category.name}</span>
-                      <span className="category-item-arrow">→</span>
-                    </button>
+                  {mainCategories.map((mainCategory) => (
+                    <div key={mainCategory.key} className="mobile-main-category">
+                      <button
+                        className={`mobile-main-category-btn ${activeMainCategory === mainCategory.key ? 'active' : ''}`}
+                        onClick={(e) => handleMobileMainCategoryClick(mainCategory.key, e)}
+                      >
+                        <span className="main-category-text">{mainCategory.name}</span>
+                        <span className={`main-category-arrow ${activeMainCategory === mainCategory.key ? 'rotated' : ''}`}>▼</span>
+                      </button>
+                      <div className={`mobile-subcategory-list ${activeMainCategory === mainCategory.key ? 'visible' : ''}`}>
+                        {mainCategory.subcategories.map((subcategory) => (
+                          <NavLink
+                            key={subcategory.path}
+                            to={subcategory.path}
+                            className={({ isActive }) => `mobile-category-item mobile-subcategory-item ${isActive ? 'active' : ''}`}
+                            onClick={() => closeMenu()}
+                          >
+                            <span className="category-item-text">{subcategory.name}</span>
+                            <span className="category-item-arrow">→</span>
+                          </NavLink>
+                        ))}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -339,15 +437,15 @@ const Header = () => {
                     fallbackLogo.className = 'mobile-logo-fallback';
                     fallbackLogo.innerHTML = 'DD';
                     fallbackLogo.style.cssText = `
-                      width: 3rem;
-                      height: 3rem;
+                      width: 5rem;
+                      height: 5rem;
                       background: #B86B4D;
                       color: #FAF9F6;
                       display: flex;
                       align-items: center;
                       justify-content: center;
                       font-family: 'Georgia', serif;
-                      font-size: 1.5rem;
+                      font-size: 2.5rem;
                       font-weight: bold;
                       border-radius: 50%;
                     `;

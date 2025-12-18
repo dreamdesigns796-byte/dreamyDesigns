@@ -16,7 +16,7 @@
 }
 
 .header.scrolled {
-  padding: 15px 40px;
+  padding: 10px 40px;
   background-color: rgba(44, 53, 57, 0.98);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -24,14 +24,14 @@
 
 /* Header Spacer - Minimal space after fixed header */
 .header-spacer {
-  height: 70px;
+  height: 100px;
   width: 100%;
   background: transparent;
   transition: height 0.3s ease;
 }
 
 .header.scrolled + .header-spacer {
-  height: 60px;
+  height: 80px;
 }
 
 .logo-link {
@@ -43,17 +43,16 @@
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 15px;
 }
 
 /* --- LARGER LOGO ICON STYLES --- */
 .header-logo-icon {
-  height: 5rem;
+  height: 8rem;
   width: auto;
-  min-width: 5rem;
+  min-width: 8rem;
   vertical-align: middle;
   filter: brightness(0) invert(1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, height 0.3s ease;
 }
 
 .header-logo-icon:hover {
@@ -61,15 +60,15 @@
 }
 
 .logo-fallback {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 8rem;
+  height: 8rem;
   background: #B86B4D;
   color: #FAF9F6;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Georgia', serif;
-  font-size: 1.6rem;
+  font-size: 3.5rem;
   font-weight: bold;
   border-radius: 50%;
   flex-shrink: 0;
@@ -79,23 +78,6 @@
 .logo-fallback:hover {
   transform: scale(1.05);
   background: #A55C40;
-}
-
-.logo-text {
-  font-family: 'Georgia', serif;
-  font-size: 2.0rem;
-  font-weight: 300;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: #FAF9F6;
-  margin: 0;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.logo-text:hover {
-  color: #B86B4D;
-  letter-spacing: 6px;
 }
 
 /* Desktop Navigation */
@@ -210,7 +192,7 @@
   transform: translateX(-50%) scale(0.95);
   background-color: #384246;
   border: 1px solid #594247;
-  min-width: 260px;
+  min-width: 280px;
   border-radius: 3px;
   opacity: 0;
   visibility: hidden;
@@ -265,32 +247,106 @@
 }
 
 .dropdown-items {
-  padding: 8px 0;
-  max-height: 350px;
+  padding: 0;
+  max-height: 400px;
   overflow-y: auto;
 }
 
-.dropdown-item {
+/* Main category section */
+.main-category-section {
+  border-bottom: 1px solid rgba(89, 66, 71, 0.3);
+}
+
+.main-category-section:last-child {
+  border-bottom: none;
+}
+
+.main-category-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 15px;
+  padding: 14px 15px;
   color: #FAF9F6;
   text-decoration: none;
   transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(89, 66, 71, 0.3);
   background: none;
   border: none;
   width: 100%;
   text-align: left;
   cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background-color: rgba(184, 107, 77, 0.1);
 }
 
-.dropdown-item:last-child {
+.main-category-btn:hover,
+.main-category-btn.active {
+  background-color: rgba(184, 107, 77, 0.2);
+  color: #B86B4D;
+}
+
+.main-category-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.main-category-arrow {
+  color: #B86B4D;
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.main-category-arrow.rotated {
+  transform: rotate(180deg);
+}
+
+/* Subcategory list - Make subcategories look like regular dropdown items */
+.subcategory-list {
+  background-color: rgba(26, 31, 33, 0.5);
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.subcategory-list.visible {
+  padding: 0;
+  max-height: 300px;
+}
+
+.dropdown-item.subcategory-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px 12px 25px;
+  color: #FAF9F6;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(89, 66, 71, 0.3);
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.subcategory-list.visible .dropdown-item.subcategory-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item.subcategory-item:last-child {
   border-bottom: none;
 }
 
-.dropdown-item:hover {
+.dropdown-item.subcategory-item:hover,
+.dropdown-item.subcategory-item.active {
   background-color: rgba(184, 107, 77, 0.15);
   color: #B86B4D;
 }
@@ -308,7 +364,8 @@
   opacity: 0;
 }
 
-.dropdown-item:hover .dropdown-item-arrow {
+.dropdown-item.subcategory-item:hover .dropdown-item-arrow,
+.dropdown-item.subcategory-item.active .dropdown-item-arrow {
   opacity: 1;
   transform: translateX(3px);
 }
@@ -609,14 +666,63 @@
 }
 
 .mobile-categories {
-  padding: 8px 0;
+  padding: 0;
 }
 
-.mobile-category-item {
+/* Mobile main category */
+.mobile-main-category {
+  border-bottom: 1px solid rgba(89, 66, 71, 0.3);
+}
+
+.mobile-main-category:last-child {
+  border-bottom: none;
+}
+
+.mobile-main-category-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 25px;
+  padding: 14px 25px;
+  color: #FAF9F6;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  background-color: rgba(184, 107, 77, 0.1);
+}
+
+.mobile-main-category-btn:hover,
+.mobile-main-category-btn.active {
+  background-color: rgba(184, 107, 77, 0.2);
+  color: #B86B4D;
+}
+
+/* Mobile subcategory list */
+.mobile-subcategory-list {
+  background-color: rgba(20, 24, 26, 0.5);
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.mobile-subcategory-list.visible {
+  padding: 0;
+  max-height: 300px;
+}
+
+.mobile-category-item.mobile-subcategory-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 25px 12px 35px;
   color: #D1CCC3;
   text-decoration: none;
   border-bottom: 1px solid rgba(89, 66, 71, 0.3);
@@ -626,14 +732,23 @@
   width: 100%;
   text-align: left;
   cursor: pointer;
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.mobile-category-item:last-child {
+.mobile-subcategory-list.visible .mobile-category-item.mobile-subcategory-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-category-item.mobile-subcategory-item:last-child {
   border-bottom: none;
 }
 
-.mobile-category-item:hover,
-.mobile-category-item.active {
+.mobile-category-item.mobile-subcategory-item:hover,
+.mobile-category-item.mobile-subcategory-item.active {
   color: #B86B4D;
   background-color: rgba(184, 107, 77, 0.1);
 }
@@ -650,7 +765,8 @@
   opacity: 0;
 }
 
-.mobile-category-item:hover .category-item-arrow {
+.mobile-category-item.mobile-subcategory-item:hover .category-item-arrow,
+.mobile-category-item.mobile-subcategory-item.active .category-item-arrow {
   opacity: 1;
   transform: translateX(3px);
 }
@@ -672,22 +788,22 @@
 }
 
 .mobile-logo-icon {
-  height: 2.5rem;
+  height: 5rem;
   width: auto;
-  min-width: 2.5rem;
+  min-width: 5rem;
   filter: brightness(0) invert(1);
 }
 
 .mobile-logo-fallback {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 5rem;
+  height: 5rem;
   background: #B86B4D;
   color: #FAF9F6;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Georgia', serif;
-  font-size: 1.3rem;
+  font-size: 2.5rem;
   font-weight: bold;
   border-radius: 50%;
   flex-shrink: 0;
@@ -701,9 +817,9 @@
 
 .mobile-brand-text {
   font-family: 'Georgia', serif;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: 300;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   color: #FAF9F6;
   text-transform: uppercase;
   margin: 0;
@@ -724,41 +840,38 @@ body.menu-open {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .logo-text {
-    font-size: 1.8rem;
-    letter-spacing: 4px;
-  }
-  
   .header-logo-icon {
-    height: 2.8rem;
-    min-width: 2.8rem;
+    height: 7rem;
+    min-width: 7rem;
   }
   
   .logo-fallback {
-    width: 2.8rem;
-    height: 2.8rem;
-    font-size: 1.3rem;
+    width: 7rem;
+    height: 7rem;
+    font-size: 3rem;
   }
   
   .nav-links.desktop-nav {
     gap: 25px;
   }
   
-  .header.scrolled .logo-text {
-    font-size: 1.6rem;
+  .header.scrolled .header-logo-icon {
+    height: 6rem;
+    min-width: 6rem;
   }
   
-  .header.scrolled .header-logo-icon {
-    height: 2.5rem;
-    min-width: 2.5rem;
+  .header.scrolled .logo-fallback {
+    width: 6rem;
+    height: 6rem;
+    font-size: 2.5rem;
   }
   
   .header-spacer {
-    height: 60px;
+    height: 90px;
   }
   
   .header.scrolled + .header-spacer {
-    height: 50px;
+    height: 70px;
   }
 }
 
@@ -780,119 +893,100 @@ body.menu-open {
   }
   
   .header.scrolled {
-    padding: 12px 20px;
-  }
-  
-  .logo-text {
-    font-size: 1.6rem;
-    letter-spacing: 3px;
+    padding: 10px 20px;
   }
   
   .header-logo-icon {
-    height: 2.5rem;
-    min-width: 2.5rem;
+    height: 6.5rem;
+    min-width: 6.5rem;
   }
   
   .logo-fallback {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.2rem;
+    width: 6.5rem;
+    height: 6.5rem;
+    font-size: 2.8rem;
   }
   
   .mobile-logo-icon {
-    height: 2.2rem;
-    min-width: 2.2rem;
+    height: 4rem;
+    min-width: 4rem;
   }
   
   .mobile-logo-fallback {
-    width: 2.2rem;
-    height: 2.2rem;
-    font-size: 1.1rem;
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
   }
   
   .mobile-brand-text {
-    font-size: 1.0rem;
-    letter-spacing: 2px;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
   }
   
   .header-spacer {
-    height: 55px;
+    height: 85px;
   }
   
   .header.scrolled + .header-spacer {
-    height: 45px;
+    height: 65px;
   }
 }
 
 @media (max-width: 768px) {
-  .logo-text {
-    font-size: 1.4rem;
-    letter-spacing: 2px;
-  }
-  
   .header-logo-icon {
-    height: 2.2rem;
-    min-width: 2.2rem;
+    height: 6rem;
+    min-width: 6rem;
   }
   
   .logo-fallback {
-    width: 2.2rem;
-    height: 2.2rem;
-    font-size: 1.0rem;
-  }
-  
-  .logo-container {
-    gap: 12px;
+    width: 6rem;
+    height: 6rem;
+    font-size: 2.5rem;
   }
   
   .header-spacer {
-    height: 50px;
+    height: 80px;
+  }
+  
+  .header.scrolled + .header-spacer {
+    height: 60px;
   }
 }
 
 @media (max-width: 640px) {
-  .logo-text {
-    font-size: 1.2rem;
-    letter-spacing: 1.5px;
-  }
-  
   .header-logo-icon {
-    height: 1.8rem;
-    min-width: 1.8rem;
+    height: 5.5rem;
+    min-width: 5.5rem;
   }
   
   .logo-fallback {
-    width: 1.8rem;
-    height: 1.8rem;
-    font-size: 0.9rem;
-  }
-  
-  .logo-container {
-    gap: 10px;
+    width: 5.5rem;
+    height: 5.5rem;
+    font-size: 2.3rem;
   }
   
   .mobile-logo-icon {
-    height: 1.8rem;
-    min-width: 1.8rem;
+    height: 3.5rem;
+    min-width: 3.5rem;
   }
   
   .mobile-logo-fallback {
-    width: 1.8rem;
-    height: 1.8rem;
-    font-size: 0.9rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.8rem;
   }
   
   .mobile-brand-text {
-    font-size: 0.9rem;
-    letter-spacing: 1.5px;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
   }
   
   .header-spacer {
-    height: 45px;
+    height: 75px;
   }
   
   .header.scrolled + .header-spacer {
-    height: 35px;
+    height: 55px;
   }
 }
 
@@ -905,24 +999,30 @@ body.menu-open {
     padding: 12px 15px;
   }
   
-  .logo-text {
-    font-size: 1.0rem;
-    letter-spacing: 1px;
+  .header.scrolled {
+    padding: 8px 15px;
   }
   
   .header-logo-icon {
-    height: 1.6rem;
-    min-width: 1.6rem;
+    height: 5rem;
+    min-width: 5rem;
   }
   
   .logo-fallback {
-    width: 1.6rem;
-    height: 1.6rem;
-    font-size: 0.8rem;
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
   }
   
-  .logo-container {
-    gap: 8px;
+  .header.scrolled .header-logo-icon {
+    height: 4rem;
+    min-width: 4rem;
+  }
+  
+  .header.scrolled .logo-fallback {
+    width: 4rem;
+    height: 4rem;
+    font-size: 1.8rem;
   }
 
   .mobile-nav-header {
@@ -935,6 +1035,14 @@ body.menu-open {
     padding: 12px 18px;
   }
   
+  .mobile-main-category-btn {
+    padding: 12px 18px;
+  }
+  
+  .mobile-category-item.mobile-subcategory-item {
+    padding: 12px 18px 12px 28px;
+  }
+  
   .mobile-categories-header {
     padding: 8px 18px;
   }
@@ -944,77 +1052,78 @@ body.menu-open {
   }
   
   .mobile-logo-icon {
-    height: 1.6rem;
-    min-width: 1.6rem;
+    height: 3rem;
+    min-width: 3rem;
   }
   
   .mobile-logo-fallback {
-    width: 1.6rem;
-    height: 1.6rem;
-    font-size: 0.8rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
   }
   
   .mobile-brand-text {
-    font-size: 0.8rem;
-    letter-spacing: 1px;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
   }
   
   .header-spacer {
-    height: 40px;
+    height: 70px;
   }
   
   .header.scrolled + .header-spacer {
-    height: 30px;
+    height: 50px;
   }
 }
 
 /* For very small screens */
 @media (max-width: 360px) {
-  .logo-text {
-    font-size: 0.9rem;
-    letter-spacing: 0.8px;
-  }
-  
   .header-logo-icon {
-    height: 1.4rem;
-    min-width: 1.4rem;
+    height: 4.5rem;
+    min-width: 4.5rem;
   }
   
   .logo-fallback {
-    width: 1.4rem;
-    height: 1.4rem;
-    font-size: 0.7rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    font-size: 1.8rem;
   }
   
-  .logo-container {
-    gap: 6px;
+  .header.scrolled .header-logo-icon {
+    height: 3.5rem;
+    min-width: 3.5rem;
+  }
+  
+  .header.scrolled .logo-fallback {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
   }
   
   .mobile-brand-text {
-    font-size: 0.7rem;
-    letter-spacing: 0.8px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
   }
   
   .header-spacer {
-    height: 35px;
+    height: 65px;
+  }
+  
+  .header.scrolled + .header-spacer {
+    height: 45px;
   }
 }
 
-/* Fix for scrolled state */
+/* Fix for scrolled state - MAKE SURE LOGO SHRINKS ON SCROLL */
 .header.scrolled .header-logo-icon {
-  height: 2.8rem;
-  min-width: 2.8rem;
+  height: 6.5rem;
+  min-width: 6.5rem;
 }
 
 .header.scrolled .logo-fallback {
-  width: 2.8rem;
-  height: 2.8rem;
-  font-size: 1.3rem;
-}
-
-.header.scrolled .logo-text {
-  font-size: 1.8rem;
-  letter-spacing: 4px;
+  width: 6.5rem;
+  height: 6.5rem;
+  font-size: 2.8rem;
 }
 
 /* Fix dropdown z-index and positioning */
