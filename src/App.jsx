@@ -20,6 +20,8 @@ import HornButtons from "./screens/products/HornButtons";
 
 import "./App.css";
 import Quote from "./screens/Quote";
+import Knobs from "./screens/products/Knobs";
+import Handles from "./screens/products/Handles";
 
 function App() {
   return (
@@ -36,12 +38,12 @@ function App() {
             {/* Product Category Routes */}
             {/* <Route path="/products/viking-horns" element={<VikingHorns />} /> */}
             <Route path="/products/horn-buttons" element={<HornButtons />} />
-            {/* <Route path="/products/horn-plates" element={<HornPlates />} />
-            <Route path="/products/horn-eyeglasses" element={<HornEyeglasses />} />
-            <Route path="/products/horn-combs" element={<HornCombs />} />
-            <Route path="/products/horn-jewelry" element={<HornJewelry />} />
-            <Route path="/products/horn-cutlery" element={<HornCutlery />} />
-            <Route path="/products/bone-inlay" element={<BoneInlay />} /> */}
+            <Route path="/products/knobs" element={<Knobs />} />
+            <Route path="/products/handles" element={<Handles />} />
+            {/* <Route path="/products/horn-combs" element={<HornCombs />} /> */}
+            {/* <Route path="/products/horn-jewelry" element={<HornJewelry />} /> */}
+            {/* <Route path="/products/horn-cutlery" element={<HornCutlery />} /> */}
+            {/* <Route path="/products/bone-inlay" element={<BoneInlay />} /> */}
           </Routes>
         </main>
         <Footer />

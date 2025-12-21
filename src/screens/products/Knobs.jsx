@@ -1,28 +1,19 @@
 import React, { useState } from "react";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./HornButtons.css";
-import VideoGallery from "../../components/VideoGallery";
-import hornButtonProducts from "../../data/hornButtonsData";
-
-const hornButtonVideos = [
-  {
-    publicId: "horn1_oyvxb6",
-    title: "Horn Button Manufacturing",
-    description: "Watch our premium horn buttons being crafted",
-  },
-];
+import knobProducts from "../../data/knobsData";
 
 // SVG Zoom Icon Component
 const ZoomIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="20" 
+    height="20" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
     strokeLinejoin="round"
     className="zoom-icon"
   >
@@ -33,20 +24,16 @@ const ZoomIcon = () => (
   </svg>
 );
 
-const HornButtons = () => {
-     const navigate = useNavigate();
+const Knobs = () => {
+    const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedImage, setSelectedImage] = useState(null);
   const productsPerPage = 20;
 
-    const handleButtonClick = () => {
-    navigate("/quote");
-  };
-
   // Filter and sort products
   const getSortedProducts = () => {
-    let sorted = [...hornButtonProducts];
+    let sorted = [...knobProducts];
 
     switch (sortBy) {
       case "price-low":
@@ -89,6 +76,10 @@ const HornButtons = () => {
   );
   const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
 
+      const handleButtonClick = () => {
+    navigate("/quote");
+  };
+
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -119,20 +110,17 @@ const HornButtons = () => {
             <span className="breadcrumb-separator">/</span>
             <Link to="/products">Products</Link>
             <span className="breadcrumb-separator">/</span>
-            <span>Horn Buttons</span>
+            <span>Knobs</span>
           </div>
 
-          <h1 className="page-title">Horn Buttons</h1>
+          <h1 className="page-title">Knobs</h1>
           <p className="page-description">
-            Elevate your apparel with our premium natural horn buttons, crafted
-            from ethically sourced buffalo horn. Known for their exceptional
-            durability, smooth finish, and unique natural patterns, these horn
-            buttons add timeless elegance to garments. Ideal for luxury fashion
-            brands, clothing manufacturers, tailors, and designers seeking
-            sustainable and high-quality fashion accessories. We offer custom
-            horn buttons in various sizes, shapes, and finishes to meet your
-            design requirements. Contact us today for bespoke horn button
-            solutions.
+            Explore our collection of high-quality knobs designed for cabinets,
+            drawers, wardrobes, doors, and furniture. Suitable for residential,
+            commercial, and hospitality interiors, our knobs are available in
+            various shapes, sizes, finishes, and materials to match modern and
+            classic design styles. Ideal for furniture manufacturers, interior
+            designers, hardware brands, and custom projects.
           </p>
 
           <div className="page-stats">
@@ -165,27 +153,27 @@ const HornButtons = () => {
       <section className="featured-banner section-border">
         <div className="container">
           <div className="banner-content">
-            <h2 className="banner-title">Premium Horn Button Blanks</h2>
+            <h2 className="banner-title">Premium Furniture & Cabinet Knobs</h2>
             <p className="banner-text">
-              Available in 12+ colors and multiple sizes. All products made from
-              100% natural, ethically sourced water buffalo horns.
+              Available in various materials, finishes, and designs. All products made from
+              high-quality materials with precise manufacturing.
             </p>
             <div className="banner-features">
               <div className="feature">
                 <span className="feature-icon">✓</span>
-                <span className="feature-text">12+ Color Options</span>
+                <span className="feature-text">Multiple Materials</span>
               </div>
               <div className="feature">
                 <span className="feature-icon">✓</span>
-                <span className="feature-text">Multiple Sizes</span>
+                <span className="feature-text">Various Finishes</span>
               </div>
               <div className="feature">
                 <span className="feature-icon">✓</span>
-                <span className="feature-text">Ethically Sourced</span>
+                <span className="feature-text">Custom Sizes</span>
               </div>
               <div className="feature">
                 <span className="feature-icon">✓</span>
-                <span className="feature-text">Bulk Discounts</span>
+                <span className="feature-text">Bulk Orders</span>
               </div>
             </div>
           </div>
@@ -199,23 +187,17 @@ const HornButtons = () => {
             {currentProducts.map((product) => (
               <div key={product.id} className="product-card minimal">
                 {/* Product Image with Zoom Icon */}
-                <div
+                <div 
                   className="product-image-container minimal clickable"
-                  onClick={() =>
-                    handleImageClick(
-                      product.image,
-                      product.title,
-                      product.description
-                    )
-                  }
-                  style={{ cursor: "pointer" }}
+                  onClick={() => handleImageClick(product.image, product.title, product.description)}
+                  style={{ cursor: 'pointer' }}
                 >
                   <img
                     src={product.image}
                     alt={product.title}
                     className="product-image"
                   />
-
+                  
                   {/* Zoom Icon Overlay */}
                   <div className="zoom-indicator">
                     <ZoomIcon />
@@ -231,9 +213,11 @@ const HornButtons = () => {
                   <h3 className="product-title minimal">{product.title}</h3>
 
                   {/* Description */}
-                  <p className="product-description minimal">
-                    {product.description}
-                  </p>
+                  {product.description && (
+                    <p className="product-description minimal">
+                      {product.description}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
@@ -297,33 +281,26 @@ const HornButtons = () => {
         </div>
       </section>
 
-      <VideoGallery
-        videos={hornButtonVideos}
-        cloudName="dnhqjli6k" // REQUIRED
-        title="Horn Button Videos"
-        description="Watch our horn button manufacturing process"
-      />
-
       {/* Image Modal/Lightbox */}
       {selectedImage && (
         <div className="image-modal-overlay" onClick={closeModal}>
-          <div
-            className="image-modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={closeModal}>
               ×
             </button>
             <div className="modal-image-container">
-              <img
-                src={selectedImage.image}
-                alt={selectedImage.title}
+              <img 
+                src={selectedImage.image} 
+                alt={selectedImage.title} 
                 className="modal-image"
+                style={{ objectFit: 'contain' }}
               />
             </div>
             <div className="modal-image-caption">
               <h3>{selectedImage.title}</h3>
-              {selectedImage.description && <p>{selectedImage.description}</p>}
+              {selectedImage.description && (
+                <p>{selectedImage.description}</p>
+              )}
             </div>
           </div>
         </div>
@@ -334,16 +311,16 @@ const HornButtons = () => {
         <div className="container">
           <div className="solutions-content">
             <div className="solutions-text">
-              <h2 className="solutions-title">Need Custom Horn Buttons?</h2>
+              <h2 className="solutions-title">Need Custom Knobs?</h2>
               <p className="solutions-description">
-                We specialize in custom horn button manufacturing for fashion
-                brands and designers. From unique shapes to specific color
-                matching, we can create exactly what you need.
+                We specialize in custom knob manufacturing for furniture brands, 
+                interior designers, and hardware manufacturers. From unique shapes 
+                to specific finishes, we can create exactly what you need.
               </p>
               <ul className="solutions-features">
                 <li>Custom shapes and sizes</li>
-                <li>Color matching services</li>
-                <li>Minimum order: 1000 pieces</li>
+                <li>Multiple finish options</li>
+                <li>Material selection</li>
                 <li>Private labeling available</li>
                 <li>Worldwide shipping</li>
               </ul>
@@ -351,10 +328,10 @@ const HornButtons = () => {
                 Request Custom Quote <span className="btn-arrow">→</span>
               </button>
             </div>
-
+            
             <div className="solutions-image">
               <div className="image-placeholder">
-                <span className="image-text">Custom Button Samples</span>
+                <span className="image-text">Custom Knob Samples</span>
               </div>
             </div>
           </div>
@@ -367,32 +344,24 @@ const HornButtons = () => {
           <h2 className="info-title">Technical Specifications</h2>
           <div className="info-grid">
             <div className="info-card">
-              <h3 className="info-card-title">Material</h3>
-              <p className="info-card-text">100% Natural Water Buffalo Horn</p>
-              <p className="info-card-subtext">
-                Ethically sourced, no synthetic materials
-              </p>
+              <h3 className="info-card-title">Application</h3>
+              <p className="info-card-text">Cabinets, Drawers, Furniture</p>
+              <p className="info-card-subtext">Residential & commercial use</p>
             </div>
             <div className="info-card">
-              <h3 className="info-card-title">Sizes Available</h3>
-              <p className="info-card-text">15mm, 18mm, 22mm, 25mm</p>
-              <p className="info-card-subtext">
-                Custom sizes available on request
-              </p>
+              <h3 className="info-card-title">Diameter Range</h3>
+              <p className="info-card-text">25mm – 45mm</p>
+              <p className="info-card-subtext">Custom sizes available on request</p>
             </div>
             <div className="info-card">
-              <h3 className="info-card-title">Colors</h3>
-              <p className="info-card-text">12 Standard Colors</p>
-              <p className="info-card-subtext">
-                From Light White to Dark Pattern
-              </p>
+              <h3 className="info-card-title">Mounting</h3>
+              <p className="info-card-text">Standard Screw Fitting</p>
+              <p className="info-card-subtext">Universal M4 or M5 thread</p>
             </div>
             <div className="info-card">
-              <h3 className="info-card-title">Finish</h3>
-              <p className="info-card-text">Natural Polished Finish</p>
-              <p className="info-card-subtext">
-                Can be custom finished as needed
-              </p>
+              <h3 className="info-card-title">Finish Options</h3>
+              <p className="info-card-text">10+ Standard Finishes</p>
+              <p className="info-card-subtext">Polished, matte, brushed, textured</p>
             </div>
           </div>
         </div>
@@ -403,26 +372,26 @@ const HornButtons = () => {
         <div className="container">
           <h2 className="related-title">Browse Related Categories</h2>
           <div className="categories-grid">
-            <Link to="/products/horn-plates" className="category-card">
-              <h3 className="category-name">Horn Plates</h3>
+            <Link to="/products/handles" className="category-card">
+              <h3 className="category-name">Handles</h3>
               <p className="category-description">
-                For eyewear and decorative uses
+                Cabinet and drawer handles
               </p>
             </Link>
-            <Link to="/products/horn-jewelry" className="category-card">
-              <h3 className="category-name">Horn Jewelry</h3>
+            <Link to="/products/hooks" className="category-card">
+              <h3 className="category-name">Hooks</h3>
               <p className="category-description">
-                Necklaces, bangles, earrings
+                Wall and door hooks
               </p>
             </Link>
-            <Link to="/products/horn-combs" className="category-card">
-              <h3 className="category-name">Horn Combs</h3>
-              <p className="category-description">Hair and beard combs</p>
+            <Link to="/products/pulls" className="category-card">
+              <h3 className="category-name">Drawer Pulls</h3>
+              <p className="category-description">Long drawer pulls</p>
             </Link>
-            <Link to="/products/horn-cutlery" className="category-card">
-              <h3 className="category-name">Horn Cutlery</h3>
+            <Link to="/products/furniture-accessories" className="category-card">
+              <h3 className="category-name">Furniture Accessories</h3>
               <p className="category-description">
-                Spoons, knives, servingware
+                Complete hardware solutions
               </p>
             </Link>
           </div>
@@ -432,4 +401,4 @@ const HornButtons = () => {
   );
 };
 
-export default HornButtons;
+export default Knobs;

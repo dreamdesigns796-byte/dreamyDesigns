@@ -2,6 +2,10 @@
 import React from 'react';
 import './FeaturedProducts.css';
 
+import img1 from "../assets/images/featureProductHome/image3.png";
+import img2 from "../assets/images/featureProductHome/image2.png";
+import img3 from "../assets/images/featureProductHome/image1.png";
+
 const FeaturedProducts = () => {
   const featuredProducts = [
     {
@@ -9,7 +13,7 @@ const FeaturedProducts = () => {
       title: "Genuine Corozo Buttons – Natural Dark Brown Color – Ethically Sourced",
       description: "Classic Design with a Sustainable Edge – Available in 4 Sizes",
       category: "Classic Button Collection",
-      image: "src/assets/images/featureProductHome/image3.png",
+      image: img1,
       link: "#"
     },
     {
@@ -17,7 +21,7 @@ const FeaturedProducts = () => {
       title: "Genuine Buffalo Horn Buttons – Polished Black Finish – Premium Quality",
       description: "Elegant and Durable for Fine Tailoring",
       category: "Luxury Button Series",
-      image: "src/assets/images/featureProductHome/image2.png",
+      image: img2,
       link: "#"
     },
     {
@@ -25,7 +29,7 @@ const FeaturedProducts = () => {
       title: "Genuine Mother of Pearl Buttons – Iridescent White – Hand-Carved",
       description: "A Timeless Touch of Shine",
       category: "Signature Trims",
-      image: "src/assets/images/featureProductHome/image1.png",
+      image: img3,
       link: "#"
     }
   ];

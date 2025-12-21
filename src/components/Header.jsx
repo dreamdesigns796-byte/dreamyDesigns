@@ -141,7 +141,7 @@ const Header = () => {
       name: 'Handicraft Items', 
       key: 'handicraft',
       subcategories: [
-        { name: 'Wooden Carvings', path: '/products/wooden-carvings' },
+        { name: 'Knobs', path: '/products/knobs' },
         { name: 'Handwoven Textiles', path: '/products/handwoven-textiles' },
         { name: 'Ceramic Pottery', path: '/products/ceramic-pottery' },
         { name: 'Leather Crafts', path: '/products/leather-crafts' },
@@ -151,7 +151,7 @@ const Header = () => {
       name: 'Hardware Items', 
       key: 'hardware',
       subcategories: [
-        { name: 'Door Handles', path: '/products/door-handles' },
+        { name: 'Handles', path: '/products/handles' },
         { name: 'Cabinet Knobs', path: '/products/cabinet-knobs' },
         { name: 'Drawer Pulls', path: '/products/drawer-pulls' },
         { name: 'Window Latches', path: '/products/window-latches' },
