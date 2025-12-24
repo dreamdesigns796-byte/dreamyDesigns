@@ -2,8 +2,8 @@
 
 import img1 from "../assets/hornButtons/image1.jpeg";
 import img2 from "../assets/hornButtons/image2.jpeg";
-import img3 from "../assets/hornButtons/image3.jpeg";
-import img4 from "../assets/hornButtons/image4.jpeg";
+import img3 from "../assets/hornButtons/blk-btn.jpg";
+import img4 from "../assets/hornButtons/image4.jpg";
 import img5 from "../assets/hornButtons/image5.jpeg";
 
 
@@ -12,14 +12,14 @@ import img5 from "../assets/hornButtons/image5.jpeg";
 const hornButtonProducts = [
   {
     id: 1,
-    title: 'Horn Color Button',
+    title: 'Horn Color Button – Color No. 910',
     sku: 'HB-910',
     description: 'Size available 16mm, 18mm, 21mm, 23mm, 26mm, 29mm, 31mm.',
     image: img1
   },
   {
     id: 2,
-    title: 'Horn Color Button',
+    title: 'Horn Color Button – Color No. 10',
     sku: 'HB-10',
     description: 'Size available 16mm, 18mm, 21mm, 23mm, 26mm, 29mm, 31mm.',
     image: img2
@@ -33,14 +33,14 @@ const hornButtonProducts = [
   },
   {
     id: 4,
-    title: 'Horn Button Blanks – Color No. 8 B',
+    title: 'Black Horn Button',
     sku: 'HB-008B',
     description: 'Size available 16mm, 18mm, 21mm, 23mm, 26mm, 29mm, 31mm.',
     image: img4
   },
   {
     id: 5,
-    title: 'Horn Color Button',
+    title: 'Horn Color Button – Color No. 9',
     sku: 'HB-9',
     description: 'Size available 16mm, 18mm, 21mm, 23mm, 26mm, 29mm, 31mm.',
     image: img5

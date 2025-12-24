@@ -167,7 +167,7 @@ const HornButtons = () => {
           <div className="banner-content">
             <h2 className="banner-title">Premium Horn Button Blanks</h2>
             <p className="banner-text">
-              Available in 12+ colors and multiple sizes. All products made from
+              Available in multiple colors and multiple sizes. All products made from
               100% natural, ethically sourced water buffalo horns.
             </p>
             <div className="banner-features">
