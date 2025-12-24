@@ -1,7 +1,7 @@
 // constants/Data.js
 
 import img1 from "../assets/test1.jpg";
-import img2 from "../assets/test2.webp";
+import img2 from "../assets/hornButtons/blk-btn.jpg";
 import comb from "../assets/images/homeProduct/comb.jpg";
 import jewelry from "../assets/images/homeProduct/jewelry.jpg";
 import plate from "../assets/images/homeProduct/plate.jpg";
