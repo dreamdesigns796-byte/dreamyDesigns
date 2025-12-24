@@ -3,7 +3,7 @@
 import img1 from "../assets/hornButtons/image1.jpeg";
 import img2 from "../assets/hornButtons/image2.jpeg";
 import img3 from "../assets/hornButtons/blk-btn.jpg";
-import img4 from "../assets/hornButtons/image4.jpg";
+import img4 from "../assets/hornButtons/image4.JPG";
 import img5 from "../assets/hornButtons/image5.jpeg";
 
 
