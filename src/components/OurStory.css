@@ -1,10 +1,21 @@
 /* src/components/OurStory.css */
+
+/* ================================
+   LIGHT THEME SETTINGS
+   Section BG: #FAF9F6 (Warm White)
+   Image Wrapper BG: #FFFFFF (Pure White)
+   Text Main: #2C3539 (Deep Charcoal)
+   Text Muted: #666666 (Slate Grey)
+   Accent: #B86B4D (Copper)
+   Border: #E5E0DC (Light Warm Grey)
+================================ */
+
 .our-story-section {
   padding: 80px 40px;
-  background-color: #2C3539;
+  background-color: #FAF9F6; /* Warm White */
   position: relative;
-  border-top: 1px solid #594247;
-  border-bottom: 1px solid #594247;
+  border-top: 1px solid #E5E0DC;
+  border-bottom: 1px solid #E5E0DC;
   overflow: hidden;
 }
 
@@ -20,9 +31,9 @@
 }
 
 .section-title {
-  color: #B86B4D;
+  color: #B86B4D; /* Copper */
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
   margin: 0 0 20px 0;
@@ -42,7 +53,7 @@
 }
 
 .story-heading {
-  color: #FAF9F6;
+  color: #2C3539; /* Deep Charcoal */
   font-size: 2.5rem;
   font-weight: 300;
   line-height: 1.2;
@@ -57,7 +68,7 @@
 }
 
 .story-text p {
-  color: #D1CCC3;
+  color: #666666; /* Slate Grey for readability */
   font-size: 16px;
   line-height: 1.7;
   margin: 0 0 20px 0;
@@ -71,7 +82,7 @@
 
 .read-more-btn {
   background-color: transparent;
-  color: #FAF9F6;
+  color: #2C3539; /* Dark text on light background */
   border: 1px solid #B86B4D;
   padding: 14px 32px;
   font-size: 13px;
@@ -111,16 +122,17 @@
 
 .image-wrapper {
   position: relative;
-  border: 1px solid #594247;
+  border: 1px solid #E5E0DC;
   padding: 20px;
-  background-color: #384246;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background-color: #FFFFFF; /* Pure White Frame */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Softer Shadow */
 }
 
 .story-image-placeholder {
   width: 100%;
   height: 400px;
-  background: linear-gradient(135deg, #2C3539 0%, #4A5559 100%);
+  /* Light Gradient for placeholder */
+  background: linear-gradient(135deg, #F4F1EE 0%, #E5E0DC 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -138,16 +150,17 @@
 
 .placeholder-icon {
   font-size: 60px;
-  opacity: 0.3;
+  opacity: 0.2;
+  color: #2C3539;
 }
 
 .placeholder-text {
-  color: #FAF9F6;
+  color: #666666;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 2px;
   text-transform: uppercase;
-  opacity: 0.5;
+  opacity: 0.7;
   font-family: 'Inter', sans-serif;
 }
 
@@ -170,7 +183,7 @@
 .decoration-line {
   width: 60px;
   height: 1px;
-  background-color: #594247;
+  background-color: #E5E0DC;
 }
 
 .decoration-dot {
@@ -187,7 +200,7 @@
   left: 40px;
   right: 40px;
   height: 1px;
-  background-color: #594247;
+  background-color: #E5E0DC; /* Light Grey Line */
   z-index: 1;
 }
 
@@ -203,7 +216,7 @@
   position: absolute;
   width: 15px;
   height: 15px;
-  border-color: #B86B4D;
+  border-color: #B86B4D; /* Keep Copper Corners */
   border-style: solid;
   z-index: 1;
 }

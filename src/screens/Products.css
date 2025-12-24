@@ -122,7 +122,7 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 15px;
-  color: #FAF9F6;
+  color: #2C3539;
 }
 
 .section-subtitle {
@@ -242,7 +242,7 @@
 .read-more-btn {
   background: transparent;
   border: 1px solid #B86B4D;
-  color: #FAF9F6;
+  color: #B86B4D;
   padding: 12px 24px;
   font-size: 0.8rem;
   font-weight: 600;

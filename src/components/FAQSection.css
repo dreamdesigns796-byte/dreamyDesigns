@@ -1,10 +1,21 @@
 /* src/components/FAQSection.css */
+
+/* ================================
+   LIGHT THEME SETTINGS
+   Section BG: #FAF9F6 (Warm White)
+   Card BG: #FFFFFF (Pure White)
+   Text Main: #2C3539 (Deep Charcoal)
+   Text Muted: #666666 (Medium Grey)
+   Accent: #B86B4D (Copper)
+   Border: #E5E0DC (Light Warm Grey)
+================================ */
+
 .faq-section {
   padding: 80px 40px;
-  background-color: #384246;
+  background-color: #FAF9F6; /* Warm White Section Background */
   position: relative;
-  border-top: 1px solid #594247;
-  border-bottom: 1px solid #594247;
+  border-top: 1px solid #E5E0DC;
+  border-bottom: 1px solid #E5E0DC;
   overflow: hidden;
 }
 
@@ -21,7 +32,7 @@
 }
 
 .faq-title {
-  color: #FAF9F6;
+  color: #2C3539; /* Deep Charcoal */
   font-size: 2.5rem;
   font-weight: 300;
   letter-spacing: 2px;
@@ -31,7 +42,7 @@
 }
 
 .faq-subtitle {
-  color: #D1CCC3;
+  color: #666666; /* Medium Grey */
   font-size: 16px;
   line-height: 1.6;
   margin: 0 0 30px 0;
@@ -52,13 +63,13 @@
 .decoration-line {
   width: 100px;
   height: 1px;
-  background-color: #594247;
+  background-color: #E5E0DC; /* Light Grey Line */
 }
 
 .decoration-dot {
   width: 6px;
   height: 6px;
-  background-color: #B86B4D;
+  background-color: #B86B4D; /* Copper Dot */
   border-radius: 50%;
 }
 
@@ -76,16 +87,17 @@
 }
 
 .faq-item {
-  background-color: #2C3539;
-  border: 1px solid #594247;
+  background-color: #FFFFFF; /* White Card Background */
+  border: 1px solid #E5E0DC;
   border-radius: 2px;
   overflow: hidden;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
 }
 
 .faq-item.active {
   border-color: #B86B4D;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 20px rgba(184, 107, 77, 0.1);
 }
 
 .faq-question {
@@ -94,23 +106,23 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  background-color: #384246;
+  background-color: #FFFFFF;
   transition: all 0.3s ease;
   min-height: 80px;
 }
 
 .faq-item.active .faq-question {
-  background-color: rgba(184, 107, 77, 0.05);
+  background-color: rgba(184, 107, 77, 0.08); /* Subtle Copper Tint */
 }
 
 .faq-question:hover {
-  background-color: rgba(184, 107, 77, 0.1);
+  background-color: rgba(184, 107, 77, 0.04);
 }
 
 .question-text {
-  color: #FAF9F6;
+  color: #2C3539;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500; /* Slightly bolder for readability on light bg */
   line-height: 1.4;
   margin-right: 20px;
   font-family: 'Inter', sans-serif;
@@ -134,14 +146,16 @@
 
 .faq-item.active .toggle-icon {
   transform: rotate(180deg);
-  background-color: rgba(184, 107, 77, 0.1);
+  background-color: #B86B4D;
+  color: #FFFFFF;
+  border-color: #B86B4D;
 }
 
 .faq-answer {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
-  background-color: #2C3539;
+  background-color: #FFFFFF;
 }
 
 .faq-item.active .faq-answer {
@@ -149,14 +163,14 @@
 }
 
 .faq-answer p {
-  color: #D1CCC3;
+  color: #666666;
   font-size: 15px;
   line-height: 1.6;
   margin: 0;
   padding: 30px;
   font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  border-top: 1px solid rgba(89, 66, 71, 0.3);
+  font-weight: 400;
+  border-top: 1px solid #E5E0DC;
 }
 
 .faq-footer {
@@ -174,7 +188,7 @@
 .footer-line {
   width: 80px;
   height: 1px;
-  background-color: #594247;
+  background-color: #E5E0DC;
 }
 
 .footer-dot {
@@ -185,7 +199,7 @@
 }
 
 .footer-text {
-  color: #D1CCC3;
+  color: #666666;
   font-size: 16px;
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -206,6 +220,7 @@
 
 .contact-link:hover {
   border-bottom-color: #B86B4D;
+  color: #A55C40;
 }
 
 /* Border Decoration */
@@ -215,7 +230,7 @@
   left: 40px;
   right: 40px;
   height: 1px;
-  background-color: #594247;
+  background-color: #E5E0DC; /* Light Grey Border */
   z-index: 1;
 }
 

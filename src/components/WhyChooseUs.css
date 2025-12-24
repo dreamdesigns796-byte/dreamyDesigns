@@ -1,10 +1,21 @@
 /* src/components/WhyChooseUs.css */
+
+/* ================================
+   LIGHT THEME SETTINGS
+   Section BG: #FAF9F6 (Warm White)
+   Card BG: #FFFFFF (Pure White)
+   Text Main: #2C3539 (Deep Charcoal)
+   Text Muted: #666666 (Medium Grey)
+   Accent: #B86B4D (Copper)
+   Border: #E5E0DC (Light Warm Grey)
+================================ */
+
 .why-choose-us-section {
   padding: 80px 40px;
-  background-color: #2C3539;
+  background-color: #FAF9F6; /* Warm White Section BG */
   position: relative;
-  border-top: 1px solid #594247;
-  border-bottom: 1px solid #594247;
+  border-top: 1px solid #E5E0DC;
+  border-bottom: 1px solid #E5E0DC;
   overflow: hidden;
 }
 
@@ -21,7 +32,7 @@
 }
 
 .section-title {
-  color: #FAF9F6;
+  color: #2C3539; /* Deep Charcoal */
   font-size: 2.5rem;
   font-weight: 300;
   letter-spacing: 2px;
@@ -40,13 +51,13 @@
 .decoration-line {
   width: 100px;
   height: 1px;
-  background-color: #594247;
+  background-color: #E5E0DC; /* Light Grey Line */
 }
 
 .decoration-dot {
   width: 6px;
   height: 6px;
-  background-color: #B86B4D;
+  background-color: #B86B4D; /* Copper Dot */
   border-radius: 50%;
 }
 
@@ -58,19 +69,20 @@
 }
 
 .feature-card {
-  background-color: #384246;
-  border: 1px solid #594247;
+  background-color: #FFFFFF; /* Pure White Card */
+  border: 1px solid #E5E0DC;
   padding: 40px 30px;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
 }
 
 .feature-card:hover {
   transform: translateY(-8px);
   border-color: #B86B4D;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08); /* Softer Shadow */
 }
 
 .feature-header {
@@ -83,13 +95,14 @@
 .feature-icon {
   font-size: 40px;
   margin-bottom: 20px;
-  opacity: 0.8;
+  opacity: 0.9;
+  color: #2C3539; /* Dark Icon */
 }
 
 .feature-title {
-  color: #FAF9F6;
+  color: #2C3539; /* Deep Charcoal */
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
   margin: 0;
   letter-spacing: 1px;
@@ -100,26 +113,26 @@
 .feature-highlight {
   color: #B86B4D;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.4;
   text-align: center;
   margin: 0 0 25px 0;
   padding: 15px;
-  background-color: rgba(184, 107, 77, 0.05);
+  background-color: rgba(184, 107, 77, 0.08); /* Light Copper Tint */
   border-left: 3px solid #B86B4D;
   font-family: 'Inter', sans-serif;
   font-style: italic;
 }
 
 .feature-description {
-  color: #D1CCC3;
+  color: #666666; /* Medium Grey */
   font-size: 15px;
   line-height: 1.6;
   margin: 0 0 30px 0;
   text-align: center;
   flex-grow: 1;
   font-family: 'Inter', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .feature-footer {
@@ -133,7 +146,7 @@
 .feature-line {
   width: 40px;
   height: 1px;
-  background-color: rgba(89, 66, 71, 0.5);
+  background-color: #E5E0DC;
   transition: all 0.3s ease;
 }
 
@@ -170,7 +183,7 @@
 .footer-line {
   width: 80px;
   height: 1px;
-  background-color: #594247;
+  background-color: #E5E0DC;
 }
 
 .footer-dot {
@@ -181,12 +194,12 @@
 }
 
 .footer-text {
-  color: #D1CCC3;
+  color: #666666; /* Medium Grey */
   font-size: 16px;
   font-style: italic;
   margin: 0;
   font-family: 'Georgia', serif;
-  font-weight: 300;
+  font-weight: 400;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -200,7 +213,7 @@
   left: 40px;
   right: 40px;
   height: 1px;
-  background-color: #594247;
+  background-color: #E5E0DC;
   z-index: 1;
 }
 

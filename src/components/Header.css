@@ -1,4 +1,16 @@
 /* src/components/Header.css */
+
+/* ================================
+   LIGHT THEME SETTINGS
+   Header BG: #FAF9F6 (Warm White)
+   Scrolled BG: rgba(250, 249, 246, 0.98)
+   Dropdown BG: #FFFFFF (Pure White)
+   Text Main: #2C3539 (Deep Charcoal)
+   Text Muted: #666666 (Medium Grey)
+   Accent: #B86B4D (Copper)
+   Border: #E5E0DC (Light Warm Grey)
+================================ */
+
 .header {
   position: fixed;
   top: 0;
@@ -8,18 +20,18 @@
   align-items: center;
   justify-content: space-between;
   padding: 0px 40px;
-  background-color: #2C3539;
-  border-bottom: 1px solid #594247;
+  background-color: #FAF9F6; /* Warm White */
+  border-bottom: 1px solid #E5E0DC; /* Light Grey Border */
   z-index: 1000;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Softer shadow */
 }
 
 .header.scrolled {
   padding: 10px 40px;
-  background-color: rgba(44, 53, 57, 0.98);
+  background-color: rgba(250, 249, 246, 0.98); /* Light semi-transparent */
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 /* Header Spacer - Minimal space after fixed header */
@@ -51,7 +63,9 @@
   width: auto;
   min-width: 8rem;
   vertical-align: middle;
-  filter: brightness(0) invert(1);
+  /* CHANGED: Removed invert(1) so logo appears dark on light bg. 
+     Adjust brightness to 0.2 for a dark charcoal look if logo is colored */
+  filter: brightness(0.2); 
   transition: transform 0.3s ease, height 0.3s ease;
 }
 
@@ -63,7 +77,7 @@
   width: 8rem;
   height: 8rem;
   background: #B86B4D;
-  color: #FAF9F6;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -90,10 +104,10 @@
 }
 
 .nav-link {
-  color: #FAF9F6;
+  color: #2C3539; /* Dark Charcoal Text */
   text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: 500; /* Slightly bolder for readability */
   letter-spacing: 1.5px;
   text-transform: uppercase;
   padding: 8px 0;
@@ -160,7 +174,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  color: #FAF9F6;
+  color: #2C3539; /* Dark Arrow */
   margin-left: 0;
   line-height: 1;
 }
@@ -190,8 +204,8 @@
   top: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%) scale(0.95);
-  background-color: #384246;
-  border: 1px solid #594247;
+  background-color: #FFFFFF; /* White Dropdown */
+  border: 1px solid #E5E0DC;
   min-width: 280px;
   border-radius: 3px;
   opacity: 0;
@@ -199,7 +213,7 @@
   pointer-events: none;
   transition: all 0.3s ease;
   z-index: 1001;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-menu.open {
@@ -214,7 +228,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  border-bottom: 1px solid #594247;
+  border-bottom: 1px solid #E5E0DC;
 }
 
 .dropdown-header h3 {
@@ -222,14 +236,14 @@
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #FAF9F6;
+  color: #2C3539;
   margin: 0;
 }
 
 .close-dropdown-btn {
   background: none;
   border: none;
-  color: #D1CCC3;
+  color: #999999;
   font-size: 1.3rem;
   line-height: 1;
   cursor: pointer;
@@ -254,7 +268,7 @@
 
 /* Main category section */
 .main-category-section {
-  border-bottom: 1px solid rgba(89, 66, 71, 0.3);
+  border-bottom: 1px solid #E5E0DC;
 }
 
 .main-category-section:last-child {
@@ -266,7 +280,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px 15px;
-  color: #FAF9F6;
+  color: #2C3539;
   text-decoration: none;
   transition: all 0.3s ease;
   background: none;
@@ -278,12 +292,12 @@
   font-weight: 600;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  background-color: rgba(184, 107, 77, 0.1);
+  background-color: #FAF9F6; /* Slight separation from white */
 }
 
 .main-category-btn:hover,
 .main-category-btn.active {
-  background-color: rgba(184, 107, 77, 0.2);
+  background-color: rgba(184, 107, 77, 0.1);
   color: #B86B4D;
 }
 
@@ -302,9 +316,9 @@
   transform: rotate(180deg);
 }
 
-/* Subcategory list - Make subcategories look like regular dropdown items */
+/* Subcategory list */
 .subcategory-list {
-  background-color: rgba(26, 31, 33, 0.5);
+  background-color: #FFFFFF;
   padding: 0;
   max-height: 0;
   overflow: hidden;
@@ -321,9 +335,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 15px 12px 25px;
-  color: #FAF9F6;
+  color: #555555; /* Slate Grey for sub items */
   text-decoration: none;
-  border-bottom: 1px solid rgba(89, 66, 71, 0.3);
+  border-bottom: 1px solid #E5E0DC;
   transition: all 0.3s ease;
   background: none;
   border: none;
@@ -347,7 +361,7 @@
 
 .dropdown-item.subcategory-item:hover,
 .dropdown-item.subcategory-item.active {
-  background-color: rgba(184, 107, 77, 0.15);
+  background-color: rgba(184, 107, 77, 0.05);
   color: #B86B4D;
 }
 
@@ -381,7 +395,7 @@
 
 .quote-btn {
   background-color: #B86B4D;
-  color: #FAF9F6;
+  color: #FFFFFF;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 600;
@@ -413,14 +427,14 @@
 }
 
 .hamburger-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .hamburger-line {
   display: block;
   width: 24px;
   height: 2px;
-  background-color: #FAF9F6;
+  background-color: #2C3539; /* Dark Hamburger lines */
   margin: 4px 0;
   transition: all 0.3s ease;
 }
@@ -458,7 +472,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly lighter backdrop */
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -473,13 +487,13 @@
   right: -100%;
   width: 300px;
   height: 100vh;
-  background-color: #2C3539;
-  border-left: 1px solid #594247;
+  background-color: #FAF9F6; /* Warm White Mobile Menu */
+  border-left: 1px solid #E5E0DC;
   overflow-y: auto;
   transition: right 0.3s ease;
   display: flex;
   flex-direction: column;
-  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-nav-overlay.active .mobile-nav {
@@ -488,11 +502,11 @@
 
 .mobile-nav-header {
   padding: 25px;
-  border-bottom: 1px solid #594247;
+  border-bottom: 1px solid #E5E0DC;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(26, 31, 33, 0.5);
+  background-color: #FFFFFF;
 }
 
 .mobile-nav-title {
@@ -500,7 +514,7 @@
   font-size: 1.6rem;
   font-weight: 300;
   letter-spacing: 1.5px;
-  color: #FAF9F6;
+  color: #2C3539;
   margin: 0;
   text-transform: uppercase;
 }
@@ -508,7 +522,7 @@
 .close-menu-btn {
   background: none;
   border: none;
-  color: #FAF9F6;
+  color: #2C3539;
   font-size: 2.2rem;
   line-height: 1;
   cursor: pointer;
@@ -524,7 +538,7 @@
 
 .close-menu-btn:hover {
   color: #B86B4D;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .mobile-nav-links {
@@ -537,16 +551,16 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 25px;
-  color: #FAF9F6;
+  color: #2C3539;
   text-decoration: none;
-  border-bottom: 1px solid #594247;
+  border-bottom: 1px solid #E5E0DC;
   transition: all 0.3s ease;
 }
 
 .mobile-nav-link:hover,
 .mobile-nav-link.active {
   color: #B86B4D;
-  background-color: rgba(184, 107, 77, 0.1);
+  background-color: rgba(184, 107, 77, 0.05);
 }
 
 .link-text {
@@ -571,7 +585,7 @@
 
 .mobile-nav-link.quote-link {
   background-color: #B86B4D;
-  color: #FAF9F6 !important;
+  color: #FFFFFF !important;
   margin: 15px 25px;
   border-radius: 3px;
   text-align: center;
@@ -587,7 +601,7 @@
 
 /* Mobile Products Section with Toggle Arrow */
 .mobile-dropdown {
-  border-bottom: 1px solid #594247;
+  border-bottom: 1px solid #E5E0DC;
 }
 
 .mobile-products-header {
@@ -605,7 +619,7 @@
   width: calc(100% - 50px);
   background: none;
   border: none;
-  color: #FAF9F6;
+  color: #2C3539;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -613,13 +627,13 @@
 .mobile-dropdown-toggle:hover,
 .mobile-dropdown-toggle.active {
   color: #B86B4D;
-  background-color: rgba(184, 107, 77, 0.1);
+  background-color: rgba(184, 107, 77, 0.05);
 }
 
 .mobile-dropdown-arrow-btn {
   background: none;
   border: none;
-  color: #FAF9F6;
+  color: #2C3539;
   cursor: pointer;
   padding: 10px;
   transition: all 0.3s ease;
@@ -643,7 +657,7 @@
 
 /* Mobile Categories Section */
 .mobile-categories-section {
-  background-color: rgba(26, 31, 33, 0.5);
+  background-color: #F4F1EE; /* Light Beige */
   padding: 0;
   display: none;
 }
@@ -654,12 +668,12 @@
 
 .mobile-categories-header {
   padding: 12px 25px;
-  border-bottom: 1px solid rgba(89, 66, 71, 0.3);
+  border-bottom: 1px solid #E5E0DC;
 }
 
 .mobile-categories-header h4 {
   font-size: 0.85rem;
-  color: #D1CCC3;
+  color: #666666;
   text-transform: uppercase;
   letter-spacing: 0.8px;
   margin: 0;
@@ -671,7 +685,7 @@
 
 /* Mobile main category */
 .mobile-main-category {
-  border-bottom: 1px solid rgba(89, 66, 71, 0.3);
+  border-bottom: 1px solid #E5E0DC;
 }
 
 .mobile-main-category:last-child {
@@ -683,7 +697,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px 25px;
-  color: #FAF9F6;
+  color: #2C3539;
   text-decoration: none;
   transition: all 0.3s ease;
   background: none;
@@ -695,18 +709,18 @@
   font-weight: 600;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  background-color: rgba(184, 107, 77, 0.1);
+  background-color: #FFFFFF;
 }
 
 .mobile-main-category-btn:hover,
 .mobile-main-category-btn.active {
-  background-color: rgba(184, 107, 77, 0.2);
+  background-color: rgba(184, 107, 77, 0.05);
   color: #B86B4D;
 }
 
 /* Mobile subcategory list */
 .mobile-subcategory-list {
-  background-color: rgba(20, 24, 26, 0.5);
+  background-color: #FAF9F6;
   padding: 0;
   max-height: 0;
   overflow: hidden;
@@ -723,9 +737,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 25px 12px 35px;
-  color: #D1CCC3;
+  color: #555555;
   text-decoration: none;
-  border-bottom: 1px solid rgba(89, 66, 71, 0.3);
+  border-bottom: 1px solid #E5E0DC;
   transition: all 0.3s ease;
   background: none;
   border: none;
@@ -750,7 +764,7 @@
 .mobile-category-item.mobile-subcategory-item:hover,
 .mobile-category-item.mobile-subcategory-item.active {
   color: #B86B4D;
-  background-color: rgba(184, 107, 77, 0.1);
+  background-color: rgba(184, 107, 77, 0.05);
 }
 
 .category-item-text {
@@ -774,9 +788,9 @@
 /* Mobile Navigation Footer */
 .mobile-nav-footer {
   padding: 25px;
-  border-top: 1px solid #594247;
+  border-top: 1px solid #E5E0DC;
   text-align: center;
-  background-color: rgba(26, 31, 33, 0.5);
+  background-color: #F4F1EE;
 }
 
 .mobile-brand {
@@ -791,14 +805,15 @@
   height: 5rem;
   width: auto;
   min-width: 5rem;
-  filter: brightness(0) invert(1);
+  /* Darken the logo for light theme */
+  filter: brightness(0.2); 
 }
 
 .mobile-logo-fallback {
   width: 5rem;
   height: 5rem;
   background: #B86B4D;
-  color: #FAF9F6;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -820,14 +835,14 @@
   font-size: 1.6rem;
   font-weight: 300;
   letter-spacing: 4px;
-  color: #FAF9F6;
+  color: #2C3539;
   text-transform: uppercase;
   margin: 0;
 }
 
 .mobile-tagline {
   font-size: 0.8rem;
-  color: #D1CCC3;
+  color: #666666;
   letter-spacing: 0.8px;
   margin: 0;
   line-height: 1.4;
@@ -1114,7 +1129,7 @@ body.menu-open {
   }
 }
 
-/* Fix for scrolled state - MAKE SURE LOGO SHRINKS ON SCROLL */
+/* Fix for scrolled state */
 .header.scrolled .header-logo-icon {
   height: 6.5rem;
   min-width: 6.5rem;

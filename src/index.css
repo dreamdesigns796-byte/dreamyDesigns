@@ -1,36 +1,31 @@
+/* src/index.css (or global styles) */
+
 /* --- 1. Custom Font Integration Plan ---
-   
-   A premium website relies heavily on typography. 
-   You must replace 'system-ui' with custom fonts imported via Google Fonts or similar.
-   
-   Suggested Font Pair:
-   - Headers (Elegant/Serif): Playfair Display
-   - Body (Clean/Sans-Serif): Lato or Poppins 
-   
-   Example (to be added at the top of your index.css or HTML <head>):
+   (Keep this or ensure it's in your HTML <head>)
    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 */
 
-/* --- 2. Core :root Variables & Dark Theme Default --- */
+/* --- 2. Core :root Variables & Light Theme Default --- */
 
 :root {
-  /* Premium Font Stack (Set to your imported fonts) */
+  /* Premium Font Stack */
   --font-header: 'Playfair Display', serif;
   --font-body: 'Lato', sans-serif;
   
-  /* Deep Velvet Color Palette */
-  --color-bg: #2C3539;        /* Deep Charcoal/Slate */
-  --color-text: #FAF9F6;      /* Luminous Cream */
+  /* Gallery Light Color Palette */
+  --color-bg: #FAF9F6;        /* Warm White (Page Background) */
+  --color-text: #2C3539;      /* Deep Charcoal (Main Text) */
   --color-accent: #B86B4D;    /* Burnished Copper */
-  --color-accent-hover: #D58265; /* Slightly brighter Copper */
-  --color-border-card: #594247; /* Deep Plum */
+  --color-accent-hover: #A55C40; /* Darker Copper for hover states */
+  --color-border-card: #E5E0DC; /* Light Warm Grey (Borders) */
+  --color-card-bg: #FFFFFF;   /* Pure White (Card Backgrounds) */
 
   /* Global Styles */
   font-family: var(--font-body);
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 400;
   
-  color-scheme: dark; /* Explicitly start in dark mode */
+  color-scheme: light; /* Explicitly start in light mode */
   color: var(--color-text);
   background-color: var(--color-bg);
 
@@ -44,19 +39,21 @@
 
 body {
   margin: 0;
-  /* Remove display: flex; place-items: center; to allow full-width layout */
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 /* --- 4. Typography --- */
 
 h1, h2, h3, h4 {
   font-family: var(--font-header);
-  font-weight: 300; /* Use a thin or light weight for elegance */
+  font-weight: 400; /* Slightly heavier than 300 for better read on light bg */
   color: var(--color-text);
-  line-height: 1.1;
+  line-height: 1.2;
 }
+
 h1 {
   font-size: 3.2em;
 }
@@ -64,11 +61,12 @@ h1 {
 /* --- 5. Links (Navigation, etc.) --- */
 
 a {
-  font-weight: 400;
-  color: var(--color-accent);
-  text-decoration: none; /* Crucial for a clean, premium look */
+  font-weight: 500;
+  color: var(--color-accent); /* Copper links */
+  text-decoration: none;
   transition: color 0.25s;
 }
+
 a:hover {
   color: var(--color-accent-hover);
 }
@@ -76,52 +74,34 @@ a:hover {
 /* --- 6. Buttons (Call To Action - CTAs) --- */
 
 button {
-  border-radius: 3px;
+  border-radius: 2px; /* Sharper corners for premium feel */
   border: 1px solid transparent;
-  padding: 0.8em 1.5em; /* Slightly larger padding for importance */
+  padding: 0.8em 1.5em;
   font-size: 1em;
-  font-weight: 700; /* Bold for CTAs */
+  font-weight: 600;
   font-family: var(--font-body);
-  background-color: var(--color-accent); /* Copper background */
-  color: var(--color-text); /* Cream text */
+  background-color: var(--color-accent);
+  color: #FFFFFF; /* Explicitly White text for contrast against Copper */
   cursor: pointer;
-  transition: background-color 0.25s, opacity 0.25s;
-  letter-spacing: 1px; /* Subtle spacing adds to premium feel */
+  transition: all 0.3s ease;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
+
 button:hover {
   background-color: var(--color-accent-hover);
-  opacity: 0.95;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(184, 107, 77, 0.3);
 }
+
 button:focus,
 button:focus-visible {
-  /* Use a subtle box shadow instead of a harsh outline */
   outline: none;
   box-shadow: 0 0 0 2px var(--color-accent-hover);
 }
 
-/* --- 7. Light Mode (Optional - Based on Gallery Look) --- */
-
-@media (prefers-color-scheme: light) {
-  :root {
-    /* Gallery Look Colors */
-    --color-bg: #F8F8F8;       /* Warm Light Gray */
-    --color-text: #333333;      /* Charcoal Gray */
-  }
-  
-  body {
-    background-color: var(--color-bg);
-  }
-  
-  a {
-    color: var(--color-accent);
-  }
-  a:hover {
-    color: var(--color-accent-hover);
-  }
-  
-  /* Buttons remain the same color regardless of light/dark mode for branding consistency */
-  button {
-    background-color: var(--color-accent);
-    color: var(--color-text);
-  }
+/* --- 7. Selection Color --- */
+::selection {
+  background-color: rgba(184, 107, 77, 0.2); /* Light Copper Highlight */
+  color: var(--color-text);
 }
