@@ -1,28 +1,19 @@
 import React, { useState } from "react";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./HornButtons.css";
-import VideoGallery from "../../components/VideoGallery";
-import hornButtonProducts from "../../data/hornButtonsData";
-
-const hornButtonVideos = [
-  {
-    publicId: "horn1_oyvxb6",
-    title: "Horn Button Manufacturing",
-    description: "Watch our premium horn buttons being crafted",
-  },
-];
+import vikingHornProducts from "../../data/vikingHornsData";
 
 // SVG Zoom Icon Component
 const ZoomIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="20" 
+    height="20" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
     strokeLinejoin="round"
     className="zoom-icon"
   >
@@ -33,45 +24,43 @@ const ZoomIcon = () => (
   </svg>
 );
 
-const HornButtons = () => {
-     const navigate = useNavigate();
+const VikingHorns = () => {
+  const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedImage, setSelectedImage] = useState(null);
   const productsPerPage = 20;
 
-    const handleButtonClick = () => {
-    navigate("/quote");
-  };
+  // Add default properties to products that don't have them
+  const enhancedProducts = vikingHornProducts.map(product => ({
+    ...product,
+    description: product.description || "Authentic Viking drinking horn made from natural ox or buffalo horn. Traditional craftsmanship with modern food-safe finish.",
+    price: product.price || "Contact for Price",
+    featured: product.featured || false
+  }));
 
   // Filter and sort products
   const getSortedProducts = () => {
-    let sorted = [...hornButtonProducts];
+    let sorted = [...enhancedProducts];
 
     switch (sortBy) {
       case "price-low":
-        sorted.sort((a, b) => {
-          if (a.price === "Contact") return 1;
-          if (b.price === "Contact") return -1;
-          return a.price - b.price;
-        });
+        // Since we don't have actual prices, sort by SKU or title
+        sorted.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case "price-high":
-        sorted.sort((a, b) => {
-          if (a.price === "Contact") return -1;
-          if (b.price === "Contact") return 1;
-          return b.price - a.price;
-        });
+        sorted.sort((a, b) => b.title.localeCompare(a.title));
         break;
       case "name":
         sorted.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case "featured":
-        sorted.sort((a, b) => b.featured - a.featured);
+        // Since we don't have featured property, sort by ID
+        sorted.sort((a, b) => b.id - a.id);
         break;
       default:
-        // Default: featured first, then by id
-        sorted.sort((a, b) => b.featured - a.featured || a.id - b.id);
+        // Default: sort by ID
+        sorted.sort((a, b) => a.id - b.id);
         break;
     }
 
@@ -88,6 +77,10 @@ const HornButtons = () => {
     indexOfLastProduct
   );
   const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
+
+  const handleButtonClick = () => {
+    navigate("/quote");
+  };
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -119,20 +112,15 @@ const HornButtons = () => {
             <span className="breadcrumb-separator">/</span>
             <Link to="/products">Products</Link>
             <span className="breadcrumb-separator">/</span>
-            <span>Horn Buttons</span>
+            <span>Viking Horns</span>
           </div>
 
-          <h1 className="page-title">Horn Buttons</h1>
+          <h1 className="page-title">Viking Drinking Horns</h1>
           <p className="page-description">
-            Elevate your apparel with our premium natural horn buttons, crafted
-            from ethically sourced buffalo horn. Known for their exceptional
-            durability, smooth finish, and unique natural patterns, these horn
-            buttons add timeless elegance to garments. Ideal for luxury fashion
-            brands, clothing manufacturers, tailors, and designers seeking
-            sustainable and high-quality fashion accessories. We offer custom
-            horn buttons in various sizes, shapes, and finishes to meet your
-            design requirements. Contact us today for bespoke horn button
-            solutions.
+            Discover our collection of authentic Viking drinking horns, handcrafted from natural 
+            buffalo and ox horn. Each horn features unique traditional designs, runic engravings, 
+            and historical accuracy. Perfect for reenactments, LARP events, medieval festivals, 
+            and as unique decorative pieces.
           </p>
 
           <div className="page-stats">
@@ -142,7 +130,7 @@ const HornButtons = () => {
               {sortedProducts.length} results
             </p>
 
-            {/* <div className="sorting-options">
+            <div className="sorting-options">
               <label htmlFor="sort-select">Sort by:</label>
               <select
                 id="sort-select"
@@ -151,12 +139,11 @@ const HornButtons = () => {
                 className="sort-select"
               >
                 <option value="default">Default sorting</option>
-                <option value="featured">Featured</option>
                 <option value="name">Sort by name</option>
-                <option value="price-low">Sort by price: low to high</option>
-                <option value="price-high">Sort by price: high to low</option>
+                <option value="price-low">Sort by SKU: low to high</option>
+                <option value="price-high">Sort by SKU: high to low</option>
               </select>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>
@@ -165,27 +152,28 @@ const HornButtons = () => {
       <section className="featured-banner section-border">
         <div className="container">
           <div className="banner-content">
-            <h2 className="banner-title">Premium Horn Button Blanks</h2>
+            <h2 className="banner-title">Authentic Viking Drinking Horns</h2>
             <p className="banner-text">
-              Available in multiple colors and multiple sizes. All products made from
-              100% natural, ethically sourced water buffalo horns.
+              Handcrafted using traditional techniques passed down through generations. 
+              Each horn is unique, featuring natural grain patterns and historical designs 
+              inspired by Norse culture and mythology.
             </p>
             <div className="banner-features">
               <div className="feature">
-                <span className="feature-icon">✓</span>
-                <span className="feature-text">Multiple Color Options</span>
+                <span className="feature-icon">⚔️</span>
+                <span className="feature-text">Traditional Norse Designs</span>
               </div>
               <div className="feature">
-                <span className="feature-icon">✓</span>
-                <span className="feature-text">Multiple Sizes</span>
+                <span className="feature-icon">🛡️</span>
+                <span className="feature-text">Food-Safe Sealed Interior</span>
               </div>
               <div className="feature">
-                <span className="feature-icon">✓</span>
-                <span className="feature-text">Ethically Sourced</span>
+                <span className="feature-icon">🏺</span>
+                <span className="feature-text">Historical Accuracy</span>
               </div>
               <div className="feature">
-                <span className="feature-icon">✓</span>
-                <span className="feature-text">Bulk Discounts</span>
+                <span className="feature-icon">⚒️</span>
+                <span className="feature-text">Handcrafted Details</span>
               </div>
             </div>
           </div>
@@ -199,23 +187,17 @@ const HornButtons = () => {
             {currentProducts.map((product) => (
               <div key={product.id} className="product-card minimal">
                 {/* Product Image with Zoom Icon */}
-                <div
+                <div 
                   className="product-image-container minimal clickable"
-                  onClick={() =>
-                    handleImageClick(
-                      product.image,
-                      product.title,
-                      product.description
-                    )
-                  }
-                  style={{ cursor: "pointer" }}
+                  onClick={() => handleImageClick(product.image, product.title, product.description)}
+                  style={{ cursor: 'pointer' }}
                 >
                   <img
                     src={product.image}
                     alt={product.title}
                     className="product-image"
                   />
-
+                  
                   {/* Zoom Icon Overlay */}
                   <div className="zoom-indicator">
                     <ZoomIcon />
@@ -230,7 +212,7 @@ const HornButtons = () => {
                   {/* Title */}
                   <h3 className="product-title minimal">{product.title}</h3>
 
-                  {/* Description */}
+                  {/* Description - Always show default description */}
                   <p className="product-description minimal">
                     {product.description}
                   </p>
@@ -297,33 +279,24 @@ const HornButtons = () => {
         </div>
       </section>
 
-      <VideoGallery
-        videos={hornButtonVideos}
-        cloudName="dnhqjli6k" // REQUIRED
-        title="Horn Button Videos"
-        description="Watch our horn button manufacturing process"
-      />
-
       {/* Image Modal/Lightbox */}
       {selectedImage && (
         <div className="image-modal-overlay" onClick={closeModal}>
-          <div
-            className="image-modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={closeModal}>
               ×
             </button>
             <div className="modal-image-container">
-              <img
-                src={selectedImage.image}
-                alt={selectedImage.title}
+              <img 
+                src={selectedImage.image} 
+                alt={selectedImage.title} 
                 className="modal-image"
+                style={{ objectFit: 'contain' }}
               />
             </div>
             <div className="modal-image-caption">
               <h3>{selectedImage.title}</h3>
-              {selectedImage.description && <p>{selectedImage.description}</p>}
+              <p>{selectedImage.description}</p>
             </div>
           </div>
         </div>
@@ -334,27 +307,27 @@ const HornButtons = () => {
         <div className="container">
           <div className="solutions-content">
             <div className="solutions-text">
-              <h2 className="solutions-title">Need Custom Horn Buttons?</h2>
+              <h2 className="solutions-title">Custom Viking Horns</h2>
               <p className="solutions-description">
-                We specialize in custom horn button manufacturing for fashion
-                brands and designers. From unique shapes to specific color
-                matching, we can create exactly what you need.
+                Create your own unique Viking drinking horns with custom runic engravings, 
+                clan symbols, or personalized designs. Perfect for LARP groups, reenactment 
+                societies, weddings, and special events.
               </p>
               <ul className="solutions-features">
-                <li>Custom shapes and sizes</li>
-                <li>Color matching services</li>
-                <li>Minimum order: 1000 pieces</li>
-                <li>Private labeling available</li>
+                <li>Custom runic engravings</li>
+                <li>Clan symbols & family crests</li>
+                <li>Leather straps & stands included</li>
+                <li>Bulk orders for events & groups</li>
                 <li>Worldwide shipping</li>
               </ul>
               <button className="solutions-btn" onClick={handleButtonClick}>
                 Request Custom Quote <span className="btn-arrow">→</span>
               </button>
             </div>
-
+            
             <div className="solutions-image">
               <div className="image-placeholder">
-                <span className="image-text">Custom Button Samples</span>
+                <span className="image-text">Custom Viking Horn Samples</span>
               </div>
             </div>
           </div>
@@ -368,31 +341,48 @@ const HornButtons = () => {
           <div className="info-grid">
             <div className="info-card">
               <h3 className="info-card-title">Material</h3>
-              <p className="info-card-text">100% Natural Water Buffalo Horn</p>
-              <p className="info-card-subtext">
-                Ethically sourced, no synthetic materials
-              </p>
+              <p className="info-card-text">Natural Ox / Buffalo Horn</p>
+              <p className="info-card-subtext">Ethically sourced, no animals harmed</p>
             </div>
             <div className="info-card">
-              <h3 className="info-card-title">Sizes Available</h3>
-              <p className="info-card-text">15mm, 18mm, 22mm, 25mm</p>
-              <p className="info-card-subtext">
-                Custom sizes available on request
-              </p>
-            </div>
-            <div className="info-card">
-              <h3 className="info-card-title">Colors</h3>
-              <p className="info-card-text">12 Standard Colors</p>
-              <p className="info-card-subtext">
-                From Light White to Dark Pattern
-              </p>
+              <h3 className="info-card-title">Capacity</h3>
+              <p className="info-card-text">500ml – 1500ml</p>
+              <p className="info-card-subtext">Various sizes available</p>
             </div>
             <div className="info-card">
               <h3 className="info-card-title">Finish</h3>
-              <p className="info-card-text">Natural Polished Finish</p>
-              <p className="info-card-subtext">
-                Can be custom finished as needed
-              </p>
+              <p className="info-card-text">Natural / Polished / Antique</p>
+              <p className="info-card-subtext">Food-safe epoxy resin interior</p>
+            </div>
+            <div className="info-card">
+              <h3 className="info-card-title">Accessories</h3>
+              <p className="info-card-text">Leather straps & stands</p>
+              <p className="info-card-subtext">Optional display options</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Care Instructions */}
+      <section className="care-instructions section-border">
+        <div className="container">
+          <h2 className="care-title">Viking Horn Care Instructions</h2>
+          <div className="care-grid">
+            <div className="care-card">
+              <h3>🫧 Cleaning</h3>
+              <p>Hand wash with mild soap and warm water only. Never use dishwasher or harsh chemicals.</p>
+            </div>
+            <div className="care-card">
+              <h3>🌡️ Temperature</h3>
+              <p>Avoid extreme temperatures. Do not freeze or expose to direct heat sources.</p>
+            </div>
+            <div className="care-card">
+              <h3>🛡️ Storage</h3>
+              <p>Store upright on provided stand. Keep away from direct sunlight when not in use.</p>
+            </div>
+            <div className="care-card">
+              <h3>🍺 Usage</h3>
+              <p>Suitable for mead, beer, ale, and non-alcoholic beverages. Not for hot liquids.</p>
             </div>
           </div>
         </div>
@@ -401,28 +391,28 @@ const HornButtons = () => {
       {/* Related Categories */}
       <section className="related-categories">
         <div className="container">
-          <h2 className="related-title">Browse Related Categories</h2>
+          <h2 className="related-title">Browse Related Products</h2>
           <div className="categories-grid">
-            <Link to="/products/horn-plates" className="category-card">
-              <h3 className="category-name">Horn Plates</h3>
+            <Link to="/products/horn-mugs" className="category-card">
+              <h3 className="category-name">Horn Mugs</h3>
               <p className="category-description">
-                For eyewear and decorative uses
+                Traditional drinking vessels with handles
               </p>
             </Link>
-            <Link to="/products/horn-jewelry" className="category-card">
-              <h3 className="category-name">Horn Jewelry</h3>
+            <Link to="/products/viking-accessories" className="category-card">
+              <h3 className="category-name">Viking Accessories</h3>
               <p className="category-description">
-                Necklaces, bangles, earrings
+                Belts, jewelry, and armor pieces
               </p>
             </Link>
-            <Link to="/products/horn-combs" className="category-card">
-              <h3 className="category-name">Horn Combs</h3>
-              <p className="category-description">Hair and beard combs</p>
+            <Link to="/products/medieval-tableware" className="category-card">
+              <h3 className="category-name">Medieval Tableware</h3>
+              <p className="category-description">Complete feasting sets</p>
             </Link>
-            <Link to="/products/horn-cutlery" className="category-card">
-              <h3 className="category-name">Horn Cutlery</h3>
+            <Link to="/products/leather-horn-carriers" className="category-card">
+              <h3 className="category-name">Leather Carriers</h3>
               <p className="category-description">
-                Spoons, knives, servingware
+                Horn carriers & display stands
               </p>
             </Link>
           </div>
@@ -432,4 +422,4 @@ const HornButtons = () => {
   );
 };
 
-export default HornButtons;
+export default VikingHorns;

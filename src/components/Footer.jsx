@@ -3,15 +3,41 @@ import React from 'react';
 import './Footer.css';
 
 const Footer = () => {
-  const categories = [
-    { name: "Viking Horns", href: "/products/viking-horns" },
-    { name: "Horn Buttons", href: "/products/horn-buttons" },
-    { name: "Horn Plates", href: "/products/horn-plates" },
-    { name: "Horn Eyeglasses", href: "/products/horn-eyeglasses" },
-    { name: "Horn Combs", href: "/products/horn-combs" },
-    { name: "Horn Jewelry", href: "/products/horn-jewelry" },
-    { name: "Horn Cutlery", href: "/products/horn-cutlery" },
-    { name: "Bone Inlay", href: "/products/bone-inlay" }
+  // Product categories matching the Header structure
+  const productCategories = [
+    {
+      category: "Horn Products",
+      items: [
+        { name: "Horn Buttons", href: "/products/horn-buttons" },
+        { name: "Horn Mugs", href: "/products/horn-mugs" },
+        { name: "Viking Horns", href: "/products/viking-horns" },
+        { name: "Horn Plates", href: "/products/horn-plates" },
+        { name: "Horn Combs", href: "/products/horn-combs" },
+        { name: "Horn Jewelry", href: "/products/horn-jewelry" },
+        { name: "Horn Cutlery", href: "/products/horn-cutlery" },
+      ]
+    },
+    {
+      category: "Handicraft Items",
+      items: [
+        { name: "Knobs", href: "/products/knobs" },
+        { name: "Horn Jewelry", href: "/products/horn-jewelry" },
+        { name: "Horn Frames", href: "/products/horn-frames" },
+      ]
+    },
+    {
+      category: "Hardware Items",
+      items: [
+        { name: "Handles", href: "/products/handles" },
+      ]
+    },
+    {
+      category: "Additional Products",
+      items: [
+        { name: "Bone Inlay", href: "/products/bone-inlay" },
+        { name: "Horn Eyeglasses", href: "/products/horn-eyeglasses" },
+      ]
+    }
   ];
 
   const companyLinks = [
@@ -87,19 +113,26 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Categories Column */}
-          <div className="footer-column">
+          {/* Product Categories Column */}
+          <div className="footer-column product-categories-column">
             <h4 className="column-title">Product Categories</h4>
-            <ul className="footer-links">
-              {categories.map((category, index) => (
-                <li key={index} className="footer-link-item">
-                  <a href={category.href} className="footer-link">
-                    <span className="link-arrow">→</span>
-                    <span className="link-text">{category.name}</span>
-                  </a>
-                </li>
+            <div className="category-groups">
+              {productCategories.map((categoryGroup, index) => (
+                <div key={index} className="category-group">
+                  <h5 className="category-group-title">{categoryGroup.category}</h5>
+                  <ul className="category-group-links">
+                    {categoryGroup.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className="category-group-item">
+                        <a href={item.href} className="footer-link">
+                          <span className="link-arrow">→</span>
+                          <span className="link-text">{item.name}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
 
@@ -108,7 +141,7 @@ const Footer = () => {
           <div className="copyright-content">
             <div className="copyright-info">
               <p className="copyright-text">
-                Copyright © 2025 Dreamy Designs | AL-MASHA INTERNATIONAL All Rights Reserved
+                Copyright © 2025 Dreamy Designs All Rights Reserved
               </p>
               <div className="product-link">
                 <a 

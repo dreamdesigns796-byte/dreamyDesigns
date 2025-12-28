@@ -1,28 +1,19 @@
 import React, { useState } from "react";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./HornButtons.css";
-import VideoGallery from "../../components/VideoGallery";
-import hornButtonProducts from "../../data/hornButtonsData";
-
-const hornButtonVideos = [
-  {
-    publicId: "horn1_oyvxb6",
-    title: "Horn Button Manufacturing",
-    description: "Watch our premium horn buttons being crafted",
-  },
-];
+import hornJewelryProducts from "../../data/hornJewelriesData";
 
 // SVG Zoom Icon Component
 const ZoomIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="20" 
+    height="20" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
     strokeLinejoin="round"
     className="zoom-icon"
   >
@@ -33,45 +24,43 @@ const ZoomIcon = () => (
   </svg>
 );
 
-const HornButtons = () => {
-     const navigate = useNavigate();
+const HornJewelries = () => {
+  const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedImage, setSelectedImage] = useState(null);
   const productsPerPage = 20;
 
-    const handleButtonClick = () => {
-    navigate("/quote");
-  };
+  // Add default properties to products that don't have them
+  const enhancedProducts = hornJewelryProducts.map(product => ({
+    ...product,
+    description: product.description || "Handcrafted horn jewelry piece made from natural buffalo or ox horn. Unique patterns and polished finish for elegant wear.",
+    price: product.price || "Contact for Price",
+    featured: product.featured || false
+  }));
 
   // Filter and sort products
   const getSortedProducts = () => {
-    let sorted = [...hornButtonProducts];
+    let sorted = [...enhancedProducts];
 
     switch (sortBy) {
       case "price-low":
-        sorted.sort((a, b) => {
-          if (a.price === "Contact") return 1;
-          if (b.price === "Contact") return -1;
-          return a.price - b.price;
-        });
+        // Since we don't have actual prices, sort by SKU or title
+        sorted.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case "price-high":
-        sorted.sort((a, b) => {
-          if (a.price === "Contact") return -1;
-          if (b.price === "Contact") return 1;
-          return b.price - a.price;
-        });
+        sorted.sort((a, b) => b.title.localeCompare(a.title));
         break;
       case "name":
         sorted.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case "featured":
-        sorted.sort((a, b) => b.featured - a.featured);
+        // Since we don't have featured property, sort by ID
+        sorted.sort((a, b) => b.id - a.id);
         break;
       default:
-        // Default: featured first, then by id
-        sorted.sort((a, b) => b.featured - a.featured || a.id - b.id);
+        // Default: sort by ID
+        sorted.sort((a, b) => a.id - b.id);
         break;
     }
 
@@ -88,6 +77,10 @@ const HornButtons = () => {
     indexOfLastProduct
   );
   const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
+
+  const handleButtonClick = () => {
+    navigate("/quote");
+  };
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -119,20 +112,15 @@ const HornButtons = () => {
             <span className="breadcrumb-separator">/</span>
             <Link to="/products">Products</Link>
             <span className="breadcrumb-separator">/</span>
-            <span>Horn Buttons</span>
+            <span>Horn Jewelries</span>
           </div>
 
-          <h1 className="page-title">Horn Buttons</h1>
+          <h1 className="page-title">Horn Jewelry Collection</h1>
           <p className="page-description">
-            Elevate your apparel with our premium natural horn buttons, crafted
-            from ethically sourced buffalo horn. Known for their exceptional
-            durability, smooth finish, and unique natural patterns, these horn
-            buttons add timeless elegance to garments. Ideal for luxury fashion
-            brands, clothing manufacturers, tailors, and designers seeking
-            sustainable and high-quality fashion accessories. We offer custom
-            horn buttons in various sizes, shapes, and finishes to meet your
-            design requirements. Contact us today for bespoke horn button
-            solutions.
+            Discover our exquisite collection of handcrafted horn jewelry made from natural 
+            buffalo and ox horn. Each piece features unique grain patterns, polished finishes, 
+            and contemporary designs. Perfect for everyday wear, special occasions, gifting, 
+            and as statement pieces that combine nature's beauty with artisanal craftsmanship.
           </p>
 
           <div className="page-stats">
@@ -142,7 +130,7 @@ const HornButtons = () => {
               {sortedProducts.length} results
             </p>
 
-            {/* <div className="sorting-options">
+            <div className="sorting-options">
               <label htmlFor="sort-select">Sort by:</label>
               <select
                 id="sort-select"
@@ -151,12 +139,11 @@ const HornButtons = () => {
                 className="sort-select"
               >
                 <option value="default">Default sorting</option>
-                <option value="featured">Featured</option>
                 <option value="name">Sort by name</option>
-                <option value="price-low">Sort by price: low to high</option>
-                <option value="price-high">Sort by price: high to low</option>
+                <option value="price-low">Sort by SKU: low to high</option>
+                <option value="price-high">Sort by SKU: high to low</option>
               </select>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>
@@ -165,27 +152,28 @@ const HornButtons = () => {
       <section className="featured-banner section-border">
         <div className="container">
           <div className="banner-content">
-            <h2 className="banner-title">Premium Horn Button Blanks</h2>
+            <h2 className="banner-title">Exquisite Handcrafted Horn Jewelry</h2>
             <p className="banner-text">
-              Available in multiple colors and multiple sizes. All products made from
-              100% natural, ethically sourced water buffalo horns.
+              Each jewelry piece is meticulously crafted from ethically sourced natural horn, 
+              showcasing the material's unique patterns and textures. Lightweight, durable, 
+              and hypoallergenic—perfect for sensitive skin.
             </p>
             <div className="banner-features">
               <div className="feature">
-                <span className="feature-icon">✓</span>
-                <span className="feature-text">Multiple Color Options</span>
+                <span className="feature-icon">💎</span>
+                <span className="feature-text">Unique Natural Patterns</span>
               </div>
               <div className="feature">
-                <span className="feature-icon">✓</span>
-                <span className="feature-text">Multiple Sizes</span>
+                <span className="feature-icon">✨</span>
+                <span className="feature-text">Hypoallergenic & Lightweight</span>
               </div>
               <div className="feature">
-                <span className="feature-icon">✓</span>
-                <span className="feature-text">Ethically Sourced</span>
+                <span className="feature-icon">🎨</span>
+                <span className="feature-text">Contemporary Designs</span>
               </div>
               <div className="feature">
-                <span className="feature-icon">✓</span>
-                <span className="feature-text">Bulk Discounts</span>
+                <span className="feature-icon">⚒️</span>
+                <span className="feature-text">Hand Polished Finish</span>
               </div>
             </div>
           </div>
@@ -199,23 +187,17 @@ const HornButtons = () => {
             {currentProducts.map((product) => (
               <div key={product.id} className="product-card minimal">
                 {/* Product Image with Zoom Icon */}
-                <div
+                <div 
                   className="product-image-container minimal clickable"
-                  onClick={() =>
-                    handleImageClick(
-                      product.image,
-                      product.title,
-                      product.description
-                    )
-                  }
-                  style={{ cursor: "pointer" }}
+                  onClick={() => handleImageClick(product.image, product.title, product.description)}
+                  style={{ cursor: 'pointer' }}
                 >
                   <img
                     src={product.image}
                     alt={product.title}
                     className="product-image"
                   />
-
+                  
                   {/* Zoom Icon Overlay */}
                   <div className="zoom-indicator">
                     <ZoomIcon />
@@ -230,7 +212,7 @@ const HornButtons = () => {
                   {/* Title */}
                   <h3 className="product-title minimal">{product.title}</h3>
 
-                  {/* Description */}
+                  {/* Description - Always show default description */}
                   <p className="product-description minimal">
                     {product.description}
                   </p>
@@ -297,33 +279,24 @@ const HornButtons = () => {
         </div>
       </section>
 
-      <VideoGallery
-        videos={hornButtonVideos}
-        cloudName="dnhqjli6k" // REQUIRED
-        title="Horn Button Videos"
-        description="Watch our horn button manufacturing process"
-      />
-
       {/* Image Modal/Lightbox */}
       {selectedImage && (
         <div className="image-modal-overlay" onClick={closeModal}>
-          <div
-            className="image-modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={closeModal}>
               ×
             </button>
             <div className="modal-image-container">
-              <img
-                src={selectedImage.image}
-                alt={selectedImage.title}
+              <img 
+                src={selectedImage.image} 
+                alt={selectedImage.title} 
                 className="modal-image"
+                style={{ objectFit: 'contain' }}
               />
             </div>
             <div className="modal-image-caption">
               <h3>{selectedImage.title}</h3>
-              {selectedImage.description && <p>{selectedImage.description}</p>}
+              <p>{selectedImage.description}</p>
             </div>
           </div>
         </div>
@@ -334,65 +307,110 @@ const HornButtons = () => {
         <div className="container">
           <div className="solutions-content">
             <div className="solutions-text">
-              <h2 className="solutions-title">Need Custom Horn Buttons?</h2>
+              <h2 className="solutions-title">Custom Horn Jewelry Designs</h2>
               <p className="solutions-description">
-                We specialize in custom horn button manufacturing for fashion
-                brands and designers. From unique shapes to specific color
-                matching, we can create exactly what you need.
+                Create your own unique horn jewelry pieces with custom designs, 
+                engravings, or combination with other materials. Perfect for 
+                fashion brands, boutique stores, weddings, and special events.
               </p>
               <ul className="solutions-features">
-                <li>Custom shapes and sizes</li>
-                <li>Color matching services</li>
-                <li>Minimum order: 1000 pieces</li>
+                <li>Custom design & patterns</li>
+                <li>Personalized engravings</li>
+                <li>Combination with metals/stones</li>
+                <li>Bulk orders for retailers</li>
                 <li>Private labeling available</li>
-                <li>Worldwide shipping</li>
               </ul>
               <button className="solutions-btn" onClick={handleButtonClick}>
                 Request Custom Quote <span className="btn-arrow">→</span>
               </button>
             </div>
-
+            
             <div className="solutions-image">
               <div className="image-placeholder">
-                <span className="image-text">Custom Button Samples</span>
+                <span className="image-text">Custom Jewelry Samples</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Technical Information */}
-      <section className="technical-info section-border">
+      {/* Jewelry Types */}
+      <section className="jewelry-types section-border">
         <div className="container">
-          <h2 className="info-title">Technical Specifications</h2>
-          <div className="info-grid">
-            <div className="info-card">
-              <h3 className="info-card-title">Material</h3>
-              <p className="info-card-text">100% Natural Water Buffalo Horn</p>
-              <p className="info-card-subtext">
-                Ethically sourced, no synthetic materials
+          <h2 className="types-title">Our Horn Jewelry Collection</h2>
+          <div className="types-grid">
+            <div className="type-card">
+              <h3 className="type-name">Necklaces & Pendants</h3>
+              <p className="type-description">
+                Statement necklaces featuring horn pendants with unique patterns. 
+                Available in various lengths and chain materials.
               </p>
+              <div className="type-features">
+                <span>Adjustable chains</span>
+                <span>Silver/brass fittings</span>
+                <span>Various sizes</span>
+              </div>
             </div>
-            <div className="info-card">
-              <h3 className="info-card-title">Sizes Available</h3>
-              <p className="info-card-text">15mm, 18mm, 22mm, 25mm</p>
-              <p className="info-card-subtext">
-                Custom sizes available on request
+            <div className="type-card">
+              <h3 className="type-name">Earrings</h3>
+              <p className="type-description">
+                Lightweight horn earrings including studs, drops, and danglers. 
+                Hypoallergenic hooks for sensitive ears.
               </p>
+              <div className="type-features">
+                <span>Studs & danglers</span>
+                <span>Hypoallergenic</span>
+                <span>Gold/silver posts</span>
+              </div>
             </div>
-            <div className="info-card">
-              <h3 className="info-card-title">Colors</h3>
-              <p className="info-card-text">12 Standard Colors</p>
-              <p className="info-card-subtext">
-                From Light White to Dark Pattern
+            <div className="type-card">
+              <h3 className="type-name">Bracelets & Bangles</h3>
+              <p className="type-description">
+                Horn bracelets and bangles that combine natural beauty with 
+                contemporary design. Adjustable and comfortable fit.
               </p>
+              <div className="type-features">
+                <span>Adjustable sizing</span>
+                <span>Elastic/metal bands</span>
+                <span>Stackable designs</span>
+              </div>
             </div>
-            <div className="info-card">
-              <h3 className="info-card-title">Finish</h3>
-              <p className="info-card-text">Natural Polished Finish</p>
-              <p className="info-card-subtext">
-                Can be custom finished as needed
+            <div className="type-card">
+              <h3 className="type-name">Rings</h3>
+              <p className="type-description">
+                Handcrafted horn rings in various styles and sizes. 
+                Lightweight and comfortable for everyday wear.
               </p>
+              <div className="type-features">
+                <span>Sizes 4-12</span>
+                <span>Polished finish</span>
+                <span>Contemporary designs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Care Instructions */}
+      <section className="care-instructions section-border">
+        <div className="container">
+          <h2 className="care-title">Horn Jewelry Care Guide</h2>
+          <div className="care-grid">
+            <div className="care-card">
+              <h3>🧼 Cleaning</h3>
+              <p>Gently wipe with soft, damp cloth. Avoid harsh chemicals, perfumes, or lotions.</p>
+            </div>
+            <div className="care-card">
+              <h3>💧 Moisture</h3>
+              <p>Remove before swimming, bathing, or exercising to prevent moisture damage.</p>
+            </div>
+            <div className="care-card">
+              <h3>📦 Storage</h3>
+              <p>Store in soft pouch or jewelry box. Keep separate from other jewelry to avoid scratches.</p>
+            </div>
+            <div className="care-card">
+              <h3>🌞 Protection</h3>
+              <p>Avoid prolonged exposure to direct sunlight to prevent fading or drying.</p>
             </div>
           </div>
         </div>
@@ -401,28 +419,28 @@ const HornButtons = () => {
       {/* Related Categories */}
       <section className="related-categories">
         <div className="container">
-          <h2 className="related-title">Browse Related Categories</h2>
+          <h2 className="related-title">Browse Related Collections</h2>
           <div className="categories-grid">
-            <Link to="/products/horn-plates" className="category-card">
-              <h3 className="category-name">Horn Plates</h3>
+            <Link to="/products/horn-mugs" className="category-card">
+              <h3 className="category-name">Horn Mugs</h3>
               <p className="category-description">
-                For eyewear and decorative uses
+                Traditional drinking vessels
               </p>
             </Link>
-            <Link to="/products/horn-jewelry" className="category-card">
-              <h3 className="category-name">Horn Jewelry</h3>
+            <Link to="/products/viking-horns" className="category-card">
+              <h3 className="category-name">Viking Horns</h3>
               <p className="category-description">
-                Necklaces, bangles, earrings
+                Historical drinking horns
               </p>
             </Link>
-            <Link to="/products/horn-combs" className="category-card">
-              <h3 className="category-name">Horn Combs</h3>
-              <p className="category-description">Hair and beard combs</p>
+            <Link to="/products/horn-home-decor" className="category-card">
+              <h3 className="category-name">Home Decor</h3>
+              <p className="category-description">Horn decor items</p>
             </Link>
-            <Link to="/products/horn-cutlery" className="category-card">
-              <h3 className="category-name">Horn Cutlery</h3>
+            <Link to="/products/horn-gifts" className="category-card">
+              <h3 className="category-name">Gift Items</h3>
               <p className="category-description">
-                Spoons, knives, servingware
+                Special occasion gifts
               </p>
             </Link>
           </div>
@@ -432,4 +450,4 @@ const HornButtons = () => {
   );
 };
 
-export default HornButtons;
+export default HornJewelries;

@@ -130,6 +130,7 @@ const Header = () => {
       key: 'horn',
       subcategories: [
         { name: 'Horn Buttons', path: '/products/horn-buttons' },
+        { name: 'Horn Mugs', path: '/products/horn-mugs' },
         { name: 'Viking Horns', path: '/products/viking-horns' },
         { name: 'Horn Plates', path: '/products/horn-plates' },
         { name: 'Horn Combs', path: '/products/horn-combs' },
@@ -142,9 +143,8 @@ const Header = () => {
       key: 'handicraft',
       subcategories: [
         { name: 'Knobs', path: '/products/knobs' },
-        { name: 'Handwoven Textiles', path: '/products/handwoven-textiles' },
-        { name: 'Ceramic Pottery', path: '/products/ceramic-pottery' },
-        { name: 'Leather Crafts', path: '/products/leather-crafts' },
+        { name: 'Horn Jewelry', path: '/products/horn-jewelry' },
+        { name: 'Horn Frames', path: '/products/horn-frames' },
       ]
     },
     { 
@@ -152,9 +152,6 @@ const Header = () => {
       key: 'hardware',
       subcategories: [
         { name: 'Handles', path: '/products/handles' },
-        { name: 'Cabinet Knobs', path: '/products/cabinet-knobs' },
-        { name: 'Drawer Pulls', path: '/products/drawer-pulls' },
-        { name: 'Window Latches', path: '/products/window-latches' },
       ]
     }
   ];

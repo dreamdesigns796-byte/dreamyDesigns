@@ -6,7 +6,11 @@ import Footer from "./components/Footer";
 import Home from "./screens/Home";
 import About from "./screens/HornCraftersAbout";
 import Products from "./screens/Products";
+import HornMugs from "./screens/products/HornMugs";
 import icon from './assets/icon/whatsapp.png';
+import VikingHorns from './screens/products/VikingHorns';
+import HornJewelries from "./screens/products/HornJewelries";
+import HornFrames from "./screens/products/HornFrames";
 
 // Import product category pages
 // import VikingHorns from './screens/products/VikingHorns';
@@ -36,10 +40,13 @@ function App() {
             <Route path="/quote" element={<Quote />} />
 
             {/* Product Category Routes */}
-            {/* <Route path="/products/viking-horns" element={<VikingHorns />} /> */}
+            <Route path="/products/viking-horns" element={<VikingHorns />} />
             <Route path="/products/horn-buttons" element={<HornButtons />} />
+            <Route path="/products/horn-mugs" element={<HornMugs />} />
             <Route path="/products/knobs" element={<Knobs />} />
             <Route path="/products/handles" element={<Handles />} />
+            <Route path="/products/horn-jewelry" element={<HornJewelries />} />
+            <Route path="/products/horn-frames" element={<HornFrames />} />
             {/* <Route path="/products/horn-combs" element={<HornCombs />} /> */}
             {/* <Route path="/products/horn-jewelry" element={<HornJewelry />} /> */}
             {/* <Route path="/products/horn-cutlery" element={<HornCutlery />} /> */}

@@ -1,28 +1,19 @@
 import React, { useState } from "react";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./HornButtons.css";
-import VideoGallery from "../../components/VideoGallery";
-import hornButtonProducts from "../../data/hornButtonsData";
-
-const hornButtonVideos = [
-  {
-    publicId: "horn1_oyvxb6",
-    title: "Horn Button Manufacturing",
-    description: "Watch our premium horn buttons being crafted",
-  },
-];
+import hornFrameProducts from "../../data/hornFramesData";
 
 // SVG Zoom Icon Component
 const ZoomIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="20" 
+    height="20" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
     strokeLinejoin="round"
     className="zoom-icon"
   >
@@ -33,45 +24,43 @@ const ZoomIcon = () => (
   </svg>
 );
 
-const HornButtons = () => {
-     const navigate = useNavigate();
+const HornFrames = () => {
+  const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedImage, setSelectedImage] = useState(null);
   const productsPerPage = 20;
 
-    const handleButtonClick = () => {
-    navigate("/quote");
-  };
+  // Add default properties to products that don't have them
+  const enhancedProducts = hornFrameProducts.map(product => ({
+    ...product,
+    description: product.description || "Handcrafted horn photo frame made from natural buffalo or ox horn. Unique grain patterns and elegant finish for displaying your cherished memories.",
+    price: product.price || "Contact for Price",
+    featured: product.featured || false
+  }));
 
   // Filter and sort products
   const getSortedProducts = () => {
-    let sorted = [...hornButtonProducts];
+    let sorted = [...enhancedProducts];
 
     switch (sortBy) {
       case "price-low":
-        sorted.sort((a, b) => {
-          if (a.price === "Contact") return 1;
-          if (b.price === "Contact") return -1;
-          return a.price - b.price;
-        });
+        // Since we don't have actual prices, sort by SKU or title
+        sorted.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case "price-high":
-        sorted.sort((a, b) => {
-          if (a.price === "Contact") return -1;
-          if (b.price === "Contact") return 1;
-          return b.price - a.price;
-        });
+        sorted.sort((a, b) => b.title.localeCompare(a.title));
         break;
       case "name":
         sorted.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case "featured":
-        sorted.sort((a, b) => b.featured - a.featured);
+        // Since we don't have featured property, sort by ID
+        sorted.sort((a, b) => b.id - a.id);
         break;
       default:
-        // Default: featured first, then by id
-        sorted.sort((a, b) => b.featured - a.featured || a.id - b.id);
+        // Default: sort by ID
+        sorted.sort((a, b) => a.id - b.id);
         break;
     }
 
@@ -88,6 +77,10 @@ const HornButtons = () => {
     indexOfLastProduct
   );
   const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
+
+  const handleButtonClick = () => {
+    navigate("/quote");
+  };
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -119,20 +112,15 @@ const HornButtons = () => {
             <span className="breadcrumb-separator">/</span>
             <Link to="/products">Products</Link>
             <span className="breadcrumb-separator">/</span>
-            <span>Horn Buttons</span>
+            <span>Horn Photo Frames</span>
           </div>
 
-          <h1 className="page-title">Horn Buttons</h1>
+          <h1 className="page-title">Horn Photo Frames</h1>
           <p className="page-description">
-            Elevate your apparel with our premium natural horn buttons, crafted
-            from ethically sourced buffalo horn. Known for their exceptional
-            durability, smooth finish, and unique natural patterns, these horn
-            buttons add timeless elegance to garments. Ideal for luxury fashion
-            brands, clothing manufacturers, tailors, and designers seeking
-            sustainable and high-quality fashion accessories. We offer custom
-            horn buttons in various sizes, shapes, and finishes to meet your
-            design requirements. Contact us today for bespoke horn button
-            solutions.
+            Discover our exquisite collection of handcrafted horn photo frames made from natural 
+            buffalo and ox horn. Each frame is uniquely designed to showcase your cherished 
+            memories with elegance and natural beauty. Perfect for home decor, offices, gifting, 
+            and as statement pieces that blend traditional craftsmanship with contemporary design.
           </p>
 
           <div className="page-stats">
@@ -142,7 +130,7 @@ const HornButtons = () => {
               {sortedProducts.length} results
             </p>
 
-            {/* <div className="sorting-options">
+            <div className="sorting-options">
               <label htmlFor="sort-select">Sort by:</label>
               <select
                 id="sort-select"
@@ -151,12 +139,11 @@ const HornButtons = () => {
                 className="sort-select"
               >
                 <option value="default">Default sorting</option>
-                <option value="featured">Featured</option>
                 <option value="name">Sort by name</option>
-                <option value="price-low">Sort by price: low to high</option>
-                <option value="price-high">Sort by price: high to low</option>
+                <option value="price-low">Sort by SKU: low to high</option>
+                <option value="price-high">Sort by SKU: high to low</option>
               </select>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>
@@ -165,27 +152,28 @@ const HornButtons = () => {
       <section className="featured-banner section-border">
         <div className="container">
           <div className="banner-content">
-            <h2 className="banner-title">Premium Horn Button Blanks</h2>
+            <h2 className="banner-title">Exquisite Handcrafted Horn Photo Frames</h2>
             <p className="banner-text">
-              Available in multiple colors and multiple sizes. All products made from
-              100% natural, ethically sourced water buffalo horns.
+              Each photo frame is meticulously crafted from ethically sourced natural horn, 
+              showcasing the material's unique patterns and textures. Transform your photographs 
+              into works of art with these sustainable and elegant frames.
             </p>
             <div className="banner-features">
               <div className="feature">
-                <span className="feature-icon">✓</span>
-                <span className="feature-text">Multiple Color Options</span>
+                <span className="feature-icon">🖼️</span>
+                <span className="feature-text">Multiple Photo Sizes</span>
               </div>
               <div className="feature">
-                <span className="feature-icon">✓</span>
-                <span className="feature-text">Multiple Sizes</span>
+                <span className="feature-icon">✨</span>
+                <span className="feature-text">Elegant Display Stands</span>
               </div>
               <div className="feature">
-                <span className="feature-icon">✓</span>
-                <span className="feature-text">Ethically Sourced</span>
+                <span className="feature-icon">🎨</span>
+                <span className="feature-text">Customizable Designs</span>
               </div>
               <div className="feature">
-                <span className="feature-icon">✓</span>
-                <span className="feature-text">Bulk Discounts</span>
+                <span className="feature-icon">🌿</span>
+                <span className="feature-text">Sustainable Material</span>
               </div>
             </div>
           </div>
@@ -199,23 +187,17 @@ const HornButtons = () => {
             {currentProducts.map((product) => (
               <div key={product.id} className="product-card minimal">
                 {/* Product Image with Zoom Icon */}
-                <div
+                <div 
                   className="product-image-container minimal clickable"
-                  onClick={() =>
-                    handleImageClick(
-                      product.image,
-                      product.title,
-                      product.description
-                    )
-                  }
-                  style={{ cursor: "pointer" }}
+                  onClick={() => handleImageClick(product.image, product.title, product.description)}
+                  style={{ cursor: 'pointer' }}
                 >
                   <img
                     src={product.image}
                     alt={product.title}
                     className="product-image"
                   />
-
+                  
                   {/* Zoom Icon Overlay */}
                   <div className="zoom-indicator">
                     <ZoomIcon />
@@ -230,7 +212,7 @@ const HornButtons = () => {
                   {/* Title */}
                   <h3 className="product-title minimal">{product.title}</h3>
 
-                  {/* Description */}
+                  {/* Description - Always show default description */}
                   <p className="product-description minimal">
                     {product.description}
                   </p>
@@ -297,64 +279,112 @@ const HornButtons = () => {
         </div>
       </section>
 
-      <VideoGallery
-        videos={hornButtonVideos}
-        cloudName="dnhqjli6k" // REQUIRED
-        title="Horn Button Videos"
-        description="Watch our horn button manufacturing process"
-      />
-
       {/* Image Modal/Lightbox */}
       {selectedImage && (
         <div className="image-modal-overlay" onClick={closeModal}>
-          <div
-            className="image-modal-content"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close-btn" onClick={closeModal}>
               ×
             </button>
             <div className="modal-image-container">
-              <img
-                src={selectedImage.image}
-                alt={selectedImage.title}
+              <img 
+                src={selectedImage.image} 
+                alt={selectedImage.title} 
                 className="modal-image"
+                style={{ objectFit: 'contain' }}
               />
             </div>
             <div className="modal-image-caption">
               <h3>{selectedImage.title}</h3>
-              {selectedImage.description && <p>{selectedImage.description}</p>}
+              <p>{selectedImage.description}</p>
             </div>
           </div>
         </div>
       )}
+
+      {/* Frame Types Section */}
+      <section className="frame-types section-border">
+        <div className="container">
+          <h2 className="types-title">Our Horn Frame Collection</h2>
+          <div className="types-grid">
+            <div className="type-card">
+              <h3 className="type-name">Tabletop Frames</h3>
+              <p className="type-description">
+                Elegant standing frames perfect for desks, shelves, and mantels. 
+                Available in various angles and heights for optimal display.
+              </p>
+              <div className="type-features">
+                <span>Adjustable stands</span>
+                <span>Multi-angle viewing</span>
+                <span>Non-slip base</span>
+              </div>
+            </div>
+            <div className="type-card">
+              <h3 className="type-name">Wall-Mounted Frames</h3>
+              <p className="type-description">
+                Traditional wall frames with secure hanging mechanisms. 
+                Perfect for creating gallery walls and decorative displays.
+              </p>
+              <div className="type-features">
+                <span>Secure hooks included</span>
+                <span>Easy to install</span>
+                <span>Lightweight design</span>
+              </div>
+            </div>
+            <div className="type-card">
+              <h3 className="type-name">Multi-Photo Frames</h3>
+              <p className="type-description">
+                Frames designed to hold multiple photographs. Perfect for 
+                family collages, wedding memories, or event photographs.
+              </p>
+              <div className="type-features">
+                <span>2-8 photo capacity</span>
+                <span>Adjustable inserts</span>
+                <span>Collage layouts</span>
+              </div>
+            </div>
+            <div className="type-card">
+              <h3 className="type-name">Mini Frames</h3>
+              <p className="type-description">
+                Compact frames ideal for small spaces, travel, or as 
+                decorative accents. Perfect for wallet-sized photos.
+              </p>
+              <div className="type-features">
+                <span>Portable size</span>
+                <span>Travel-friendly</span>
+                <span>Gift-ready packaging</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Custom Solutions CTA */}
       <section className="custom-solutions section-border">
         <div className="container">
           <div className="solutions-content">
             <div className="solutions-text">
-              <h2 className="solutions-title">Need Custom Horn Buttons?</h2>
+              <h2 className="solutions-title">Custom Horn Photo Frames</h2>
               <p className="solutions-description">
-                We specialize in custom horn button manufacturing for fashion
-                brands and designers. From unique shapes to specific color
-                matching, we can create exactly what you need.
+                Create personalized horn photo frames with custom sizes, shapes, 
+                engravings, and finishes. Perfect for corporate gifts, weddings, 
+                anniversaries, hotels, and interior design projects.
               </p>
               <ul className="solutions-features">
-                <li>Custom shapes and sizes</li>
-                <li>Color matching services</li>
-                <li>Minimum order: 1000 pieces</li>
-                <li>Private labeling available</li>
-                <li>Worldwide shipping</li>
+                <li>Custom photo sizes</li>
+                <li>Personalized engravings</li>
+                <li>Brand logo incorporation</li>
+                <li>Bulk orders for events</li>
+                <li>Hotel & restaurant decor</li>
               </ul>
               <button className="solutions-btn" onClick={handleButtonClick}>
                 Request Custom Quote <span className="btn-arrow">→</span>
               </button>
             </div>
-
+            
             <div className="solutions-image">
               <div className="image-placeholder">
-                <span className="image-text">Custom Button Samples</span>
+                <span className="image-text">Custom Frame Samples</span>
               </div>
             </div>
           </div>
@@ -367,32 +397,49 @@ const HornButtons = () => {
           <h2 className="info-title">Technical Specifications</h2>
           <div className="info-grid">
             <div className="info-card">
-              <h3 className="info-card-title">Material</h3>
-              <p className="info-card-text">100% Natural Water Buffalo Horn</p>
-              <p className="info-card-subtext">
-                Ethically sourced, no synthetic materials
-              </p>
+              <h3 className="info-card-title">Photo Sizes</h3>
+              <p className="info-card-text">4x6" to 8x10"</p>
+              <p className="info-card-subtext">Custom sizes available</p>
             </div>
             <div className="info-card">
-              <h3 className="info-card-title">Sizes Available</h3>
-              <p className="info-card-text">15mm, 18mm, 22mm, 25mm</p>
-              <p className="info-card-subtext">
-                Custom sizes available on request
-              </p>
+              <h3 className="info-card-title">Frame Thickness</h3>
+              <p className="info-card-text">15mm – 25mm</p>
+              <p className="info-card-subtext">Solid horn construction</p>
             </div>
             <div className="info-card">
-              <h3 className="info-card-title">Colors</h3>
-              <p className="info-card-text">12 Standard Colors</p>
-              <p className="info-card-subtext">
-                From Light White to Dark Pattern
-              </p>
+              <h3 className="info-card-title">Backing Material</h3>
+              <p className="info-card-text">Cardboard or MDF</p>
+              <p className="info-card-subtext">Easy photo replacement</p>
             </div>
             <div className="info-card">
-              <h3 className="info-card-title">Finish</h3>
-              <p className="info-card-text">Natural Polished Finish</p>
-              <p className="info-card-subtext">
-                Can be custom finished as needed
-              </p>
+              <h3 className="info-card-title">Display Options</h3>
+              <p className="info-card-text">Tabletop & Wall Mount</p>
+              <p className="info-card-subtext">Stand/hardware included</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Care Instructions */}
+      <section className="care-instructions section-border">
+        <div className="container">
+          <h2 className="care-title">Frame Care & Maintenance</h2>
+          <div className="care-grid">
+            <div className="care-card">
+              <h3>🧹 Cleaning</h3>
+              <p>Gently dust with soft, dry cloth. Avoid wet cleaning or chemical cleaners.</p>
+            </div>
+            <div className="care-card">
+              <h3>☀️ Sunlight</h3>
+              <p>Avoid direct sunlight exposure to prevent fading of both frame and photos.</p>
+            </div>
+            <div className="care-card">
+              <h3>💧 Humidity</h3>
+              <p>Keep in dry areas. Avoid bathrooms or humid environments.</p>
+            </div>
+            <div className="care-card">
+              <h3>📸 Photo Handling</h3>
+              <p>Use clean hands when changing photos to prevent oil transfer.</p>
             </div>
           </div>
         </div>
@@ -401,28 +448,28 @@ const HornButtons = () => {
       {/* Related Categories */}
       <section className="related-categories">
         <div className="container">
-          <h2 className="related-title">Browse Related Categories</h2>
+          <h2 className="related-title">Browse Related Products</h2>
           <div className="categories-grid">
-            <Link to="/products/horn-plates" className="category-card">
-              <h3 className="category-name">Horn Plates</h3>
+            <Link to="/products/horn-home-decor" className="category-card">
+              <h3 className="category-name">Home Decor</h3>
               <p className="category-description">
-                For eyewear and decorative uses
+                Horn decor & accessories
               </p>
             </Link>
-            <Link to="/products/horn-jewelry" className="category-card">
+            <Link to="/products/horn-jewelries" className="category-card">
               <h3 className="category-name">Horn Jewelry</h3>
               <p className="category-description">
-                Necklaces, bangles, earrings
+                Handcrafted horn accessories
               </p>
             </Link>
-            <Link to="/products/horn-combs" className="category-card">
-              <h3 className="category-name">Horn Combs</h3>
-              <p className="category-description">Hair and beard combs</p>
+            <Link to="/products/horn-gifts" className="category-card">
+              <h3 className="category-name">Gift Items</h3>
+              <p className="category-description">Special occasion gifts</p>
             </Link>
-            <Link to="/products/horn-cutlery" className="category-card">
-              <h3 className="category-name">Horn Cutlery</h3>
+            <Link to="/products/horn-office-accessories" className="category-card">
+              <h3 className="category-name">Office Decor</h3>
               <p className="category-description">
-                Spoons, knives, servingware
+                Professional horn items
               </p>
             </Link>
           </div>
@@ -432,4 +479,4 @@ const HornButtons = () => {
   );
 };
 
-export default HornButtons;
+export default HornFrames;

@@ -1,13 +1,28 @@
 import React, { useState } from "react";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./HornButtons.css";
+import hornMugProducts from "../../data/hornMugsData";
 import VideoGallery from "../../components/VideoGallery";
-import hornButtonProducts from "../../data/hornButtonsData";
 
-const hornButtonVideos = [
+const hornMugVideos = [
   {
-    publicId: "horn1_oyvxb6",
-    title: "Horn Button Manufacturing",
+    publicId: "hornmug4_zmvgrs",
+    title: "Horn Mug Manufacturing",
+    description: "Watch our premium horn buttons being crafted",
+  },
+  {
+    publicId: "hornmug1_iar7rw",
+    title: "Horn Mug Manufacturing",
+    description: "Watch our premium horn buttons being crafted",
+  },
+  {
+    publicId: "hornmug2_t28azv",
+    title: "Horn Mug Manufacturing",
+    description: "Watch our premium horn buttons being crafted",
+  },
+  {
+    publicId: "hornmug3_drpihn",
+    title: "Horn Mug Manufacturing",
     description: "Watch our premium horn buttons being crafted",
   },
 ];
@@ -33,45 +48,45 @@ const ZoomIcon = () => (
   </svg>
 );
 
-const HornButtons = () => {
-     const navigate = useNavigate();
+const HornMugs = () => {
+  const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedImage, setSelectedImage] = useState(null);
   const productsPerPage = 20;
 
-    const handleButtonClick = () => {
-    navigate("/quote");
-  };
+  // Add default properties to products that don't have them
+  const enhancedProducts = hornMugProducts.map((product) => ({
+    ...product,
+    description:
+      product.description ||
+      "Handcrafted horn mug made from natural buffalo or ox horn. Unique grain patterns and polished finish.",
+    price: product.price || "Contact for Price",
+    featured: product.featured || false,
+  }));
 
   // Filter and sort products
   const getSortedProducts = () => {
-    let sorted = [...hornButtonProducts];
+    let sorted = [...enhancedProducts];
 
     switch (sortBy) {
       case "price-low":
-        sorted.sort((a, b) => {
-          if (a.price === "Contact") return 1;
-          if (b.price === "Contact") return -1;
-          return a.price - b.price;
-        });
+        // Since we don't have actual prices, sort by SKU or title
+        sorted.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case "price-high":
-        sorted.sort((a, b) => {
-          if (a.price === "Contact") return -1;
-          if (b.price === "Contact") return 1;
-          return b.price - a.price;
-        });
+        sorted.sort((a, b) => b.title.localeCompare(a.title));
         break;
       case "name":
         sorted.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case "featured":
-        sorted.sort((a, b) => b.featured - a.featured);
+        // Since we don't have featured property, sort by ID
+        sorted.sort((a, b) => b.id - a.id);
         break;
       default:
-        // Default: featured first, then by id
-        sorted.sort((a, b) => b.featured - a.featured || a.id - b.id);
+        // Default: sort by ID
+        sorted.sort((a, b) => a.id - b.id);
         break;
     }
 
@@ -88,6 +103,10 @@ const HornButtons = () => {
     indexOfLastProduct
   );
   const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
+
+  const handleButtonClick = () => {
+    navigate("/quote");
+  };
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -119,20 +138,15 @@ const HornButtons = () => {
             <span className="breadcrumb-separator">/</span>
             <Link to="/products">Products</Link>
             <span className="breadcrumb-separator">/</span>
-            <span>Horn Buttons</span>
+            <span>Horn Mugs</span>
           </div>
 
-          <h1 className="page-title">Horn Buttons</h1>
+          <h1 className="page-title">Horn Mugs</h1>
           <p className="page-description">
-            Elevate your apparel with our premium natural horn buttons, crafted
-            from ethically sourced buffalo horn. Known for their exceptional
-            durability, smooth finish, and unique natural patterns, these horn
-            buttons add timeless elegance to garments. Ideal for luxury fashion
-            brands, clothing manufacturers, tailors, and designers seeking
-            sustainable and high-quality fashion accessories. We offer custom
-            horn buttons in various sizes, shapes, and finishes to meet your
-            design requirements. Contact us today for bespoke horn button
-            solutions.
+            Discover our handcrafted horn mugs made from natural buffalo and ox
+            horn. Each mug features unique grain patterns, polished finishes,
+            and traditional craftsmanship. Ideal for beer, mead, ale, gifting,
+            reenactments, and hospitality use.
           </p>
 
           <div className="page-stats">
@@ -142,7 +156,7 @@ const HornButtons = () => {
               {sortedProducts.length} results
             </p>
 
-            {/* <div className="sorting-options">
+            <div className="sorting-options">
               <label htmlFor="sort-select">Sort by:</label>
               <select
                 id="sort-select"
@@ -151,12 +165,11 @@ const HornButtons = () => {
                 className="sort-select"
               >
                 <option value="default">Default sorting</option>
-                <option value="featured">Featured</option>
                 <option value="name">Sort by name</option>
-                <option value="price-low">Sort by price: low to high</option>
-                <option value="price-high">Sort by price: high to low</option>
+                <option value="price-low">Sort by SKU: low to high</option>
+                <option value="price-high">Sort by SKU: high to low</option>
               </select>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>
@@ -165,27 +178,27 @@ const HornButtons = () => {
       <section className="featured-banner section-border">
         <div className="container">
           <div className="banner-content">
-            <h2 className="banner-title">Premium Horn Button Blanks</h2>
+            <h2 className="banner-title">Authentic Handmade Horn Mugs</h2>
             <p className="banner-text">
-              Available in multiple colors and multiple sizes. All products made from
-              100% natural, ethically sourced water buffalo horns.
+              Crafted from ethically sourced natural horn. Each piece is unique,
+              food-safe, and finished by skilled artisans.
             </p>
             <div className="banner-features">
               <div className="feature">
                 <span className="feature-icon">✓</span>
-                <span className="feature-text">Multiple Color Options</span>
+                <span className="feature-text">Natural Horn Material</span>
               </div>
               <div className="feature">
                 <span className="feature-icon">✓</span>
-                <span className="feature-text">Multiple Sizes</span>
+                <span className="feature-text">Food-Safe Coating</span>
               </div>
               <div className="feature">
                 <span className="feature-icon">✓</span>
-                <span className="feature-text">Ethically Sourced</span>
+                <span className="feature-text">Unique Grain Patterns</span>
               </div>
               <div className="feature">
                 <span className="feature-icon">✓</span>
-                <span className="feature-text">Bulk Discounts</span>
+                <span className="feature-text">Custom Branding Available</span>
               </div>
             </div>
           </div>
@@ -230,7 +243,7 @@ const HornButtons = () => {
                   {/* Title */}
                   <h3 className="product-title minimal">{product.title}</h3>
 
-                  {/* Description */}
+                  {/* Description - Always show default description */}
                   <p className="product-description minimal">
                     {product.description}
                   </p>
@@ -298,9 +311,9 @@ const HornButtons = () => {
       </section>
 
       <VideoGallery
-        videos={hornButtonVideos}
-        cloudName="dnhqjli6k" // REQUIRED
-        title="Horn Button Videos"
+        videos={hornMugVideos}
+        cloudName="dnhqjli6k"
+        title="Horn Mug Videos"
         description="Watch our horn button manufacturing process"
       />
 
@@ -319,11 +332,12 @@ const HornButtons = () => {
                 src={selectedImage.image}
                 alt={selectedImage.title}
                 className="modal-image"
+                style={{ objectFit: "contain" }}
               />
             </div>
             <div className="modal-image-caption">
               <h3>{selectedImage.title}</h3>
-              {selectedImage.description && <p>{selectedImage.description}</p>}
+              <p>{selectedImage.description}</p>
             </div>
           </div>
         </div>
@@ -334,17 +348,17 @@ const HornButtons = () => {
         <div className="container">
           <div className="solutions-content">
             <div className="solutions-text">
-              <h2 className="solutions-title">Need Custom Horn Buttons?</h2>
+              <h2 className="solutions-title">Custom Horn Mugs</h2>
               <p className="solutions-description">
-                We specialize in custom horn button manufacturing for fashion
-                brands and designers. From unique shapes to specific color
-                matching, we can create exactly what you need.
+                We offer private-label horn mugs with custom sizes, engravings,
+                handles, and finishes. Perfect for breweries, events, and
+                brands.
               </p>
               <ul className="solutions-features">
-                <li>Custom shapes and sizes</li>
-                <li>Color matching services</li>
-                <li>Minimum order: 1000 pieces</li>
-                <li>Private labeling available</li>
+                <li>Custom logo engraving</li>
+                <li>Different sizes & shapes</li>
+                <li>Food-safe interior coating</li>
+                <li>Bulk & wholesale orders</li>
                 <li>Worldwide shipping</li>
               </ul>
               <button className="solutions-btn" onClick={handleButtonClick}>
@@ -354,7 +368,7 @@ const HornButtons = () => {
 
             <div className="solutions-image">
               <div className="image-placeholder">
-                <span className="image-text">Custom Button Samples</span>
+                <span className="image-text">Custom Horn Mug Samples</span>
               </div>
             </div>
           </div>
@@ -368,31 +382,23 @@ const HornButtons = () => {
           <div className="info-grid">
             <div className="info-card">
               <h3 className="info-card-title">Material</h3>
-              <p className="info-card-text">100% Natural Water Buffalo Horn</p>
-              <p className="info-card-subtext">
-                Ethically sourced, no synthetic materials
-              </p>
+              <p className="info-card-text">Natural Buffalo / Ox Horn</p>
+              <p className="info-card-subtext">Ethically sourced</p>
             </div>
             <div className="info-card">
-              <h3 className="info-card-title">Sizes Available</h3>
-              <p className="info-card-text">15mm, 18mm, 22mm, 25mm</p>
-              <p className="info-card-subtext">
-                Custom sizes available on request
-              </p>
-            </div>
-            <div className="info-card">
-              <h3 className="info-card-title">Colors</h3>
-              <p className="info-card-text">12 Standard Colors</p>
-              <p className="info-card-subtext">
-                From Light White to Dark Pattern
-              </p>
+              <h3 className="info-card-title">Capacity</h3>
+              <p className="info-card-text">300ml – 700ml</p>
+              <p className="info-card-subtext">Custom sizes available</p>
             </div>
             <div className="info-card">
               <h3 className="info-card-title">Finish</h3>
-              <p className="info-card-text">Natural Polished Finish</p>
-              <p className="info-card-subtext">
-                Can be custom finished as needed
-              </p>
+              <p className="info-card-text">Polished / Matte / Natural</p>
+              <p className="info-card-subtext">Multiple finish options</p>
+            </div>
+            <div className="info-card">
+              <h3 className="info-card-title">Care Instructions</h3>
+              <p className="info-card-text">Hand wash only</p>
+              <p className="info-card-subtext">Food-safe coating included</p>
             </div>
           </div>
         </div>
@@ -401,28 +407,28 @@ const HornButtons = () => {
       {/* Related Categories */}
       <section className="related-categories">
         <div className="container">
-          <h2 className="related-title">Browse Related Categories</h2>
+          <h2 className="related-title">Browse Related Products</h2>
           <div className="categories-grid">
-            <Link to="/products/horn-plates" className="category-card">
-              <h3 className="category-name">Horn Plates</h3>
+            <Link to="/products/horn-bowls" className="category-card">
+              <h3 className="category-name">Horn Bowls</h3>
               <p className="category-description">
-                For eyewear and decorative uses
+                Handcrafted natural horn bowls
               </p>
             </Link>
-            <Link to="/products/horn-jewelry" className="category-card">
-              <h3 className="category-name">Horn Jewelry</h3>
+            <Link to="/products/horn-spoons" className="category-card">
+              <h3 className="category-name">Horn Spoons</h3>
+              <p className="category-description">Traditional horn utensils</p>
+            </Link>
+            <Link to="/products/drinking-horns" className="category-card">
+              <h3 className="category-name">Drinking Horns</h3>
               <p className="category-description">
-                Necklaces, bangles, earrings
+                Traditional drinking vessels
               </p>
             </Link>
-            <Link to="/products/horn-combs" className="category-card">
-              <h3 className="category-name">Horn Combs</h3>
-              <p className="category-description">Hair and beard combs</p>
-            </Link>
-            <Link to="/products/horn-cutlery" className="category-card">
-              <h3 className="category-name">Horn Cutlery</h3>
+            <Link to="/products/horn-gifts" className="category-card">
+              <h3 className="category-name">Horn Gift Items</h3>
               <p className="category-description">
-                Spoons, knives, servingware
+                Complete horn product collection
               </p>
             </Link>
           </div>
@@ -432,4 +438,4 @@ const HornButtons = () => {
   );
 };
 
-export default HornButtons;
+export default HornMugs;
