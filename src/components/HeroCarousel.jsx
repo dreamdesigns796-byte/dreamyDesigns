@@ -12,26 +12,14 @@ const HeroCarousel = () => {
     {
       id: 1,
       image: carouselImage1,
-      title: 'Timeless Creations,',
-      subtitle: 'Handcrafted with Soul',
-      linkText: 'EXPLORE DESIGNS',
-      linkUrl: '#products-section'
     },
     {
       id: 2,
       image: carouselImage2,
-      title: 'Discover the Art of Bone Inlay',
-      subtitle: 'Exquisite Craftsmanship from India',
-      linkText: 'VIEW BONE INLAY',
-      linkUrl: '/products/bone-inlay'
     },
     {
       id: 3,
       image: carouselImage3,
-      title: 'Ethically Sourced Horn Products',
-      subtitle: 'Sustainable, Unique, and Hand-Polished',
-      linkText: 'BROWSE CATEGORIES',
-      linkUrl: '/products'
     }
   ];
 
@@ -41,7 +29,7 @@ const HeroCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((current) => (current + 1) % slides.length);
-    }, 2000); // Change slide every 5 seconds
+    }, 2000); // Change slide every 2 seconds
     return () => clearInterval(interval);
   }, [slides.length]);
 
@@ -65,15 +53,10 @@ const HeroCarousel = () => {
           className={`carousel-slide ${index === activeIndex ? 'active' : ''}`}
           style={{ backgroundImage: `url(${slide.image})` }}
         >
+          {/* Removed all text and button content */}
           <div className="carousel-overlay">
             <div className="carousel-content">
-              <h2 className="carousel-title">
-                <span className="hero-line">{slide.title}</span>
-                <span className="hero-line">{slide.subtitle}</span>
-              </h2>
-              <a href={slide.linkUrl} className="explore-btn">
-                {slide.linkText}
-              </a>
+              {/* Content removed */}
             </div>
 
             {/* Decorative element from the old Hero section, kept for style */}
@@ -116,7 +99,6 @@ const HeroCarousel = () => {
       <div className="corner-accent top-right"></div>
       <div className="corner-accent bottom-left"></div>
       <div className="corner-accent bottom-right"></div>
-
     </section>
   );
 };
