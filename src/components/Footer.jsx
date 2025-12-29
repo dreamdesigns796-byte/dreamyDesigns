@@ -3,7 +3,6 @@ import React from 'react';
 import './Footer.css';
 
 const Footer = () => {
-  // Product categories matching the Header structure
   const productCategories = [
     {
       category: "Horn Products",
@@ -57,6 +56,13 @@ const Footer = () => {
   return (
     <footer className="footer-section">
       <div className="footer-container">
+        {/* Decorative top border */}
+        <div className="border-decoration top-border">
+          <div className="border-line"></div>
+          <div className="corner left"></div>
+          <div className="corner right"></div>
+        </div>
+
         {/* Main Footer Content */}
         <div className="footer-content">
           {/* Brand Column */}
@@ -136,6 +142,13 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Decorative middle border */}
+        <div className="border-decoration middle-border">
+          <div className="border-line"></div>
+          <div className="corner left"></div>
+          <div className="corner right"></div>
+        </div>
+
         {/* Bottom Copyright Bar */}
         <div className="copyright-section">
           <div className="copyright-content">
@@ -166,13 +179,12 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Decorative border elements */}
-        <div className="footer-border-top"></div>
-        <div className="footer-border-bottom"></div>
-        <div className="footer-corner top-left"></div>
-        <div className="footer-corner top-right"></div>
-        <div className="footer-corner bottom-left"></div>
-        <div className="footer-corner bottom-right"></div>
+        {/* Decorative bottom border */}
+        <div className="border-decoration bottom-border">
+          <div className="border-line"></div>
+          <div className="corner left"></div>
+          <div className="corner right"></div>
+        </div>
       </div>
     </footer>
   );
