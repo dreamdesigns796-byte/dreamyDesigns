@@ -88,17 +88,13 @@ const Header = () => {
   // Handle mobile main category click
   const handleMobileMainCategoryClick = (categoryKey, e) => {
     e.stopPropagation();
-    const mainCategoryElement = e.target.closest('.mobile-main-category');
-    const subcategoryList = mainCategoryElement.querySelector('.mobile-subcategory-list');
     
     if (activeMainCategory === categoryKey) {
       // If clicking the same category, close it
       setActiveMainCategory(null);
-      subcategoryList.classList.remove('visible');
     } else {
       // Open the clicked category
       setActiveMainCategory(categoryKey);
-      subcategoryList.classList.add('visible');
     }
   };
 
