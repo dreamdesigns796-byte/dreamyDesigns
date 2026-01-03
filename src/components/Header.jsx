@@ -131,7 +131,6 @@ const Header = () => {
         { name: 'Horn Plates', path: '/products/horn-plates' },
         { name: 'Horn Combs', path: '/products/horn-combs' },
         { name: 'Horn Jewelry', path: '/products/horn-jewelry' },
-        { name: 'Horn Cutlery', path: '/products/horn-cutlery' },
       ]
     },
     { 
