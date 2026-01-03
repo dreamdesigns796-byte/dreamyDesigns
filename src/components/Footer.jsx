@@ -19,22 +19,16 @@ const Footer = () => {
     {
       category: "Handicraft Items",
       items: [
-        { name: "Knobs", href: "/products/knobs" },
         { name: "Horn Jewelry", href: "/products/horn-jewelry" },
         { name: "Horn Frames", href: "/products/horn-frames" },
+        { name: "Cutlery", href: "/products/cutlery" },
       ]
     },
     {
       category: "Hardware Items",
       items: [
         { name: "Handles", href: "/products/handles" },
-      ]
-    },
-    {
-      category: "Additional Products",
-      items: [
-        { name: "Bone Inlay", href: "/products/bone-inlay" },
-        { name: "Horn Eyeglasses", href: "/products/horn-eyeglasses" },
+        { name: "Knobs", href: "/products/knobs" },
       ]
     }
   ];
@@ -79,7 +73,7 @@ const Footer = () => {
                   <span className="contact-icon">📞</span>
                   <div className="contact-details">
                     <span className="contact-label">Phone</span>
-                    <span className="contact-text">+91-9528271574</span>
+                    <span className="contact-text">+91-9528271574,+91-8800948459</span>
                   </div>
                 </div>
                 <div className="contact-item">

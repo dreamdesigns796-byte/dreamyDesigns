@@ -350,6 +350,11 @@
   .faq-answer p {
     padding: 25px;
     font-size: 14px;
+     text-align: center;
+  }
+
+   .question-text {
+    text-align: center;
   }
   
   .footer-text {

@@ -1324,3 +1324,59 @@
     color: #000;
   }
 }
+
+/* ===============================
+   MOBILE TEXT CENTER ALIGNMENT
+   (ADD ONLY – DO NOT REMOVE ANYTHING)
+================================ */
+
+@media (max-width: 768px) {
+
+  /* General text centering */
+  .page-description,
+  .banner-text,
+  .solutions-description,
+  .info-card-text,
+  .info-card-subtext,
+  .category-description {
+    text-align: center;
+  }
+
+  .page-title,
+  .banner-title,
+  .solutions-title,
+  .info-title,
+  .related-title {
+    text-align: center;
+  }
+
+  /* FIX: Solutions features (✓ bullets) */
+  .solutions-features {
+    text-align: center;
+  }
+
+  .solutions-features li {
+    padding-left: 0;
+  }
+
+  .solutions-features li::before {
+    position: static;
+    display: inline-block;
+    margin-right: 8px;
+  }
+    .solutions-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-description,
+  .banner-text,
+  .solutions-description,
+  .info-card-text,
+  .info-card-subtext,
+  .category-description {
+    text-align: center;
+  }
+}

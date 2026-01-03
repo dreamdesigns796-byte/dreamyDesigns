@@ -1,5 +1,5 @@
 // src/App.jsx
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -10,7 +10,7 @@ import HornMugs from "./screens/products/HornMugs";
 import icon from './assets/icon/whatsapp.png';
 import VikingHorns from './screens/products/VikingHorns';
 import HornJewelries from "./screens/products/HornJewelries";
-import HornFrames from "./screens/products/HornFrames";
+import WoodResinFrames from "./screens/products/WoodResinFrames";
 
 // Import product category pages
 // import VikingHorns from './screens/products/VikingHorns';
@@ -26,8 +26,19 @@ import "./App.css";
 import Quote from "./screens/Quote";
 import Knobs from "./screens/products/Knobs";
 import Handles from "./screens/products/Handles";
+import WoodResinCutlery from "./screens/products/WoodResinCutlery";
 
 function App() {
+  const [showWhatsApp, setShowWhatsApp] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowWhatsApp(true);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Router>
       <div className="App">
@@ -46,7 +57,9 @@ function App() {
             <Route path="/products/knobs" element={<Knobs />} />
             <Route path="/products/handles" element={<Handles />} />
             <Route path="/products/horn-jewelry" element={<HornJewelries />} />
-            <Route path="/products/horn-frames" element={<HornFrames />} />
+            <Route path="/products/horn-frames" element={<WoodResinFrames />} />
+            <Route path="/products/cutlery" element={<WoodResinCutlery />} />
+
             {/* <Route path="/products/horn-combs" element={<HornCombs />} /> */}
             {/* <Route path="/products/horn-jewelry" element={<HornJewelry />} /> */}
             {/* <Route path="/products/horn-cutlery" element={<HornCutlery />} /> */}
@@ -57,15 +70,22 @@ function App() {
       </div>
 
       {/* WhatsApp Floating Button */}
-      <a
-        href="https://wa.me/919528271574"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="whatsapp-float"
-        aria-label="Chat on WhatsApp"
-      >
-        <img src={icon} alt="WhatsApp" className="whatsapp-icon" />
-      </a>
+      <div className="whatsapp-wrapper">
+        <a
+          href="https://wa.me/918800948459"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`whatsapp-float ${showWhatsApp ? "show-icon" : "show-text"}`}
+          aria-label="Chat on WhatsApp"
+        >
+          {!showWhatsApp && (
+            <span className="whatsapp-text">Let’s Connect</span>
+          )}
+          {showWhatsApp && (
+            <img src={icon} alt="WhatsApp" className="whatsapp-icon" />
+          )}
+        </a>
+      </div>
     </Router>
   );
 }

@@ -268,9 +268,6 @@ const HornCraftersAbout = () => {
               and a heritage that continues to inspire modern living.
             </p>
             <div className="ctaButtons">
-              <button className="primaryButton">
-                View Full Collection <span className="buttonArrow">→</span>
-              </button>
               <button className="secondaryButton">Request Custom Quote</button>
             </div>
             <p className="ctaNote">

@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Header.css';
-import logo from '../assets/icon/logo.png';
+import logo from '../assets/icon/logo3.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -142,9 +142,9 @@ const Header = () => {
       name: 'Handicraft Items', 
       key: 'handicraft',
       subcategories: [
-        { name: 'Knobs', path: '/products/knobs' },
         { name: 'Horn Jewelry', path: '/products/horn-jewelry' },
-        { name: 'Horn Frames', path: '/products/horn-frames' },
+        { name: 'Wooden and Resin Frames', path: '/products/horn-frames' },
+        { name: 'Cutlery', path: '/products/cutlery' },
       ]
     },
     { 
@@ -152,6 +152,7 @@ const Header = () => {
       key: 'hardware',
       subcategories: [
         { name: 'Handles', path: '/products/handles' },
+        { name: 'Knobs', path: '/products/knobs' },
       ]
     }
   ];

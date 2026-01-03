@@ -68,7 +68,7 @@ const FeaturedProducts = () => {
           </div>
           
           <div className="main-product-image">
-            <img src="src/assets/images/featureProductHome/image3.png" alt="Buffalo Horn Buttons" className="product-image" />
+            <img src={img1} alt="Buffalo Horn Buttons" className="product-image" />
           </div>
         </div>
 

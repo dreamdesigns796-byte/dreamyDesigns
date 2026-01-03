@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./HornButtons.css";
-import hornFrameProducts from "../../data/hornFramesData";
+import woodResinFrameProducts from "../../data/hornFramesData";
 
 // SVG Zoom Icon Component
 const ZoomIcon = () => (
@@ -24,7 +24,7 @@ const ZoomIcon = () => (
   </svg>
 );
 
-const HornFrames = () => {
+const WoodResinFrames = () => {
   const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
@@ -32,9 +32,9 @@ const HornFrames = () => {
   const productsPerPage = 20;
 
   // Add default properties to products that don't have them
-  const enhancedProducts = hornFrameProducts.map(product => ({
+  const enhancedProducts = woodResinFrameProducts.map(product => ({
     ...product,
-    description: product.description || "Handcrafted horn photo frame made from natural buffalo or ox horn. Unique grain patterns and elegant finish for displaying your cherished memories.",
+    description: product.description || "Handcrafted wood and resin photo frame featuring a unique blend of natural wood grain with vibrant resin colors. Each piece is a one-of-a-kind work of art for displaying your cherished memories.",
     price: product.price || "Contact for Price",
     featured: product.featured || false
   }));
@@ -45,7 +45,6 @@ const HornFrames = () => {
 
     switch (sortBy) {
       case "price-low":
-        // Since we don't have actual prices, sort by SKU or title
         sorted.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case "price-high":
@@ -55,11 +54,9 @@ const HornFrames = () => {
         sorted.sort((a, b) => a.title.localeCompare(b.title));
         break;
       case "featured":
-        // Since we don't have featured property, sort by ID
         sorted.sort((a, b) => b.id - a.id);
         break;
       default:
-        // Default: sort by ID
         sorted.sort((a, b) => a.id - b.id);
         break;
     }
@@ -103,7 +100,7 @@ const HornFrames = () => {
   };
 
   return (
-    <div className="horn-buttons-page">
+    <div className="wood-resin-frames-page">
       {/* Page Header */}
       <section className="page-header">
         <div className="container">
@@ -112,15 +109,16 @@ const HornFrames = () => {
             <span className="breadcrumb-separator">/</span>
             <Link to="/products">Products</Link>
             <span className="breadcrumb-separator">/</span>
-            <span>Horn Photo Frames</span>
+            <span>Wood & Resin Photo Frames</span>
           </div>
 
-          <h1 className="page-title">Horn Photo Frames</h1>
+          <h1 className="page-title">Wood & Resin Photo Frames</h1>
           <p className="page-description">
-            Discover our exquisite collection of handcrafted horn photo frames made from natural 
-            buffalo and ox horn. Each frame is uniquely designed to showcase your cherished 
-            memories with elegance and natural beauty. Perfect for home decor, offices, gifting, 
-            and as statement pieces that blend traditional craftsmanship with contemporary design.
+            Discover our exquisite collection of handcrafted wood and resin photo frames. 
+            Each frame combines the natural beauty of wood grain with vibrant, colored resin 
+            to create unique, artistic pieces that transform your photographs into stunning 
+            display art. Perfect for home decor, offices, gifts, and as statement pieces 
+            that blend natural elements with contemporary design.
           </p>
 
           <div className="page-stats">
@@ -152,28 +150,29 @@ const HornFrames = () => {
       <section className="featured-banner section-border">
         <div className="container">
           <div className="banner-content">
-            <h2 className="banner-title">Exquisite Handcrafted Horn Photo Frames</h2>
+            <h2 className="banner-title">Artistic Wood & Resin Photo Frames</h2>
             <p className="banner-text">
-              Each photo frame is meticulously crafted from ethically sourced natural horn, 
-              showcasing the material's unique patterns and textures. Transform your photographs 
-              into works of art with these sustainable and elegant frames.
+              Each photo frame is meticulously crafted from sustainably sourced wood and 
+              high-quality resin, creating mesmerizing patterns and color combinations. 
+              Transform your photographs into gallery-worthy art with these unique frames 
+              that capture the perfect harmony between nature and craftsmanship.
             </p>
             <div className="banner-features">
               <div className="feature">
                 <span className="feature-icon">🖼️</span>
-                <span className="feature-text">Multiple Photo Sizes</span>
+                <span className="feature-text">Unique Resin Patterns</span>
               </div>
               <div className="feature">
                 <span className="feature-icon">✨</span>
-                <span className="feature-text">Elegant Display Stands</span>
+                <span className="feature-text">Natural Wood Grain</span>
               </div>
               <div className="feature">
                 <span className="feature-icon">🎨</span>
-                <span className="feature-text">Customizable Designs</span>
+                <span className="feature-text">Custom Color Options</span>
               </div>
               <div className="feature">
                 <span className="feature-icon">🌿</span>
-                <span className="feature-text">Sustainable Material</span>
+                <span className="feature-text">Sustainable Materials</span>
               </div>
             </div>
           </div>
@@ -305,54 +304,54 @@ const HornFrames = () => {
       {/* Frame Types Section */}
       <section className="frame-types section-border">
         <div className="container">
-          <h2 className="types-title">Our Horn Frame Collection</h2>
+          <h2 className="types-title">Our Wood & Resin Frame Collection</h2>
           <div className="types-grid">
             <div className="type-card">
-              <h3 className="type-name">Tabletop Frames</h3>
+              <h3 className="type-name">River-Resin Frames</h3>
               <p className="type-description">
-                Elegant standing frames perfect for desks, shelves, and mantels. 
-                Available in various angles and heights for optimal display.
+                Features a beautiful "river" of colored resin flowing through natural wood, 
+                creating a stunning visual effect reminiscent of flowing water through a forest.
               </p>
               <div className="type-features">
-                <span>Adjustable stands</span>
-                <span>Multi-angle viewing</span>
-                <span>Non-slip base</span>
+                <span>Blue/green resin rivers</span>
+                <span>Natural wood banks</span>
+                <span>Epoxy resin finish</span>
               </div>
             </div>
             <div className="type-card">
-              <h3 className="type-name">Wall-Mounted Frames</h3>
+              <h3 className="type-name">Geometric Resin Frames</h3>
               <p className="type-description">
-                Traditional wall frames with secure hanging mechanisms. 
-                Perfect for creating gallery walls and decorative displays.
+                Modern frames with geometric resin inlays, perfect for contemporary 
+                interiors and adding artistic flair to any space.
               </p>
               <div className="type-features">
-                <span>Secure hooks included</span>
-                <span>Easy to install</span>
-                <span>Lightweight design</span>
+                <span>Geometric patterns</span>
+                <span>Color blocking</span>
+                <span>Modern aesthetic</span>
               </div>
             </div>
             <div className="type-card">
-              <h3 className="type-name">Multi-Photo Frames</h3>
+              <h3 className="type-name">Natural Edge Frames</h3>
               <p className="type-description">
-                Frames designed to hold multiple photographs. Perfect for 
-                family collages, wedding memories, or event photographs.
+                Showcases the natural edge of the wood with resin filling, 
+                preserving the organic shape while adding vibrant color accents.
               </p>
               <div className="type-features">
-                <span>2-8 photo capacity</span>
-                <span>Adjustable inserts</span>
-                <span>Collage layouts</span>
+                <span>Live edge wood</span>
+                <span>Resin-filled voids</span>
+                <span>Organic shapes</span>
               </div>
             </div>
             <div className="type-card">
-              <h3 className="type-name">Mini Frames</h3>
+              <h3 className="type-name">Multi-Panel Frames</h3>
               <p className="type-description">
-                Compact frames ideal for small spaces, travel, or as 
-                decorative accents. Perfect for wallet-sized photos.
+                Multiple photo panels connected with resin elements, perfect for 
+                creating photo collages and multi-image displays.
               </p>
               <div className="type-features">
-                <span>Portable size</span>
-                <span>Travel-friendly</span>
-                <span>Gift-ready packaging</span>
+                <span>2-4 photo panels</span>
+                <span>Resin connectors</span>
+                <span>Gallery style</span>
               </div>
             </div>
           </div>
@@ -364,18 +363,18 @@ const HornFrames = () => {
         <div className="container">
           <div className="solutions-content">
             <div className="solutions-text">
-              <h2 className="solutions-title">Custom Horn Photo Frames</h2>
+              <h2 className="solutions-title">Custom Wood & Resin Frames</h2>
               <p className="solutions-description">
-                Create personalized horn photo frames with custom sizes, shapes, 
-                engravings, and finishes. Perfect for corporate gifts, weddings, 
-                anniversaries, hotels, and interior design projects.
+                Create personalized wood and resin photo frames with custom wood types, 
+                resin colors, sizes, and designs. Perfect for matching specific decor 
+                themes, corporate branding, weddings, anniversaries, and unique gifts.
               </p>
               <ul className="solutions-features">
-                <li>Custom photo sizes</li>
-                <li>Personalized engravings</li>
-                <li>Brand logo incorporation</li>
-                <li>Bulk orders for events</li>
-                <li>Hotel & restaurant decor</li>
+                <li>Choice of wood species (walnut, maple, oak, etc.)</li>
+                <li>Custom resin color matching</li>
+                <li>Personalized dimensions</li>
+                <li>Engraving options</li>
+                <li>Bulk orders for events & businesses</li>
               </ul>
               <button className="solutions-btn" onClick={handleButtonClick}>
                 Request Custom Quote <span className="btn-arrow">→</span>
@@ -384,37 +383,37 @@ const HornFrames = () => {
             
             <div className="solutions-image">
               <div className="image-placeholder">
-                <span className="image-text">Custom Frame Samples</span>
+                <span className="image-text">Custom Frame Gallery</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Technical Information */}
-      <section className="technical-info section-border">
+      {/* Material Information */}
+      <section className="material-info section-border">
         <div className="container">
-          <h2 className="info-title">Technical Specifications</h2>
+          <h2 className="info-title">Material & Craftsmanship</h2>
           <div className="info-grid">
             <div className="info-card">
-              <h3 className="info-card-title">Photo Sizes</h3>
-              <p className="info-card-text">4x6" to 8x10"</p>
-              <p className="info-card-subtext">Custom sizes available</p>
+              <h3 className="info-card-title">Wood Selection</h3>
+              <p className="info-card-text">Walnut, Maple, Oak</p>
+              <p className="info-card-subtext">Sustainably sourced hardwoods</p>
             </div>
             <div className="info-card">
-              <h3 className="info-card-title">Frame Thickness</h3>
-              <p className="info-card-text">15mm – 25mm</p>
-              <p className="info-card-subtext">Solid horn construction</p>
+              <h3 className="info-card-title">Resin Types</h3>
+              <p className="info-card-text">Epoxy & UV Resins</p>
+              <p className="info-card-subtext">Crystal clear, colored options</p>
             </div>
             <div className="info-card">
-              <h3 className="info-card-title">Backing Material</h3>
-              <p className="info-card-text">Cardboard or MDF</p>
-              <p className="info-card-subtext">Easy photo replacement</p>
+              <h3 className="info-card-title">Finish Options</h3>
+              <p className="info-card-text">Matte, Gloss, Satin</p>
+              <p className="info-card-subtext">Food-safe finishes available</p>
             </div>
             <div className="info-card">
-              <h3 className="info-card-title">Display Options</h3>
-              <p className="info-card-text">Tabletop & Wall Mount</p>
-              <p className="info-card-subtext">Stand/hardware included</p>
+              <h3 className="info-card-title">Construction</h3>
+              <p className="info-card-text">Handcrafted Joinery</p>
+              <p className="info-card-subtext">Precision woodworking</p>
             </div>
           </div>
         </div>
@@ -427,19 +426,19 @@ const HornFrames = () => {
           <div className="care-grid">
             <div className="care-card">
               <h3>🧹 Cleaning</h3>
-              <p>Gently dust with soft, dry cloth. Avoid wet cleaning or chemical cleaners.</p>
+              <p>Dust with soft, dry cloth. For resin surfaces, use mild soap and water if needed.</p>
             </div>
             <div className="care-card">
-              <h3>☀️ Sunlight</h3>
-              <p>Avoid direct sunlight exposure to prevent fading of both frame and photos.</p>
+              <h3>☀️ Sun Protection</h3>
+              <p>Avoid prolonged direct sunlight to prevent resin yellowing and wood fading.</p>
             </div>
             <div className="care-card">
-              <h3>💧 Humidity</h3>
-              <p>Keep in dry areas. Avoid bathrooms or humid environments.</p>
+              <h3>🌡️ Temperature</h3>
+              <p>Keep in stable temperatures. Avoid extreme heat or cold which can affect resin.</p>
             </div>
             <div className="care-card">
-              <h3>📸 Photo Handling</h3>
-              <p>Use clean hands when changing photos to prevent oil transfer.</p>
+              <h3>💧 Moisture Control</h3>
+              <p>Wipe spills immediately. Avoid humid environments to preserve wood integrity.</p>
             </div>
           </div>
         </div>
@@ -450,26 +449,26 @@ const HornFrames = () => {
         <div className="container">
           <h2 className="related-title">Browse Related Products</h2>
           <div className="categories-grid">
-            <Link to="/products/horn-home-decor" className="category-card">
-              <h3 className="category-name">Home Decor</h3>
+            <Link to="/products/wood-resin-home-decor" className="category-card">
+              <h3 className="category-name">Wood & Resin Decor</h3>
               <p className="category-description">
-                Horn decor & accessories
+                Artistic home accessories
               </p>
             </Link>
-            <Link to="/products/horn-jewelries" className="category-card">
-              <h3 className="category-name">Horn Jewelry</h3>
+            <Link to="/products/custom-furniture" className="category-card">
+              <h3 className="category-name">Custom Furniture</h3>
               <p className="category-description">
-                Handcrafted horn accessories
+                Wood & resin tables, shelves
               </p>
             </Link>
-            <Link to="/products/horn-gifts" className="category-card">
-              <h3 className="category-name">Gift Items</h3>
-              <p className="category-description">Special occasion gifts</p>
+            <Link to="/products/artisanal-gifts" className="category-card">
+              <h3 className="category-name">Artisanal Gifts</h3>
+              <p className="category-description">Handcrafted unique gifts</p>
             </Link>
-            <Link to="/products/horn-office-accessories" className="category-card">
-              <h3 className="category-name">Office Decor</h3>
+            <Link to="/products/office-art" className="category-card">
+              <h3 className="category-name">Office Art</h3>
               <p className="category-description">
-                Professional horn items
+                Professional decor pieces
               </p>
             </Link>
           </div>
@@ -479,4 +478,4 @@ const HornFrames = () => {
   );
 };
 
-export default HornFrames;
+export default WoodResinFrames;

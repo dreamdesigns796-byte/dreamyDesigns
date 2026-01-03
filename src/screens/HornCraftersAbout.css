@@ -757,3 +757,53 @@
     padding: 30px 15px;
   }
 }
+
+/* ===============================
+   MOBILE TEXT CENTER ALIGNMENT
+   (ADD ONLY – DO NOT REMOVE ANYTHING)
+================================ */
+
+@media (max-width: 768px) {
+  .missionText,
+  .heritageText,
+  .craftsmanshipText,
+  .commitmentText,
+  .missionStatement,
+  .missionDetail,
+  .heritageParagraph,
+  .craftsmanshipParagraph,
+  .commitmentParagraph {
+    text-align: center;
+  }
+
+  .commitmentPoint {
+    justify-content: center;
+  }
+    .craftsmanshipList {
+    text-align: center;
+  }
+
+  .craftsmanshipList li {
+    padding-left: 0;
+  }
+
+  .craftsmanshipList li::before {
+    position: static;
+    display: inline-block;
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .missionText,
+  .heritageText,
+  .craftsmanshipText,
+  .commitmentText,
+  .missionStatement,
+  .missionDetail,
+  .heritageParagraph,
+  .craftsmanshipParagraph,
+  .commitmentParagraph {
+    text-align: center;
+  }
+}

@@ -11,37 +11,37 @@ const hornFrameProducts = [
   {
     id: 1,
     title: "Classic Horn Tabletop Frame",
-    sku: "HPF-001",
+    sku: "WRPF-001",
     image: img1,
   },
   {
     id: 2,
     title: "Horn Wall Photo Frame",
-    sku: "HPF-002",
+    sku: "WRPF-002",
     image: img2,
   },
   {
     id: 3,
     title: "Multi-Photo Horn Frame",
-    sku: "HPF-003",
+    sku: "WRPF-003",
     image: img3,
   },
   {
     id: 4,
     title: "Engraved Horn Picture Frame",
-    sku: "HPF-004",
+    sku: "WRPF-004",
     image: img4,
   },
   {
     id: 5,
     title: "Mini Horn Photo Frame",
-    sku: "HPF-005",
+    sku: "WRPF-005",
     image: img5,
   },
   {
     id: 6,
     title: "Standing Horn Display Frame",
-    sku: "HPF-006",
+    sku: "WRPF-006",
     image: img6,
   }
 ];

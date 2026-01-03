@@ -5,8 +5,9 @@ import img2 from "../assets/hornButtons/blk-btn.jpg";
 import comb from "../assets/images/homeProduct/comb.jpg";
 import jewelry from "../assets/images/homeProduct/jewelry.jpg";
 import plate from "../assets/images/homeProduct/plate.jpg";
-import HornCutlery from "../assets/images/homeProduct/HornCutlery.jpg"; 
 import mugs from "../assets/images/homeCarole/horn-mug.png";
+import HornCutlery from "../assets/cutlery/image11.jpeg";
+
 
 
 export const PRODUCTS = [
@@ -42,7 +43,7 @@ export const PRODUCTS = [
   },
   {
     id: "7",
-    title: "Horn Cutlery",
+    title: "Cutlery",
     image: HornCutlery,
   },
 ];

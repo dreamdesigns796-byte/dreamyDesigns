@@ -355,7 +355,7 @@
   margin-bottom: 10px;
   color: #FAF9F6;
   line-height: 1.4;
-  height: 42px;
+  /* height: 42px; */
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;

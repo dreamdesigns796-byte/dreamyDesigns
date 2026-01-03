@@ -339,6 +339,14 @@
     bottom: 30px;
     right: 20px;
   }
+
+    .story-content {
+    text-align: center;
+  }
+
+  .story-text p {
+    text-align: center;
+  }
 }
 
 @media (max-width: 576px) {

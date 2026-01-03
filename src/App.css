@@ -86,3 +86,37 @@ section {
     margin-top: 70px;
   }
 }
+
+/* ===============================
+   WhatsApp Intro → Icon Transition
+================================ */
+
+.whatsapp-wrapper {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+}
+
+.whatsapp-float.show-text {
+  background: #25D366;
+  border-radius: 50px;
+  padding: 14px 20px;
+  width: auto;
+  height: auto;
+}
+
+.whatsapp-float.show-icon {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.whatsapp-text {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
