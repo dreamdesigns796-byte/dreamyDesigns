@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Header.css';
-import logo from '../assets/icon/logo3.png';
+import logo from '../assets/icon/logo5.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -170,18 +170,19 @@ const Header = () => {
                   const fallbackLogo = document.createElement('div');
                   fallbackLogo.className = 'logo-fallback';
                   fallbackLogo.innerHTML = 'DD';
+                  // Updated fallback to match new larger dimensions
                   fallbackLogo.style.cssText = `
-                    width: 7rem;
-                    height: 7rem;
+                    width: 450px;
+                    height: 115px;
                     background: #B86B4D;
                     color: #FAF9F6;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     font-family: 'Georgia', serif;
-                    font-size: 3rem;
+                    font-size: 3.2rem;
                     font-weight: bold;
-                    border-radius: 50%;
+                    border-radius: 3px;
                   `;
                   logoContainer.insertBefore(fallbackLogo, logoContainer.firstChild);
                 }
@@ -312,7 +313,7 @@ const Header = () => {
         </div>
       </header>
       
-      {/* Header Spacer - Minimal space after fixed header */}
+      {/* Header Spacer - Updated to match larger header */}
       <div className="header-spacer"></div>
       
       {/* Mobile Navigation Overlay */}
@@ -430,17 +431,17 @@ const Header = () => {
                     fallbackLogo.className = 'mobile-logo-fallback';
                     fallbackLogo.innerHTML = 'DD';
                     fallbackLogo.style.cssText = `
-                      width: 5rem;
-                      height: 5rem;
+                      width: 180px;
+                      height: 45px;
                       background: #B86B4D;
                       color: #FAF9F6;
                       display: flex;
                       align-items: center;
                       justify-content: center;
                       font-family: 'Georgia', serif;
-                      font-size: 2.5rem;
+                      font-size: 2rem;
                       font-weight: bold;
-                      border-radius: 50%;
+                      border-radius: 3px;
                     `;
                     mobileBrand.insertBefore(fallbackLogo, mobileBrand.firstChild);
                   }

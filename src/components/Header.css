@@ -34,16 +34,16 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* Header Spacer - Minimal space after fixed header */
+/* Header Spacer - INCREASED to accommodate larger logo */
 .header-spacer {
-  height: 100px;
+  height: 150px; /* Increased from 140px */
   width: 100%;
   background: transparent;
   transition: height 0.3s ease;
 }
 
 .header.scrolled + .header-spacer {
-  height: 80px;
+  height: 110px; /* Increased from 100px */
 }
 
 .logo-link {
@@ -57,39 +57,40 @@
   align-items: center;
 }
 
-/* --- LARGER LOGO ICON STYLES FOR 250×64 DIMENSION --- */
+/* --- UPDATED LARGER LOGO ICON STYLES --- */
+/* Base size INCREASED to 115px height (from 100px) */
 .header-logo-icon {
-  height: 64px; /* Fixed height to match 64px */
-  width: 250px; /* Fixed width to match 250px */
-  min-width: 250px;
+  height: 115px; /* Increased from 100px */
+  width: 450px; /* Increased from 390px - maintains aspect ratio ~3.9 */
+  min-width: 450px; /* Increased from 390px */
   vertical-align: middle;
   filter: brightness(0.2); 
-  transition: transform 0.3s ease, height 0.3s ease;
+  transition: transform 0.3s ease, height 0.3s ease, width 0.3s ease;
   object-fit: contain; /* Ensures proper scaling */
 }
 
 .header-logo-icon:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .logo-fallback {
-  width: 250px; /* Fixed width */
-  height: 64px; /* Fixed height */
+  width: 450px; /* Increased from 390px */
+  height: 115px; /* Increased from 100px */
   background: #B86B4D;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Georgia', serif;
-  font-size: 2rem; /* Adjusted for rectangular shape */
+  font-size: 3.2rem; /* Increased from 3rem */
   font-weight: bold;
-  border-radius: 3px; /* Changed from 50% to rectangular */
+  border-radius: 3px; 
   flex-shrink: 0;
   transition: all 0.3s ease;
 }
 
 .logo-fallback:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   background: #A55C40;
 }
 
@@ -800,24 +801,25 @@
   margin: 0 0 12px 0;
 }
 
+/* --- UPDATED LARGER MOBILE LOGO --- */
 .mobile-logo-icon {
-  height: 40px; /* Adjusted for mobile */
-  width: 156px; /* Maintains 250:64 ratio (40 * 250/64 = 156.25) */
-  min-width: 156px;
+  height: 45px; /* Increased from 40px */
+  width: 180px; /* Increased from 156px */
+  min-width: 180px; /* Increased from 156px */
   /* Darken the logo for light theme */
   filter: brightness(0.2); 
 }
 
 .mobile-logo-fallback {
-  width: 156px;
-  height: 40px;
+  width: 180px; /* Increased from 156px */
+  height: 45px; /* Increased from 40px */
   background: #B86B4D;
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Georgia', serif;
-  font-size: 1.3rem;
+  font-size: 2rem; /* Increased from 1.3rem */
   font-weight: bold;
   border-radius: 3px;
   flex-shrink: 0;
@@ -855,27 +857,27 @@ body.menu-open {
 /* Responsive Design */
 @media (max-width: 1024px) {
   .header-logo-icon {
-    height: 56px; /* Reduced proportionally */
-    width: 219px; /* 56 * 250/64 = 218.75 */
-    min-width: 219px;
+    height: 100px; /* Increased from 80px */
+    width: 400px; /* Increased from 312px */
+    min-width: 400px; /* Increased from 312px */
   }
   
   .logo-fallback {
-    width: 219px;
-    height: 56px;
-    font-size: 1.8rem;
+    width: 400px; /* Increased from 312px */
+    height: 100px; /* Increased from 80px */
+    font-size: 2.8rem; /* Increased from 2.5rem */
   }
   
   .header.scrolled .header-logo-icon {
-    height: 50px; /* Reduced proportionally for scrolled state */
-    width: 195px; /* 50 * 250/64 = 195.3125 */
-    min-width: 195px;
+    height: 80px; /* Increased from 60px - Scrolled state */
+    width: 320px; /* Increased from 234px */
+    min-width: 320px; /* Increased from 234px */
   }
   
   .header.scrolled .logo-fallback {
-    width: 195px;
-    height: 50px;
-    font-size: 1.6rem;
+    width: 320px; /* Increased from 234px */
+    height: 80px; /* Increased from 60px */
+    font-size: 2.4rem; /* Increased from 2rem */
   }
   
   .nav-links.desktop-nav {
@@ -883,11 +885,11 @@ body.menu-open {
   }
   
   .header-spacer {
-    height: 90px;
+    height: 140px; /* Increased from 120px */
   }
   
   .header.scrolled + .header-spacer {
-    height: 70px;
+    height: 110px; /* Increased from 90px */
   }
 }
 
@@ -913,27 +915,27 @@ body.menu-open {
   }
   
   .header-logo-icon {
-    height: 52px; /* Reduced proportionally */
-    width: 203px; /* 52 * 250/64 = 203.125 */
-    min-width: 203px;
+    height: 90px; /* Increased from 70px */
+    width: 350px; /* Increased from 273px */
+    min-width: 350px; /* Increased from 273px */
   }
   
   .logo-fallback {
-    width: 203px;
-    height: 52px;
-    font-size: 1.7rem;
+    width: 350px; /* Increased from 273px */
+    height: 90px; /* Increased from 70px */
+    font-size: 2.5rem; /* Increased from 2.2rem */
   }
   
   .mobile-logo-icon {
-    height: 35px;
-    width: 137px; /* 35 * 250/64 = 136.71875 */
-    min-width: 137px;
+    height: 40px; /* Increased from 35px */
+    width: 160px; /* Increased from 137px */
+    min-width: 160px; /* Increased from 137px */
   }
   
   .mobile-logo-fallback {
-    width: 137px;
-    height: 35px;
-    font-size: 1.2rem;
+    width: 160px; /* Increased from 137px */
+    height: 40px; /* Increased from 35px */
+    font-size: 1.5rem; /* Increased from 1.2rem */
   }
   
   .mobile-brand-text {
@@ -942,59 +944,59 @@ body.menu-open {
   }
   
   .header-spacer {
-    height: 85px;
+    height: 130px; /* Increased from 110px */
   }
   
   .header.scrolled + .header-spacer {
-    height: 65px;
+    height: 100px; /* Increased from 80px */
   }
 }
 
 @media (max-width: 768px) {
   .header-logo-icon {
-    height: 48px; /* Reduced proportionally */
-    width: 188px; /* 48 * 250/64 = 187.5 */
-    min-width: 188px;
+    height: 80px; /* Increased from 60px */
+    width: 312px; /* Increased from 234px */
+    min-width: 312px; /* Increased from 234px */
   }
   
   .logo-fallback {
-    width: 188px;
-    height: 48px;
-    font-size: 1.6rem;
+    width: 312px; /* Increased from 234px */
+    height: 80px; /* Increased from 60px */
+    font-size: 2.2rem; /* Increased from 2rem */
   }
   
   .header-spacer {
-    height: 80px;
+    height: 120px; /* Increased from 100px */
   }
   
   .header.scrolled + .header-spacer {
-    height: 60px;
+    height: 90px; /* Increased from 70px */
   }
 }
 
 @media (max-width: 640px) {
   .header-logo-icon {
-    height: 44px; /* Reduced proportionally */
-    width: 172px; /* 44 * 250/64 = 171.875 */
-    min-width: 172px;
+    height: 70px; /* Increased from 50px */
+    width: 273px; /* Increased from 195px */
+    min-width: 273px; /* Increased from 195px */
   }
   
   .logo-fallback {
-    width: 172px;
-    height: 44px;
-    font-size: 1.5rem;
+    width: 273px; /* Increased from 195px */
+    height: 70px; /* Increased from 50px */
+    font-size: 2rem; /* Increased from 1.8rem */
   }
   
   .mobile-logo-icon {
-    height: 30px;
-    width: 117px; /* 30 * 250/64 = 117.1875 */
-    min-width: 117px;
+    height: 35px; /* Increased from 30px */
+    width: 140px; /* Increased from 117px */
+    min-width: 140px; /* Increased from 117px */
   }
   
   .mobile-logo-fallback {
-    width: 117px;
-    height: 30px;
-    font-size: 1rem;
+    width: 140px; /* Increased from 117px */
+    height: 35px; /* Increased from 30px */
+    font-size: 1.3rem; /* Increased from 1rem */
   }
   
   .mobile-brand-text {
@@ -1003,11 +1005,11 @@ body.menu-open {
   }
   
   .header-spacer {
-    height: 75px;
+    height: 110px; /* Increased from 90px */
   }
   
   .header.scrolled + .header-spacer {
-    height: 55px;
+    height: 80px; /* Increased from 65px */
   }
 }
 
@@ -1025,27 +1027,27 @@ body.menu-open {
   }
   
   .header-logo-icon {
-    height: 40px; /* Reduced proportionally */
-    width: 156px; /* 40 * 250/64 = 156.25 */
-    min-width: 156px;
+    height: 60px; /* Increased from 40px */
+    width: 234px; /* Increased from 156px */
+    min-width: 234px; /* Increased from 156px */
   }
   
   .logo-fallback {
-    width: 156px;
-    height: 40px;
-    font-size: 1.4rem;
+    width: 234px; /* Increased from 156px */
+    height: 60px; /* Increased from 40px */
+    font-size: 1.8rem; /* Increased from 1.4rem */
   }
   
   .header.scrolled .header-logo-icon {
-    height: 35px; /* Reduced proportionally for scrolled state */
-    width: 137px; /* 35 * 250/64 = 136.71875 */
-    min-width: 137px;
+    height: 50px; /* Increased from 35px */
+    width: 195px; /* Increased from 137px */
+    min-width: 195px; /* Increased from 137px */
   }
   
   .header.scrolled .logo-fallback {
-    width: 137px;
-    height: 35px;
-    font-size: 1.2rem;
+    width: 195px; /* Increased from 137px */
+    height: 50px; /* Increased from 35px */
+    font-size: 1.6rem; /* Increased from 1.2rem */
   }
 
   .mobile-nav-header {
@@ -1075,15 +1077,15 @@ body.menu-open {
   }
   
   .mobile-logo-icon {
-    height: 25px;
-    width: 98px; /* 25 * 250/64 = 97.65625 */
-    min-width: 98px;
+    height: 30px; /* Increased from 25px */
+    width: 120px; /* Increased from 98px */
+    min-width: 120px; /* Increased from 98px */
   }
   
   .mobile-logo-fallback {
-    width: 98px;
-    height: 25px;
-    font-size: 0.9rem;
+    width: 120px; /* Increased from 98px */
+    height: 30px; /* Increased from 25px */
+    font-size: 1.1rem; /* Increased from 0.9rem */
   }
   
   .mobile-brand-text {
@@ -1092,38 +1094,38 @@ body.menu-open {
   }
   
   .header-spacer {
-    height: 70px;
+    height: 100px; /* Increased from 80px */
   }
   
   .header.scrolled + .header-spacer {
-    height: 50px;
+    height: 70px; /* Increased from 55px */
   }
 }
 
 /* For very small screens */
 @media (max-width: 360px) {
   .header-logo-icon {
-    height: 36px; /* Reduced proportionally */
-    width: 141px; /* 36 * 250/64 = 140.625 */
-    min-width: 141px;
+    height: 50px; /* Increased from 36px */
+    width: 195px; /* Increased from 141px */
+    min-width: 195px; /* Increased from 141px */
   }
   
   .logo-fallback {
-    width: 141px;
-    height: 36px;
-    font-size: 1.3rem;
+    width: 195px; /* Increased from 141px */
+    height: 50px; /* Increased from 36px */
+    font-size: 1.6rem; /* Increased from 1.3rem */
   }
   
   .header.scrolled .header-logo-icon {
-    height: 30px; /* Reduced proportionally for scrolled state */
-    width: 117px; /* 30 * 250/64 = 117.1875 */
-    min-width: 117px;
+    height: 40px; /* Increased from 30px */
+    width: 156px; /* Increased from 117px */
+    min-width: 156px; /* Increased from 117px */
   }
   
   .header.scrolled .logo-fallback {
-    width: 117px;
-    height: 30px;
-    font-size: 1rem;
+    width: 156px; /* Increased from 117px */
+    height: 40px; /* Increased from 30px */
+    font-size: 1.3rem; /* Increased from 1rem */
   }
   
   .mobile-brand-text {
@@ -1132,25 +1134,25 @@ body.menu-open {
   }
   
   .header-spacer {
-    height: 65px;
+    height: 90px; /* Increased from 70px */
   }
   
   .header.scrolled + .header-spacer {
-    height: 45px;
+    height: 65px; /* Increased from 50px */
   }
 }
 
-/* Fix for scrolled state - maintain 250×64 proportion ratio */
+/* Fix for scrolled state - Updated for larger logo scale */
 .header.scrolled .header-logo-icon {
-  height: 52px; /* Maintains the 250×64 ratio when scaled */
-  width: 203px; /* 52 * 250/64 = 203.125 */
-  min-width: 203px;
+  height: 90px; /* Increased from 70px */
+  width: 350px; /* Increased from 273px */
+  min-width: 350px; /* Increased from 273px */
 }
 
 .header.scrolled .logo-fallback {
-  width: 203px;
-  height: 52px;
-  font-size: 1.7rem;
+  width: 350px; /* Increased from 273px */
+  height: 90px; /* Increased from 70px */
+  font-size: 2.5rem; /* Increased from 2.2rem */
 }
 
 /* Fix dropdown z-index and positioning */
