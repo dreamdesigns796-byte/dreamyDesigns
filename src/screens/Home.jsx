@@ -26,6 +26,7 @@ const Home = () => {
               key={product.id}
               title={product.title}
               image={product.image}
+              path={product.path}
             />
           ))}
         </div>
