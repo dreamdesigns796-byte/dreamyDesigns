@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Header.css';
-import logo from '../assets/icon/logo5.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,6 +10,7 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
+  
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -156,38 +156,13 @@ const Header = () => {
     <>
       {/* Header */}
       <header className={`header ${isMenuOpen ? 'menu-open' : ''} ${scrolled ? 'scrolled' : ''}`}>
-        {/* Logo - Left */}
+        {/* Logo Text - Left */}
         <NavLink to="/" className="logo-link" onClick={closeMenu}>
           <div className="logo-container">
-            <img 
-              src={logo} 
-              alt="Dreamy Designs Logo" 
-              className="header-logo-icon" 
-              onError={(e) => {
-                e.target.style.display = 'none';
-                const logoContainer = e.target.closest('.logo-container');
-                if (logoContainer) {
-                  const fallbackLogo = document.createElement('div');
-                  fallbackLogo.className = 'logo-fallback';
-                  fallbackLogo.innerHTML = 'DD';
-                  // Updated fallback to match new larger dimensions
-                  fallbackLogo.style.cssText = `
-                    width: 450px;
-                    height: 115px;
-                    background: #B86B4D;
-                    color: #FAF9F6;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-family: 'Georgia', serif;
-                    font-size: 3.2rem;
-                    font-weight: bold;
-                    border-radius: 3px;
-                  `;
-                  logoContainer.insertBefore(fallbackLogo, logoContainer.firstChild);
-                }
-              }}
-            /> 
+            <div className="logo-text">
+              <span className="logo-main">Dreamy</span>
+              <span className="logo-secondary">Designs</span>
+            </div>
           </div>
         </NavLink>
         
@@ -419,35 +394,10 @@ const Header = () => {
           
           <div className="mobile-nav-footer">
             <div className="mobile-brand">
-              <img 
-                src={logo} 
-                alt="Dreamy Designs Logo" 
-                className="mobile-logo-icon" 
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  const mobileBrand = e.target.closest('.mobile-brand');
-                  if (mobileBrand) {
-                    const fallbackLogo = document.createElement('div');
-                    fallbackLogo.className = 'mobile-logo-fallback';
-                    fallbackLogo.innerHTML = 'DD';
-                    fallbackLogo.style.cssText = `
-                      width: 180px;
-                      height: 45px;
-                      background: #B86B4D;
-                      color: #FAF9F6;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      font-family: 'Georgia', serif;
-                      font-size: 2rem;
-                      font-weight: bold;
-                      border-radius: 3px;
-                    `;
-                    mobileBrand.insertBefore(fallbackLogo, mobileBrand.firstChild);
-                  }
-                }}
-              />
-              <p className="mobile-brand-text">DREAMY DESIGNS</p>
+              <div className="mobile-logo-text">
+                <span className="mobile-logo-main">Dreamy</span>
+                <span className="mobile-logo-secondary">Designs</span>
+              </div>
             </div>
             <p className="mobile-tagline">Timeless Creations, Handcrafted with Soul</p>
           </div>

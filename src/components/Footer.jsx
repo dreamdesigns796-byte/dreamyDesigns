@@ -88,9 +88,9 @@ const Footer = () => {
                   <div className="contact-details">
                     <span className="contact-label">Address</span>
                     <span className="contact-text">
-                      40/1 Building, Hanjer Nagar,<br />
-                      Andheri East, Mumbai,<br />
-                      Maharashtra, India 400093
+                      48, Abbas colony,Peela khadana,<br />
+                      Saraitareen,Sambhal<br />
+                      Uttar Pradesh, India 244302
                     </span>
                   </div>
                 </div>
