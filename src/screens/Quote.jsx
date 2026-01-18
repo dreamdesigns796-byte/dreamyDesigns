@@ -84,7 +84,7 @@ const Quote = () => {
     return newErrors;
   };
 
-const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const validationErrors = validateForm();
@@ -96,19 +96,13 @@ const handleSubmit = async (e) => {
     setIsSubmitting(true);
 
     const form = e.target;
-    
-    // Create FormData
-    const formData = new FormData(form);
-    
-    // Explicitly convert to URLSearchParams
-    const params = new URLSearchParams(formData);
+    const encodedData = new URLSearchParams(new FormData(form)).toString();
 
     try {
       await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        // The body must be the URL encoded string
-        body: params.toString()
+        body: encodedData
       });
 
       setSubmitSuccess(true);
