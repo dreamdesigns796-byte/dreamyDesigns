@@ -1,6 +1,7 @@
 // src/components/Footer.jsx
 import React from 'react';
 import './Footer.css';
+import logoImage from '../assets/icon/logo.png';
 
 const Footer = () => {
   const productCategories = [
@@ -62,7 +63,12 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="footer-column brand-column">
             <div className="brand-info">
-              <h3 className="brand-title">DREAMY DESIGNS</h3>
+              {/* Replace text with logo image */}
+              <img 
+                src={logoImage} 
+                alt="Dreamy Designs Logo" 
+                className="brand-logo"
+              />
               <p className="brand-tagline">Premium Horn Handicrafts</p>
             </div>
             

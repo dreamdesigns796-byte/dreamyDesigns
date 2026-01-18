@@ -167,7 +167,7 @@
 /* If using actual image */
 .story-image {
   width: 100%;
-  height: 400px;
+  height: 550px;
   object-fit: cover;
   display: block;
 }

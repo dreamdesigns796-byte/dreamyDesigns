@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './OurStory.css';
-import image1 from '../assets/images/homeAbout.png';
+import image1 from '../assets/images/image67.jpeg';
 
 const OurStory = () => {
   return (

@@ -110,20 +110,30 @@
   flex-direction: column;
 }
 
-/* Brand Column */
+/* Brand Column - Updated for Logo */
 .brand-info {
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.brand-title {
-  color: #2C3539;
-  font-size: 1.8rem;
-  font-weight: 300;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin: 0 0 10px 0;
-  font-family: 'Poppins', sans-serif;
-  line-height: 1.2;
+.brand-logo {
+  max-width: 220px;
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  /* Add these filters to convert to black */
+  filter: brightness(0) saturate(100%) contrast(1000%);
+  /* OR alternative filter for better control */
+  filter: brightness(0) invert(0);
+}
+
+.brand-logo:hover {
+  transform: scale(1.02);
+  opacity: 0.95;
+  /* Keep the black color on hover */
+  filter: brightness(0) saturate(100%) contrast(1000%);
 }
 
 .brand-tagline {
@@ -440,9 +450,8 @@
     right: 10px;
   }
   
-  .brand-title {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
+  .brand-logo {
+    max-width: 180px;
   }
   
   .brand-tagline {
@@ -467,6 +476,34 @@
   
   .copyright-section {
     padding: 0;
+  }
+}
+
+/* Additional responsive adjustments for logo */
+@media (max-width: 992px) {
+  .brand-logo {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-info {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .brand-logo {
+    max-width: 180px;
+  }
+  
+  .brand-tagline {
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .brand-logo {
+    max-width: 160px;
   }
 }
 

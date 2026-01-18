@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './HeroCarousel.css';
 
 // Assume carousel images are available (you will replace these paths)
-import carouselImage1 from '../assets/images/homeCarole/homecrosl1.png';
+import carouselImage1 from '../assets/images/homeCarole/carosel.jpeg';
 import carouselImage2 from '../assets/images/homeCarole/horn-mug.png';
 import carouselImage3 from '../assets/images/homeCarole/homecrosl.png';
 
