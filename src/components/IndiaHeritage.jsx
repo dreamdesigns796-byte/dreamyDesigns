@@ -22,13 +22,8 @@ const IndiaHeritage = () => {
     {
       id: 4,
       title: "Artisan Livelihoods",
-      description: "5M+ Artisans Supported"
+      description: "1M+ Artisans Supported"
     },
-    {
-      id: 5,
-      title: "Thriving Exports",
-      description: "$100M+ Annual Exports"
-    }
   ];
 
   return (
@@ -68,14 +63,14 @@ const IndiaHeritage = () => {
             
             <div className="heritage-stats">
               <div className="stat-item">
-                <div className="stat-number">5M+</div>
+                <div className="stat-number">1M+</div>
                 <div className="stat-label">Artisans Supported</div>
               </div>
               <div className="stat-divider"></div>
-              <div className="stat-item">
+              {/* <div className="stat-item">
                 <div className="stat-number">$100M+</div>
                 <div className="stat-label">Annual Exports</div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

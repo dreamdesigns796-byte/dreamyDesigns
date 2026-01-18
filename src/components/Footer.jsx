@@ -150,16 +150,6 @@ const Footer = () => {
               <p className="copyright-text">
                 Copyright © 2025 Dreamy Designs All Rights Reserved
               </p>
-              <div className="product-link">
-                <a 
-                  href="https://dreamdesigns.com/products-category" 
-                  className="external-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  https://dreamdesigns.com/products-category
-                </a>
-              </div>
             </div>
             
             <div className="copyright-links">

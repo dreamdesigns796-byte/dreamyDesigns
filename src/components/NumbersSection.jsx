@@ -11,14 +11,8 @@ const NumbersSection = () => {
       description: "Unique handcrafted designs"
     },
     {
-      id: 2,
-      number: "150",
-      title: "Serving Countries",
-      description: "Global reach and impact"
-    },
-    {
       id: 3,
-      number: "30+",
+      number: "10+",
       title: "Year Experience",
       description: "Craftsmanship heritage"
     },

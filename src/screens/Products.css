@@ -47,7 +47,7 @@
 }
 
 .page-title {
-  font-family: 'Georgia', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 3.5rem;
   font-weight: 300;
   letter-spacing: 2px;
@@ -116,17 +116,17 @@
 }
 
 .section-title {
-  font-family: 'Georgia', serif;
-  font-size: 2.5rem;
-  font-weight: 300;
-  letter-spacing: 2px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  /* letter-spacing: 2px; */
   text-transform: uppercase;
   margin-bottom: 15px;
   color: #2C3539;
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
+  font-size: 2.1rem;
   color: #D1CCC3;
   margin-bottom: 20px;
 }
@@ -510,7 +510,7 @@
 }
 
 .cta-title {
-  font-family: 'Georgia', serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
   font-weight: 300;
   letter-spacing: 2px;
@@ -600,7 +600,7 @@
   }
   
   .section-title {
-    font-size: 1.8rem;
+    font-size: 2.8rem;
   }
   
   .cta-title {
@@ -633,7 +633,7 @@
   }
   
   .page-title {
-    font-size: 1.8rem;
+    font-size: 2.8rem;
   }
   
   .cta-title {

@@ -37,10 +37,10 @@
 .numbers-title {
   color: #2C3539; /* Deep Charcoal */
   font-size: 2.5rem;
-  font-weight: 300;
-  letter-spacing: 1px;
+  font-weight: 600;
+  /* letter-spacing: 1px; */
   margin: 0 0 20px 0;
-  font-family: 'Georgia', serif;
+  font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
   position: relative;
   display: inline-block;
@@ -62,7 +62,7 @@
   font-size: 16px;
   line-height: 1.6;
   margin: 30px 0 0 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 300;
   max-width: 600px;
   margin-left: auto;
@@ -70,16 +70,22 @@
 }
 
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* This centers the cards */
   gap: 30px;
   margin-bottom: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .stat-card {
+  flex: 0 0 calc(33.333% - 20px); /* 3 cards per row minus gap */
+  min-width: 280px;
   text-align: center;
   padding: 30px 20px;
-  background-color: #FFFFFF; /* Pure White Card */
+  background-color: #FFFFFF;
   border: 1px solid #E5E0DC;
   transition: all 0.3s ease;
   position: relative;
@@ -115,7 +121,7 @@
   font-size: 3rem;
   font-weight: 300;
   margin: 0 0 20px 0;
-  font-family: 'Georgia', serif;
+  font-family: 'Poppins', sans-serif;
   position: relative;
   display: inline-block;
 }
@@ -162,7 +168,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   margin: 25px 0 8px 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .stat-description {
@@ -170,7 +176,7 @@
   font-size: 14px;
   font-weight: 400;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: italic;
 }
 
@@ -253,9 +259,8 @@
     padding: 60px 30px;
   }
   
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+  .stat-card {
+    flex: 0 0 calc(50% - 15px); /* 2 cards per row */
   }
   
   .numbers-title {
@@ -305,6 +310,7 @@
   
   .stat-card {
     padding: 25px 15px;
+    flex: 0 0 calc(50% - 12.5px); /* 2 cards per row with adjusted gap */
   }
   
   .stat-number {
@@ -366,11 +372,14 @@
   }
   
   .stats-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stat-card {
+    flex: 0 0 100%;
     max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 20px;
+    width: 100%;
   }
   
   .numbers-title {
@@ -434,5 +443,11 @@
   .numbers-corner.bottom-right {
     bottom: 25px;
     right: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .stat-card {
+    min-width: 250px;
   }
 }

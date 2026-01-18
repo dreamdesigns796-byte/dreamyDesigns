@@ -239,25 +239,6 @@ const HornCraftersAbout = () => {
         </div>
       </section>
 
-      {/* Leadership Quote */}
-      <section className="leadership sectionBorder">
-        <div className="container">
-          <div className="quoteContent">
-            <div className="quoteIcon">"</div>
-            <p className="quoteText">
-              True craftsmanship is not only about creating beautiful products,
-              but about honoring people, tradition, and the planet.
-            </p>
-            <div className="quoteAuthor">
-              <div className="authorName">Mr. Abdulrehman Farooqui</div>
-              <div className="authorTitle">Managing Partner</div>
-            </div>
-            <div className="cornerAccentBottomLeft"></div>
-            <div className="cornerAccentBottomRight"></div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="cta sectionBorder">
         <div className="container">

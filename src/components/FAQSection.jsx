@@ -22,11 +22,6 @@ const FAQSection = () => {
       answer: "Yes! We offer customization options for many of our products. From personal engravings to bespoke designs, our artisans can create unique pieces tailored to your preferences. Contact our design team for custom orders."
     },
     {
-      id: 4,
-      question: "How do I care for my horn and bone products?",
-      answer: "Use a soft, dry cloth for regular cleaning. Avoid exposure to extreme temperatures, direct sunlight, and harsh chemicals. For deeper cleaning, use a damp cloth with mild soap. Apply natural oil occasionally to maintain luster."
-    },
-    {
       id: 5,
       question: "What makes your craftsmanship unique?",
       answer: "Our artisans use centuries-old techniques passed down through generations. Each piece is handcrafted with attention to detail, combining traditional methods with contemporary design sensibilities."

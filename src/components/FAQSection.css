@@ -34,10 +34,10 @@
 .faq-title {
   color: #2C3539; /* Deep Charcoal */
   font-size: 2.5rem;
-  font-weight: 300;
+  font-weight: 700;
   letter-spacing: 2px;
   margin: 0 0 20px 0;
-  font-family: 'Georgia', serif;
+  font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
 }
 
@@ -46,7 +46,7 @@
   font-size: 16px;
   line-height: 1.6;
   margin: 0 0 30px 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 300;
   max-width: 600px;
   margin-left: auto;
@@ -125,7 +125,7 @@
   font-weight: 500; /* Slightly bolder for readability on light bg */
   line-height: 1.4;
   margin-right: 20px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   flex: 1;
 }
 
@@ -168,7 +168,7 @@
   line-height: 1.6;
   margin: 0;
   padding: 30px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   border-top: 1px solid #E5E0DC;
 }
@@ -202,7 +202,7 @@
   color: #666666;
   font-size: 16px;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 300;
   max-width: 600px;
   margin-left: auto;

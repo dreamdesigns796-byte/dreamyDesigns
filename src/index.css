@@ -9,8 +9,8 @@
 
 :root {
   /* Premium Font Stack */
-  --font-header: 'Playfair Display', serif;
-  --font-body: 'Lato', sans-serif;
+  --font-header: 'Poppins', serif;
+  --font-body: 'Poppins', sans-serif;
   
   /* Gallery Light Color Palette */
   --color-bg: #FAF9F6;        /* Warm White (Page Background) */

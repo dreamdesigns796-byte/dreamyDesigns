@@ -14,7 +14,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #FAF9F6; /* Warm White */
   color: #2C3539; /* Deep Slate */
   line-height: 1.6;
@@ -80,7 +80,7 @@
   margin-bottom: 40px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  font-family: 'Georgia', serif;
+  font-family: 'Poppins', sans-serif;
   color: #2C3539;
   /* Very subtle light shadow instead of harsh dark shadow */
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
@@ -108,7 +108,7 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   box-shadow: 0 4px 12px rgba(184, 107, 77, 0.25);
   width: auto;
   min-width: 200px;
@@ -290,7 +290,7 @@
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   color: #2C3539;
 }
 
@@ -298,7 +298,7 @@
   font-size: 12px;
   color: #666666; /* Medium Grey */
   font-style: italic;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .palette-codes {
@@ -316,7 +316,7 @@
 
 .code-label {
   font-size: 24px;
-  font-family: 'Courier New', monospace;
+  font-family: 'Poppins', sans-serif;
   color: #B86B4D;
 }
 
@@ -324,7 +324,7 @@
   font-size: 12px;
   color: #999999; /* Lighter Grey for codes */
   letter-spacing: 1px;
-  font-family: 'Courier New', monospace;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Section Spacing */

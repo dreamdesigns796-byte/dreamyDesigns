@@ -68,7 +68,7 @@
   color: #2C3539; /* Dark Text */
   font-size: 16px;
   font-weight: 500;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   letter-spacing: 1px;
   z-index: 1;
 }
@@ -87,7 +87,7 @@
   color: #2C3539;
   font-size: 16px;
   margin-bottom: 15px;
-  font-family: 'Georgia', serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .cloudinary-iframe-container.error .retry-btn {
@@ -154,7 +154,7 @@
   font-size: 14px;
   font-weight: 500;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   letter-spacing: 0.5px;
 }
 
@@ -260,7 +260,7 @@
   font-weight: 400;
   text-align: center;
   letter-spacing: 1px;
-  font-family: 'Georgia', serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Accessibility features */

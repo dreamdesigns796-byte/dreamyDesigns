@@ -35,9 +35,9 @@
   color: #2C3539; /* Deep Charcoal */
   font-size: 2.5rem;
   font-weight: 300;
-  letter-spacing: 2px;
+  /* letter-spacing: 2px; */
   margin: 0 0 30px 0;
-  font-family: 'Georgia', serif;
+  font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
 }
 
@@ -106,7 +106,7 @@
   text-align: center;
   margin: 0;
   letter-spacing: 1px;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
 }
 
@@ -120,7 +120,7 @@
   padding: 15px;
   background-color: rgba(184, 107, 77, 0.08); /* Light Copper Tint */
   border-left: 3px solid #B86B4D;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-style: italic;
 }
 
@@ -131,7 +131,7 @@
   margin: 0 0 30px 0;
   text-align: center;
   flex-grow: 1;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
 }
 
@@ -198,7 +198,7 @@
   font-size: 16px;
   font-style: italic;
   margin: 0;
-  font-family: 'Georgia', serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   max-width: 600px;
   margin-left: auto;
