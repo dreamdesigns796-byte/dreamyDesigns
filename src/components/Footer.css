@@ -112,7 +112,7 @@
 
 /* Brand Column - Updated for Logo */
 .brand-info {
-  margin-bottom: 30px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -525,6 +525,51 @@
   animation-delay: calc(var(--item-index, 0) * 0.05s);
   opacity: 0;
 }
+
+/* src/components/Footer.css */
+
+/* ... existing code ... */
+
+@media (max-width: 768px) {
+  .footer-content {
+    /* Change Grid to Flex to easily reorder vertical items */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  /* 1. Quick Links (Originally the 2nd column in HTML) */
+  .footer-column:nth-child(2) {
+    order: 1;
+  }
+
+  /* 2. Product Categories (Originally the 3rd column in HTML) */
+  .product-categories-column {
+    order: 2;
+  }
+
+  /* 3. Brand/Logo Column (Originally the 1st column, moving to bottom) */
+  .brand-column {
+    order: 3;
+    
+    /* Optional: Add a subtle separator since it's now at the bottom */
+    margin-top: 10px;
+    padding-top: 30px;
+    border-top: 1px dashed #D7D2CB;
+  }
+  
+  /* Ensure logo and text align center when at the bottom */
+  .brand-info {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .brand-tagline {
+    text-align: center;
+  }
+}
+
+/* ... existing code ... */
 
 .footer-link-item:nth-child(1) { --item-index: 1; }
 .footer-link-item:nth-child(2) { --item-index: 2; }

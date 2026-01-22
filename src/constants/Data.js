@@ -4,7 +4,7 @@ import img1 from "../assets/vikingimg.png";
 import img2 from "../assets/hornButtons/blk-btn.jpg";
 import comb from "../assets/images/homeProduct/comb.jpg";
 import jewelry from "../assets/images/homeProduct/jewelry.jpg";
-import plate from "../assets/images/homeProduct/plate.jpg";
+import plate from "../assets/horn-plate/image4.jpeg";
 import mugs from "../assets/images/homeCarole/horn-mug.png";
 import HornCutlery from "../assets/cutlery/image11.jpeg";
 
@@ -45,7 +45,7 @@ export const PRODUCTS = [
     id: "6",
     title: "Horn Plates",
     image: plate,
-    path: '/'
+    path: '/products/horn-plates'
   },
   {
     id: "7",

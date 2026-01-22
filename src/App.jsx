@@ -27,6 +27,7 @@ import Quote from "./screens/Quote";
 import Knobs from "./screens/products/Knobs";
 import Handles from "./screens/products/Handles";
 import WoodResinCutlery from "./screens/products/WoodResinCutlery";
+import HornPlates from "./screens/products/HornPlates";
 
 function App() {
   const [showWhatsApp, setShowWhatsApp] = useState(false);
@@ -59,6 +60,7 @@ function App() {
             <Route path="/products/horn-jewelry" element={<HornJewelries />} />
             <Route path="/products/horn-frames" element={<WoodResinFrames />} />
             <Route path="/products/cutlery" element={<WoodResinCutlery />} />
+            <Route path="/products/horn-plates" element={<HornPlates />} />
 
             {/* <Route path="/products/horn-combs" element={<HornCombs />} /> */}
             {/* <Route path="/products/horn-jewelry" element={<HornJewelry />} /> */}

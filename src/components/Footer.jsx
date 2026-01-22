@@ -1,7 +1,7 @@
 // src/components/Footer.jsx
-import React from 'react';
-import './Footer.css';
-import logoImage from '../assets/icon/logo.png';
+import React from "react";
+import "./Footer.css";
+import logoImage from "../assets/icon/logo.png";
 
 const Footer = () => {
   const productCategories = [
@@ -15,7 +15,7 @@ const Footer = () => {
         { name: "Horn Combs", href: "/products/horn-combs" },
         { name: "Horn Jewelry", href: "/products/horn-jewelry" },
         { name: "Horn Cutlery", href: "/products/horn-cutlery" },
-      ]
+      ],
     },
     {
       category: "Handicraft Items",
@@ -23,15 +23,15 @@ const Footer = () => {
         { name: "Horn Jewelry", href: "/products/horn-jewelry" },
         { name: "Horn Frames", href: "/products/horn-frames" },
         { name: "Cutlery", href: "/products/cutlery" },
-      ]
+      ],
     },
     {
       category: "Hardware Items",
       items: [
         { name: "Handles", href: "/products/handles" },
         { name: "Knobs", href: "/products/knobs" },
-      ]
-    }
+      ],
+    },
   ];
 
   const companyLinks = [
@@ -39,13 +39,13 @@ const Footer = () => {
     { text: "About", href: "/about" },
     { text: "Products", href: "/products" },
     { text: "Request Quote", href: "/quote" },
-    { text: "Contact", href: "/contact" }
+    { text: "Contact", href: "/contact" },
   ];
 
   const legalLinks = [
     { text: "Privacy Policy", href: "/privacy" },
     { text: "Terms of Service", href: "/terms" },
-    { text: "Sitemap", href: "/sitemap" }
+    { text: "Sitemap", href: "/sitemap" },
   ];
 
   return (
@@ -62,16 +62,6 @@ const Footer = () => {
         <div className="footer-content">
           {/* Brand Column */}
           <div className="footer-column brand-column">
-            <div className="brand-info">
-              {/* Replace text with logo image */}
-              <img 
-                src={logoImage} 
-                alt="Dreamy Designs Logo" 
-                className="brand-logo"
-              />
-              <p className="brand-tagline">Premium Horn Handicrafts</p>
-            </div>
-            
             <div className="contact-section">
               <h4 className="contact-title">Contact Information</h4>
               <div className="contact-info">
@@ -79,14 +69,18 @@ const Footer = () => {
                   <span className="contact-icon">📞</span>
                   <div className="contact-details">
                     <span className="contact-label">Phone</span>
-                    <span className="contact-text">+91-9528271574,+91-8800948459</span>
+                    <span className="contact-text">
+                      +91-9528271574,+91-8800948459
+                    </span>
                   </div>
                 </div>
                 <div className="contact-item">
                   <span className="contact-icon">✉️</span>
                   <div className="contact-details">
                     <span className="contact-label">Email</span>
-                    <span className="contact-text">info@dreamydesignss.com</span>
+                    <span className="contact-text">
+                      info@dreamydesignss.com
+                    </span>
                   </div>
                 </div>
                 <div className="contact-item address">
@@ -94,13 +88,25 @@ const Footer = () => {
                   <div className="contact-details">
                     <span className="contact-label">Address</span>
                     <span className="contact-text">
-                      48, Abbas colony,Peela khadana,<br />
-                      Saraitareen,Sambhal<br />
+                      48, Abbas colony,Peela khadana,
+                      <br />
+                      Saraitareen,Sambhal
+                      <br />
                       Uttar Pradesh, India 244302
                     </span>
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div className="brand-info">
+              {/* Replace text with logo image */}
+              <img
+                src={logoImage}
+                alt="Dreamy Designs Logo"
+                className="brand-logo"
+              />
+              <p className="brand-tagline">Premium Horn Handicrafts</p>
             </div>
           </div>
 
@@ -125,7 +131,9 @@ const Footer = () => {
             <div className="category-groups">
               {productCategories.map((categoryGroup, index) => (
                 <div key={index} className="category-group">
-                  <h5 className="category-group-title">{categoryGroup.category}</h5>
+                  <h5 className="category-group-title">
+                    {categoryGroup.category}
+                  </h5>
                   <ul className="category-group-links">
                     {categoryGroup.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="category-group-item">
@@ -157,12 +165,16 @@ const Footer = () => {
                 Copyright © 2025 Dreamy Designs All Rights Reserved
               </p>
             </div>
-            
+
             <div className="copyright-links">
               {legalLinks.map((link, index) => (
                 <React.Fragment key={index}>
-                  <a href={link.href} className="copyright-link">{link.text}</a>
-                  {index < legalLinks.length - 1 && <span className="link-divider">|</span>}
+                  <a href={link.href} className="copyright-link">
+                    {link.text}
+                  </a>
+                  {index < legalLinks.length - 1 && (
+                    <span className="link-divider">|</span>
+                  )}
                 </React.Fragment>
               ))}
             </div>

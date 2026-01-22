@@ -129,9 +129,9 @@ const Header = () => {
         { name: "Horn Buttons", path: "/products/horn-buttons" },
         { name: "Horn Mugs", path: "/products/horn-mugs" },
         { name: "Viking Horns", path: "/products/viking-horns" },
-        { name: "Horn Plates", path: "/products/horn-plates" },
         { name: "Horn Combs", path: "/products/horn-combs" },
         { name: "Horn Jewelry", path: "/products/horn-jewelry" },
+        { name: "Horn Plates", path: "/products/horn-plates" },
       ],
     },
     {
