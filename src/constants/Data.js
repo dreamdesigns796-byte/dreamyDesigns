@@ -4,7 +4,7 @@ import img1 from "../assets/vikingimg.png";
 import img2 from "../assets/hornButtons/blk-btn.jpg";
 import comb from "../assets/images/homeProduct/comb.jpg";
 import jewelry from "../assets/images/homeProduct/jewelry.jpg";
-import plate from "../assets/horn-plate/image4.jpeg";
+import plate from "../assets/horn-plate/image5.jpeg";
 import mugs from "../assets/images/homeCarole/horn-mug.png";
 import HornCutlery from "../assets/cutlery/image11.jpeg";
 
