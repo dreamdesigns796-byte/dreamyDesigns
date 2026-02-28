@@ -39,7 +39,7 @@ const Footer = () => {
     { text: "About", href: "/about" },
     // { text: "Products", href: "/products" },
     { text: "Request Quote", href: "/quote" },
-    { text: "Contact", href: "/contact" },
+    // { text: "Contact", href: "/contact" },
   ];
 
   // const legalLinks = [
