@@ -6,7 +6,7 @@ const NumbersSection = () => {
   const stats = [
     {
       id: 1,
-      number: "500+",
+      number: "50+",
       title: "Products",
       description: "Unique handcrafted designs"
     },

@@ -37,16 +37,16 @@ const Footer = () => {
   const companyLinks = [
     { text: "Home", href: "/" },
     { text: "About", href: "/about" },
-    { text: "Products", href: "/products" },
+    // { text: "Products", href: "/products" },
     { text: "Request Quote", href: "/quote" },
     { text: "Contact", href: "/contact" },
   ];
 
-  const legalLinks = [
-    { text: "Privacy Policy", href: "/privacy" },
-    { text: "Terms of Service", href: "/terms" },
-    { text: "Sitemap", href: "/sitemap" },
-  ];
+  // const legalLinks = [
+  //   { text: "Privacy Policy", href: "/privacy" },
+  //   { text: "Terms of Service", href: "/terms" },
+  //   { text: "Sitemap", href: "/sitemap" },
+  // ];
 
   return (
     <footer className="footer-section">
@@ -166,7 +166,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="copyright-links">
+            {/* <div className="copyright-links">
               {legalLinks.map((link, index) => (
                 <React.Fragment key={index}>
                   <a href={link.href} className="copyright-link">
@@ -177,7 +177,7 @@ const Footer = () => {
                   )}
                 </React.Fragment>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
 

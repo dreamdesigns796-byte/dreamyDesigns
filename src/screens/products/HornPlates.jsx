@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./HornButtons.css";
 import hornPlatesProducts from "../../data/hornPlatesData";
+import img1 from "../../assets/horn-plate/image2.jpeg";
+
 
 // SVG Zoom Icon Component
 const ZoomIcon = () => (
@@ -323,9 +325,7 @@ const HornPlates = () => {
             </div>
             
             <div className="solutions-image">
-              <div className="image-placeholder">
-                <span className="image-text">Custom Plate Samples</span>
-              </div>
+              <img src={img1} alt="Custom Horn Button Samples" />
             </div>
           </div>
         </div>

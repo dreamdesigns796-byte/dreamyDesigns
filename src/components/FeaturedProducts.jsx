@@ -93,7 +93,7 @@ const FeaturedProducts = () => {
         </div>
         
         <div className="view-all-container">
-          <a href="#products" className="view-all-btn">
+          <a href="/products/horn-buttons" className="view-all-btn">
             VIEW ALL PRODUCTS
             <span className="btn-arrow">→</span>
           </a>

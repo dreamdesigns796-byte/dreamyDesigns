@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import "./HornCraftersAbout.css";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Import images from assets folder
 import heroImage from "../assets/images/aboutbg.jpg";
@@ -11,6 +12,7 @@ import commitmentImage from "../assets/images/aboutCommunity.png";
 
 const HornCraftersAbout = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Scroll to top on route change
   useEffect(() => {
@@ -104,12 +106,13 @@ const HornCraftersAbout = () => {
               <div className="separator"></div>
               <p className="missionStatement">
                 Welcome to Dreamy Designs — where sustainability meets artistry.
-                Founded in 2016, we began our journey by serving the Indian market
-                and later expanded successfully into international exports.
+                Founded in 2016, we began our journey by serving the Indian
+                market and later expanded successfully into international
+                exports.
               </p>
               <p className="missionDetail">
-                Based in Sambhal, Uttar Pradesh, India, we are a major exporter of
-                high-quality handcrafted materials, built on innovation,
+                Based in Sambhal, Uttar Pradesh, India, we are a major exporter
+                of high-quality handcrafted materials, built on innovation,
                 cultural respect, and environmental responsibility.
               </p>
             </div>
@@ -249,7 +252,12 @@ const HornCraftersAbout = () => {
               and a heritage that continues to inspire modern living.
             </p>
             <div className="ctaButtons">
-              <button className="secondaryButton">Request Custom Quote</button>
+              <button
+                className="secondaryButton"
+                onClick={() => navigate("/quote")}
+              >
+                Request Custom Quote
+              </button>
             </div>
             <p className="ctaNote">
               Visit our collection today and experience the magic of true

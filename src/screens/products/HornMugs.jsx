@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import "./HornButtons.css";
 import hornMugProducts from "../../data/hornMugsData";
 import VideoGallery from "../../components/VideoGallery";
+import img1 from "../../assets/hornmug/image6.jpg";
+
 
 const hornMugVideos = [
   {
@@ -367,9 +369,7 @@ const HornMugs = () => {
             </div>
 
             <div className="solutions-image">
-              <div className="image-placeholder">
-                <span className="image-text">Custom Horn Mug Samples</span>
-              </div>
+              <img src={img1} alt="Custom Horn Button Samples" />
             </div>
           </div>
         </div>

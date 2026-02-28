@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./HornButtons.css";
 import vikingHornProducts from "../../data/vikingHornsData";
+import img1 from "../../assets/vikinghorns/image3.jpeg";
+
 
 // SVG Zoom Icon Component
 const ZoomIcon = () => (
@@ -326,9 +328,7 @@ const VikingHorns = () => {
             </div>
             
             <div className="solutions-image">
-              <div className="image-placeholder">
-                <span className="image-text">Custom Viking Horn Samples</span>
-              </div>
+              <img src={img1} alt="Custom Horn Button Samples" />
             </div>
           </div>
         </div>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link , useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./HornButtons.css";
 import VideoGallery from "../../components/VideoGallery";
 import hornButtonProducts from "../../data/hornButtonsData";
+import img1 from "../../assets/hornButtons/image1.jpeg";
 
 const hornButtonVideos = [
   {
@@ -34,13 +35,13 @@ const ZoomIcon = () => (
 );
 
 const HornButtons = () => {
-     const navigate = useNavigate();
+  const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("default");
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedImage, setSelectedImage] = useState(null);
   const productsPerPage = 20;
 
-    const handleButtonClick = () => {
+  const handleButtonClick = () => {
     navigate("/quote");
   };
 
@@ -85,7 +86,7 @@ const HornButtons = () => {
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = sortedProducts.slice(
     indexOfFirstProduct,
-    indexOfLastProduct
+    indexOfLastProduct,
   );
   const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
 
@@ -167,8 +168,8 @@ const HornButtons = () => {
           <div className="banner-content">
             <h2 className="banner-title">Premium Horn Button Blanks</h2>
             <p className="banner-text">
-              Available in multiple colors and multiple sizes. All products made from
-              100% natural, ethically sourced water buffalo horns.
+              Available in multiple colors and multiple sizes. All products made
+              from 100% natural, ethically sourced water buffalo horns.
             </p>
             <div className="banner-features">
               <div className="feature">
@@ -205,7 +206,7 @@ const HornButtons = () => {
                     handleImageClick(
                       product.image,
                       product.title,
-                      product.description
+                      product.description,
                     )
                   }
                   style={{ cursor: "pointer" }}
@@ -353,9 +354,7 @@ const HornButtons = () => {
             </div>
 
             <div className="solutions-image">
-              <div className="image-placeholder">
-                <span className="image-text">Custom Button Samples</span>
-              </div>
+              <img src={img1} alt="Custom Horn Button Samples" />
             </div>
           </div>
         </div>

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./HornButtons.css";
 import cutleryProducts from "../../data/cutleryProducts";
+import img1 from "../../assets/cutlery/image8.jpeg";
+
 
 // SVG Zoom Icon Component
 const ZoomIcon = () => (
@@ -384,9 +386,7 @@ const WoodResinCutlery = () => {
             </div>
             
             <div className="solutions-image">
-              <div className="image-placeholder">
-                <span className="image-text">Custom Cutlery Gallery</span>
-              </div>
+              <img src={img1} alt="Custom Horn Button Samples" />
             </div>
           </div>
         </div>

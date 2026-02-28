@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Link , useNavigate} from "react-router-dom";
 import "./HornButtons.css";
 
-import handleProducts from "../../data/handlesData"; // Assuming you have handlesData
+import handleProducts from "../../data/handlesData";
+import img1 from "../../assets/handles/image6.jpeg";
+
 
 // SVG Zoom Icon Component
 const ZoomIcon = () => (
@@ -343,9 +345,7 @@ const Handles = () => {
             </div>
 
             <div className="solutions-image">
-              <div className="image-placeholder">
-                <span className="image-text">Custom Handle Samples</span>
-              </div>
+              <img src={img1} alt="Custom Horn Button Samples" />
             </div>
           </div>
         </div>
